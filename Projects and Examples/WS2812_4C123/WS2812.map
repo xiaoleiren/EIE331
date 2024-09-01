@@ -1,0 +1,949 @@
+Component: ARM Compiler 5.06 update 5 (build 528) Tool: armlink [4d35e2]
+
+==============================================================================
+
+Section Cross References
+
+    startup.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(RESET) refers to startup.o(STACK) for StackMem
+    startup.o(RESET) refers to adct0atrigger.o(i.ADC0Seq3_Handler) for ADC0Seq3_Handler
+    startup.o(RESET) refers to ws2812testmain.o(i.Timer1A_Handler) for Timer1A_Handler
+    startup.o(RESET) refers to dmatimer.o(i.Timer5A_Handler) for Timer5A_Handler
+    startup.o(RESET) refers to __main.o(!!!main) for __main
+    startup.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(.text) refers to startup.o(HEAP) for HeapMem
+    startup.o(.text) refers to startup.o(STACK) for StackMem
+    adcswtrigger.o(i.ADC0_InSeq2) refers to adcswtrigger.o(.data) for UserTask2
+    adcswtrigger.o(i.ADC0_InSeq3) refers to adcswtrigger.o(.data) for UserTask3
+    adcswtrigger.o(i.ADC0_InitSWTriggerSeq2) refers to adcswtrigger.o(.data) for UserTask2
+    adcswtrigger.o(i.ADC0_InitSWTriggerSeq3) refers to adcswtrigger.o(.data) for UserTask3
+    adct0atrigger.o(i.ADC0Seq3_Handler) refers to adct0atrigger.o(.data) for UserTask3
+    adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) refers to adct0atrigger.o(.data) for UserTask3
+    dmatimer.o(i.DMA_Init) refers to dmatimer.o(i.Timer5A_Init) for Timer5A_Init
+    dmatimer.o(i.DMA_Init) refers to dmatimer.o(.data) for DestinationPt
+    dmatimer.o(i.DMA_Init) refers to dmatimer.o(.bss) for ucControlTable
+    dmatimer.o(i.DMA_Status) refers to dmatimer.o(.data) for Status
+    dmatimer.o(i.DMA_Stop) refers to dmatimer.o(.data) for Status
+    dmatimer.o(i.DMA_Transfer) refers to startup.o(.text) for DisableInterrupts
+    dmatimer.o(i.DMA_Transfer) refers to dmatimer.o(i.setRegular) for setRegular
+    dmatimer.o(i.DMA_Transfer) refers to dmatimer.o(i.setAlternate) for setAlternate
+    dmatimer.o(i.DMA_Transfer) refers to dmatimer.o(.data) for Status
+    dmatimer.o(i.Timer5A_Handler) refers to dmatimer.o(i.setRegular) for setRegular
+    dmatimer.o(i.Timer5A_Handler) refers to dmatimer.o(i.setAlternate) for setAlternate
+    dmatimer.o(i.Timer5A_Handler) refers to dmatimer.o(i.DMA_Stop) for DMA_Stop
+    dmatimer.o(i.Timer5A_Handler) refers to dmatimer.o(.bss) for ucControlTable
+    dmatimer.o(i.Timer5A_Handler) refers to dmatimer.o(.data) for NumberOfBuffersSent
+    dmatimer.o(i.setAlternate) refers to dmatimer.o(.data) for SourcePt
+    dmatimer.o(i.setAlternate) refers to dmatimer.o(.bss) for ucControlTable
+    dmatimer.o(i.setRegular) refers to dmatimer.o(.data) for SourcePt
+    dmatimer.o(i.setRegular) refers to dmatimer.o(.bss) for ucControlTable
+    systick.o(i.SysTick_Wait10ms) refers to systick.o(i.SysTick_Wait) for SysTick_Wait
+    ws2812.o(i.WS2812_AddColor) refers to dmatimer.o(i.DMA_Status) for DMA_Status
+    ws2812.o(i.WS2812_AddColor) refers to ws2812.o(.data) for CurrentColorOrder
+    ws2812.o(i.WS2812_AddColor) refers to ws2812.o(.bss) for cursor
+    ws2812.o(i.WS2812_ClearBuffer) refers to dmatimer.o(i.DMA_Status) for DMA_Status
+    ws2812.o(i.WS2812_ClearBuffer) refers to ws2812.o(.bss) for cursor
+    ws2812.o(i.WS2812_GetCursor) refers to ws2812.o(.bss) for cursor
+    ws2812.o(i.WS2812_Init) refers to pll.o(i.PLL_Init) for PLL_Init
+    ws2812.o(i.WS2812_Init) refers to dmatimer.o(i.DMA_Init) for DMA_Init
+    ws2812.o(i.WS2812_Init) refers to ws2812.o(i.WS2812_ClearBuffer) for WS2812_ClearBuffer
+    ws2812.o(i.WS2812_Init) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812.o(i.WS2812_PrintBuffer) refers to dmatimer.o(i.DMA_Status) for DMA_Status
+    ws2812.o(i.WS2812_PrintBuffer) refers to dmatimer.o(i.DMA_Transfer) for DMA_Transfer
+    ws2812.o(i.WS2812_PrintBuffer) refers to ws2812.o(.bss) for buffer
+    ws2812.o(i.WS2812_SendReset) refers to dmatimer.o(i.DMA_Status) for DMA_Status
+    ws2812.o(i.WS2812_SendReset) refers to ws2812.o(.emb_text) for Delay
+    ws2812.o(i.WS2812_SetCursor) refers to ws2812.o(.bss) for cursor
+    ws2812testmain.o(i.MeasureAcceleration) refers to ws2812testmain.o(.data) for AccX
+    ws2812testmain.o(i.MeasureMicrophone) refers to ws2812testmain.o(.data) for SoundIndex
+    ws2812testmain.o(i.MeasureMicrophone) refers to ws2812testmain.o(.bss) for Sound
+    ws2812testmain.o(i.Pattern_Bulbs) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_Bulbs) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_Bulbs) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_Bulbs) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_Bulbs) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_Bulbs) refers to ws2812testmain.o(.constdata) for BULBS
+    ws2812testmain.o(i.Pattern_PwrMeterBasic) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_PwrMeterBasic) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_PwrMeterBasic) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_PwrMeterBasic) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_PwrMeterColored) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_PwrMeterColored) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_PwrMeterColored) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_PwrMeterColored) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_PwrMeterStriped) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_PwrMeterStriped) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_PwrMeterStriped) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_PwrMeterStriped) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_RainbowWaves) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_RainbowWaves) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_RainbowWaves) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_RainbowWaves) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_RainbowWaves) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_RedWhiteBlue) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_RedWhiteBlue) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_RedWhiteBlue) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_RedWhiteBlue) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_RedWhiteBlue) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_Reset) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_SolidRainbow) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_SolidRainbow) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_SolidRainbow) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_SolidRainbow) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_SolidRainbow) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_SplitMeterBasic) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_SplitMeterBasic) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_SplitMeterBasic) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_SplitMeterBasic) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_SplitMeterColored) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_SplitMeterColored) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_SplitMeterColored) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_SplitMeterColored) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_SplitMeterStriped) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_SplitMeterStriped) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_SplitMeterStriped) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_SplitMeterStriped) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_Stacker) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_Stacker) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_Stacker) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_Stacker) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_Stacker) refers to ws2812.o(.emb_text) for Delay
+    ws2812testmain.o(i.Pattern_Stacker) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_ThreeRowSine) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_ThreeRowSine) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_ThreeRowSine) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_ThreeRowSine) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_ThreeRowSine) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_ThreeRowSquare) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_ThreeRowSquare) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_ThreeRowSquare) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_ThreeRowSquare) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_ThreeRowSquare) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_ThreeRowTriangle) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_ThreeRowTriangle) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_ThreeRowTriangle) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_ThreeRowTriangle) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_ThreeRowTriangle) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Pattern_WhiteWaves) refers to ws2812.o(i.WS2812_SetCursor) for WS2812_SetCursor
+    ws2812testmain.o(i.Pattern_WhiteWaves) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.Pattern_WhiteWaves) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.Pattern_WhiteWaves) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.Pattern_WhiteWaves) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.Random) refers to ws2812testmain.o(.data) for M
+    ws2812testmain.o(i.Random_Init) refers to ws2812testmain.o(.data) for M
+    ws2812testmain.o(i.Timer1A_Handler) refers to ws2812testmain.o(.data) for PatternDelay
+    ws2812testmain.o(i.Timer1A_Handler_hat) refers to adcswtrigger.o(i.ADC0_InSeq2) for ADC0_InSeq2
+    ws2812testmain.o(i.main) refers to ws2812.o(i.WS2812_Init) for WS2812_Init
+    ws2812testmain.o(i.main) refers to startup.o(.text) for EnableInterrupts
+    ws2812testmain.o(i.main) refers to ws2812.o(i.WS2812_ClearBuffer) for WS2812_ClearBuffer
+    ws2812testmain.o(i.main) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.main) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.main) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(i.Pattern_Reset) for Pattern_Reset
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(i.Pattern_RainbowWaves) for Pattern_RainbowWaves
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(i.Pattern_WhiteWaves) for Pattern_WhiteWaves
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(i.Pattern_RedWhiteBlue) for Pattern_RedWhiteBlue
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(.data) for phase
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(i.Pattern_SolidRainbow) for Pattern_SolidRainbow
+    ws2812testmain.o(i.main) refers to ws2812testmain.o(i.Pattern_Bulbs) for Pattern_Bulbs
+    ws2812testmain.o(i.main_hat) refers to ws2812.o(i.WS2812_Init) for WS2812_Init
+    ws2812testmain.o(i.main_hat) refers to adcswtrigger.o(i.ADC0_InitSWTriggerSeq2) for ADC0_InitSWTriggerSeq2
+    ws2812testmain.o(i.main_hat) refers to adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) for ADC0_InitTimer0ATriggerSeq3
+    ws2812testmain.o(i.main_hat) refers to startup.o(.text) for EnableInterrupts
+    ws2812testmain.o(i.main_hat) refers to ws2812.o(i.WS2812_ClearBuffer) for WS2812_ClearBuffer
+    ws2812testmain.o(i.main_hat) refers to ws2812.o(i.WS2812_SendReset) for WS2812_SendReset
+    ws2812testmain.o(i.main_hat) refers to ws2812.o(i.WS2812_AddColor) for WS2812_AddColor
+    ws2812testmain.o(i.main_hat) refers to ws2812.o(i.WS2812_PrintBuffer) for WS2812_PrintBuffer
+    ws2812testmain.o(i.main_hat) refers to ws2812.o(.emb_text) for Delay
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_Reset) for Pattern_Reset
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_ThreeRowSquare) for Pattern_ThreeRowSquare
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_ThreeRowTriangle) for Pattern_ThreeRowTriangle
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_ThreeRowSine) for Pattern_ThreeRowSine
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.MeasureAcceleration) for MeasureAcceleration
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.MeasureMicrophone) for MeasureMicrophone
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(.data) for red
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_PwrMeterBasic) for Pattern_PwrMeterBasic
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_PwrMeterStriped) for Pattern_PwrMeterStriped
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_PwrMeterColored) for Pattern_PwrMeterColored
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_SplitMeterBasic) for Pattern_SplitMeterBasic
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_SplitMeterStriped) for Pattern_SplitMeterStriped
+    ws2812testmain.o(i.main_hat) refers to ws2812testmain.o(i.Pattern_SplitMeterColored) for Pattern_SplitMeterColored
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to ws2812testmain.o(i.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to startup.o(.text) for __user_initial_stackheap
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000007) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000010) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing adcswtrigger.o(i.ADC0_InSeq2), (80 bytes).
+    Removing adcswtrigger.o(i.ADC0_InSeq3), (56 bytes).
+    Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq2), (224 bytes).
+    Removing adcswtrigger.o(i.ADC0_InitSWTriggerSeq3), (220 bytes).
+    Removing adcswtrigger.o(.data), (8 bytes).
+    Removing adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3), (344 bytes).
+    Removing systick.o(i.SysTick_Init), (24 bytes).
+    Removing systick.o(i.SysTick_Wait), (32 bytes).
+    Removing systick.o(i.SysTick_Wait10ms), (28 bytes).
+    Removing ws2812.o(i.WS2812_GetCursor), (36 bytes).
+    Removing ws2812testmain.o(i.MeasureAcceleration), (80 bytes).
+    Removing ws2812testmain.o(i.MeasureMicrophone), (60 bytes).
+    Removing ws2812testmain.o(i.Pattern_PwrMeterBasic), (128 bytes).
+    Removing ws2812testmain.o(i.Pattern_PwrMeterColored), (358 bytes).
+    Removing ws2812testmain.o(i.Pattern_PwrMeterStriped), (290 bytes).
+    Removing ws2812testmain.o(i.Pattern_SplitMeterBasic), (264 bytes).
+    Removing ws2812testmain.o(i.Pattern_SplitMeterColored), (724 bytes).
+    Removing ws2812testmain.o(i.Pattern_SplitMeterStriped), (588 bytes).
+    Removing ws2812testmain.o(i.Pattern_Stacker), (156 bytes).
+    Removing ws2812testmain.o(i.Pattern_ThreeRowSine), (296 bytes).
+    Removing ws2812testmain.o(i.Pattern_ThreeRowSquare), (268 bytes).
+    Removing ws2812testmain.o(i.Pattern_ThreeRowTriangle), (272 bytes).
+    Removing ws2812testmain.o(i.Random), (36 bytes).
+    Removing ws2812testmain.o(i.Random_Init), (12 bytes).
+    Removing ws2812testmain.o(i.Timer1A_Handler_hat), (20 bytes).
+    Removing ws2812testmain.o(i.main_hat), (1736 bytes).
+    Removing ws2812testmain.o(.bss), (64 bytes).
+
+27 unused section(s) (total 6404 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      644  startup.o(RESET)
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
+    ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
+    ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
+    ADCSWTrigger.c                           0x00000000   Number         0  adcswtrigger.o ABSOLUTE
+    ADCT0ATrigger.c                          0x00000000   Number         0  adct0atrigger.o ABSOLUTE
+    DMATimer.c                               0x00000000   Number         0  dmatimer.o ABSOLUTE
+    PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
+    SysTick.c                                0x00000000   Number         0  systick.o ABSOLUTE
+    WS2812.c                                 0x00000000   Number         0  ws2812.o ABSOLUTE
+    WS2812.c                                 0x00000000   Number         0  ws2812.o ABSOLUTE
+    WS2812TestMain.c                         0x00000000   Number         0  ws2812testmain.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    startup.s                                0x00000000   Number         0  startup.o ABSOLUTE
+    !!!main                                  0x00000284   Section        8  __main.o(!!!main)
+    !!!scatter                               0x0000028c   Section       52  __scatter.o(!!!scatter)
+    !!handler_copy                           0x000002c0   Section       26  __scatter_copy.o(!!handler_copy)
+    !!handler_zi                             0x000002dc   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x000002f8   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000002          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    .ARM.Collect$$libinit$$00000004          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$0000000A          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    .ARM.Collect$$libinit$$0000000C          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000011          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    .ARM.Collect$$libinit$$00000013          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$0000002C          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    .ARM.Collect$$libinit$$0000002E          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000033          0x000002fa   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    .ARM.Collect$$libshutdown$$00000000      0x000002fc   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000007      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    .ARM.Collect$$libshutdown$$0000000A      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    .ARM.Collect$$libshutdown$$0000000C      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000F      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    .ARM.Collect$$libshutdown$$00000010      0x000002fe   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    .ARM.Collect$$rtentry$$00000000          0x00000300   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x00000300   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000004          0x00000300   Section        6  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    .ARM.Collect$$rtentry$$00000009          0x00000306   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x00000306   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x0000030a   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x0000030a   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    .ARM.Collect$$rtexit$$00000000           0x00000312   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x00000314   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x00000314   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x00000318   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .emb_text                                0x00000320   Section        6  ws2812.o(.emb_text)
+    .text                                    0x00000328   Section       48  startup.o(.text)
+    .text                                    0x00000358   Section        0  heapauxi.o(.text)
+    .text                                    0x0000035e   Section       74  sys_stackheap_outer.o(.text)
+    .text                                    0x000003a8   Section        0  exit.o(.text)
+    .text                                    0x000003bc   Section        8  libspace.o(.text)
+    .text                                    0x000003c4   Section        0  sys_exit.o(.text)
+    .text                                    0x000003d0   Section        2  use_no_semi.o(.text)
+    .text                                    0x000003d2   Section        0  indicate_semi.o(.text)
+    i.ADC0Seq3_Handler                       0x000003d4   Section        0  adct0atrigger.o(i.ADC0Seq3_Handler)
+    i.DMA_Init                               0x000003f8   Section        0  dmatimer.o(i.DMA_Init)
+    i.DMA_Status                             0x00000480   Section        0  dmatimer.o(i.DMA_Status)
+    i.DMA_Stop                               0x0000048c   Section        0  dmatimer.o(i.DMA_Stop)
+    i.DMA_Transfer                           0x000004c0   Section        0  dmatimer.o(i.DMA_Transfer)
+    i.PLL_Init                               0x00000538   Section        0  pll.o(i.PLL_Init)
+    i.Pattern_Bulbs                          0x000005b4   Section        0  ws2812testmain.o(i.Pattern_Bulbs)
+    i.Pattern_RainbowWaves                   0x00000844   Section        0  ws2812testmain.o(i.Pattern_RainbowWaves)
+    i.Pattern_RedWhiteBlue                   0x00000a8c   Section        0  ws2812testmain.o(i.Pattern_RedWhiteBlue)
+    i.Pattern_Reset                          0x00000f24   Section        0  ws2812testmain.o(i.Pattern_Reset)
+    i.Pattern_SolidRainbow                   0x00000f30   Section        0  ws2812testmain.o(i.Pattern_SolidRainbow)
+    i.Pattern_WhiteWaves                     0x0000101c   Section        0  ws2812testmain.o(i.Pattern_WhiteWaves)
+    i.Timer1A_Handler                        0x00001258   Section        0  ws2812testmain.o(i.Timer1A_Handler)
+    i.Timer5A_Handler                        0x000012a0   Section        0  dmatimer.o(i.Timer5A_Handler)
+    i.Timer5A_Init                           0x00001324   Section        0  dmatimer.o(i.Timer5A_Init)
+    i.WS2812_AddColor                        0x00001394   Section        0  ws2812.o(i.WS2812_AddColor)
+    i.WS2812_ClearBuffer                     0x000015fc   Section        0  ws2812.o(i.WS2812_ClearBuffer)
+    i.WS2812_Init                            0x00001648   Section        0  ws2812.o(i.WS2812_Init)
+    i.WS2812_PrintBuffer                     0x000016e4   Section        0  ws2812.o(i.WS2812_PrintBuffer)
+    i.WS2812_SendReset                       0x00001704   Section        0  ws2812.o(i.WS2812_SendReset)
+    i.WS2812_SetCursor                       0x00001724   Section        0  ws2812.o(i.WS2812_SetCursor)
+    i.main                                   0x0000174c   Section        0  ws2812testmain.o(i.main)
+    i.setAlternate                           0x00001c84   Section        0  dmatimer.o(i.setAlternate)
+    setAlternate                             0x00001c85   Thumb Code    60  dmatimer.o(i.setAlternate)
+    i.setRegular                             0x00001cd4   Section        0  dmatimer.o(i.setRegular)
+    setRegular                               0x00001cd5   Thumb Code    60  dmatimer.o(i.setRegular)
+    .constdata                               0x00001d24   Section       30  ws2812testmain.o(.constdata)
+    .data                                    0x20000000   Section        4  adct0atrigger.o(.data)
+    UserTask3                                0x20000000   Data           4  adct0atrigger.o(.data)
+    .data                                    0x20000004   Section       21  dmatimer.o(.data)
+    .data                                    0x20000019   Section        1  ws2812.o(.data)
+    .data                                    0x2000001c   Section       56  ws2812testmain.o(.data)
+    counter                                  0x20000050   Data           4  ws2812testmain.o(.data)
+    .bss                                     0x20000400   Section     1024  dmatimer.o(.bss)
+    .bss                                     0x20000800   Section    23052  ws2812.o(.bss)
+    .bss                                     0x2000620c   Section       96  libspace.o(.bss)
+    HEAP                                     0x20006270   Section        0  startup.o(HEAP)
+    STACK                                    0x20006270   Section     1024  startup.o(STACK)
+    HeapMem                                  0x20006270   Data           0  startup.o(HEAP)
+    StackMem                                 0x20006270   Data           0  startup.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$UX$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  ws2812testmain.o ABSOLUTE
+    __Vectors                                0x00000000   Data           0  startup.o(RESET)
+    __ARM_exceptions_init                     - Undefined Weak Reference
+    __alloca_initialize                       - Undefined Weak Reference
+    __arm_preinit_                            - Undefined Weak Reference
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __rt_locale                               - Undefined Weak Reference
+    __sigvec_lookup                           - Undefined Weak Reference
+    _atexit_init                              - Undefined Weak Reference
+    _call_atexit_fns                          - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _fp_trap_init                             - Undefined Weak Reference
+    _fp_trap_shutdown                         - Undefined Weak Reference
+    _get_lc_collate                           - Undefined Weak Reference
+    _get_lc_ctype                             - Undefined Weak Reference
+    _get_lc_monetary                          - Undefined Weak Reference
+    _get_lc_numeric                           - Undefined Weak Reference
+    _get_lc_time                              - Undefined Weak Reference
+    _getenv_init                              - Undefined Weak Reference
+    _handle_redirection                       - Undefined Weak Reference
+    _init_alloc                               - Undefined Weak Reference
+    _init_user_alloc                          - Undefined Weak Reference
+    _initio                                   - Undefined Weak Reference
+    _rand_init                                - Undefined Weak Reference
+    _signal_finish                            - Undefined Weak Reference
+    _signal_init                              - Undefined Weak Reference
+    _terminate_alloc                          - Undefined Weak Reference
+    _terminate_user_alloc                     - Undefined Weak Reference
+    _terminateio                              - Undefined Weak Reference
+    Reset_Handler                            0x0000026d   Thumb Code     0  startup.o(RESET)
+    NMI_Handler                              0x00000271   Thumb Code     2  startup.o(RESET)
+    HardFault_Handler                        0x00000273   Thumb Code     2  startup.o(RESET)
+    MemManage_Handler                        0x00000275   Thumb Code     2  startup.o(RESET)
+    BusFault_Handler                         0x00000277   Thumb Code     2  startup.o(RESET)
+    UsageFault_Handler                       0x00000279   Thumb Code     2  startup.o(RESET)
+    SVC_Handler                              0x0000027b   Thumb Code     2  startup.o(RESET)
+    DebugMon_Handler                         0x0000027d   Thumb Code     2  startup.o(RESET)
+    PendSV_Handler                           0x0000027f   Thumb Code     2  startup.o(RESET)
+    SysTick_Handler                          0x00000281   Thumb Code     2  startup.o(RESET)
+    ADC0Seq0_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq1_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq2_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq0_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq1_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq2_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq3_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp2_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Ethernet_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ExtBus_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
+    FPU_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
+    Fan0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    FlashCtl_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortA_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortB_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortC_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortD_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortE_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortF_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortG_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortH_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortJ_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortK_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortL_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortM_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortN_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP1_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP2_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP3_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP4_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP5_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP6_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP7_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ1_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ2_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ3_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ4_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ5_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ6_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ7_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortR_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortS_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    Hibernate_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C4_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C5_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2S0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    LPC0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    PECI0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Fault_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator0_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator1_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator2_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator3_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Fault_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator0_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator1_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator2_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator3_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature0_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature1_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature2_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SysCtl_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer0A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer0B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer1B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer2A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer2B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer4A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer4B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer5B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    UART0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART2_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART3_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART4_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART5_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART6_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART7_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    USB0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    WDT_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer0A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer0B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer1A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer1B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer2A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer2B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer3A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer3B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer4A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer4B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer5A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer5B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    uDMA_Error                               0x00000283   Thumb Code     0  startup.o(RESET)
+    uDMA_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    __main                                   0x00000285   Thumb Code     8  __main.o(!!!main)
+    __scatterload                            0x0000028d   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x0000028d   Thumb Code    44  __scatter.o(!!!scatter)
+    __scatterload_rt2_thumb_only             0x0000028d   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x0000029b   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_copy                       0x000002c1   Thumb Code    26  __scatter_copy.o(!!handler_copy)
+    __scatterload_zeroinit                   0x000002dd   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x000002f9   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_alloca_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_argv_1                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    __rt_lib_init_atexit_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_clock_1                    0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_cpp_1                      0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_exceptions_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_fp_1                       0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    __rt_lib_init_fp_trap_1                  0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_getenv_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_heap_1                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    __rt_lib_init_lc_collate_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    __rt_lib_init_lc_ctype_1                 0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_monetary_1              0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_numeric_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_time_1                  0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_preinit_1                  0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_rand_1                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_init_return                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    __rt_lib_init_signal_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_stdio_1                    0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_user_alloc_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_shutdown                        0x000002fd   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    __rt_lib_shutdown_heap_1                 0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    __rt_lib_shutdown_return                 0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    __rt_lib_shutdown_signal_1               0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    __rt_lib_shutdown_stdio_1                0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_user_alloc_1           0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_entry                               0x00000301   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x00000301   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x00000301   Thumb Code     0  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    __rt_entry_li                            0x00000307   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x00000307   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x0000030b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x0000030b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x00000313   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x00000315   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x00000315   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x00000319   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    Delay                                    0x00000321   Thumb Code     6  ws2812.o(.emb_text)
+    DisableInterrupts                        0x00000329   Thumb Code     0  startup.o(.text)
+    EnableInterrupts                         0x0000032d   Thumb Code     0  startup.o(.text)
+    StartCritical                            0x00000331   Thumb Code     0  startup.o(.text)
+    EndCritical                              0x00000339   Thumb Code     0  startup.o(.text)
+    WaitForInterrupt                         0x0000033f   Thumb Code     0  startup.o(.text)
+    __user_initial_stackheap                 0x00000343   Thumb Code     0  startup.o(.text)
+    __use_two_region_memory                  0x00000359   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x0000035b   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x0000035d   Thumb Code     2  heapauxi.o(.text)
+    __user_setup_stackheap                   0x0000035f   Thumb Code    74  sys_stackheap_outer.o(.text)
+    exit                                     0x000003a9   Thumb Code    18  exit.o(.text)
+    __user_libspace                          0x000003bd   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x000003bd   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x000003bd   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x000003c5   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x000003d1   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x000003d1   Thumb Code     2  use_no_semi.o(.text)
+    __semihosting_library_function           0x000003d3   Thumb Code     0  indicate_semi.o(.text)
+    ADC0Seq3_Handler                         0x000003d5   Thumb Code    28  adct0atrigger.o(i.ADC0Seq3_Handler)
+    DMA_Init                                 0x000003f9   Thumb Code   106  dmatimer.o(i.DMA_Init)
+    DMA_Status                               0x00000481   Thumb Code     6  dmatimer.o(i.DMA_Status)
+    DMA_Stop                                 0x0000048d   Thumb Code    34  dmatimer.o(i.DMA_Stop)
+    DMA_Transfer                             0x000004c1   Thumb Code    86  dmatimer.o(i.DMA_Transfer)
+    PLL_Init                                 0x00000539   Thumb Code   120  pll.o(i.PLL_Init)
+    Pattern_Bulbs                            0x000005b5   Thumb Code   646  ws2812testmain.o(i.Pattern_Bulbs)
+    Pattern_RainbowWaves                     0x00000845   Thumb Code   554  ws2812testmain.o(i.Pattern_RainbowWaves)
+    Pattern_RedWhiteBlue                     0x00000a8d   Thumb Code  1160  ws2812testmain.o(i.Pattern_RedWhiteBlue)
+    Pattern_Reset                            0x00000f25   Thumb Code     8  ws2812testmain.o(i.Pattern_Reset)
+    Pattern_SolidRainbow                     0x00000f31   Thumb Code   220  ws2812testmain.o(i.Pattern_SolidRainbow)
+    Pattern_WhiteWaves                       0x0000101d   Thumb Code   544  ws2812testmain.o(i.Pattern_WhiteWaves)
+    Timer1A_Handler                          0x00001259   Thumb Code    56  ws2812testmain.o(i.Timer1A_Handler)
+    Timer5A_Handler                          0x000012a1   Thumb Code   114  dmatimer.o(i.Timer5A_Handler)
+    Timer5A_Init                             0x00001325   Thumb Code    90  dmatimer.o(i.Timer5A_Init)
+    WS2812_AddColor                          0x00001395   Thumb Code   602  ws2812.o(i.WS2812_AddColor)
+    WS2812_ClearBuffer                       0x000015fd   Thumb Code    66  ws2812.o(i.WS2812_ClearBuffer)
+    WS2812_Init                              0x00001649   Thumb Code   134  ws2812.o(i.WS2812_Init)
+    WS2812_PrintBuffer                       0x000016e5   Thumb Code    26  ws2812.o(i.WS2812_PrintBuffer)
+    WS2812_SendReset                         0x00001705   Thumb Code    28  ws2812.o(i.WS2812_SendReset)
+    WS2812_SetCursor                         0x00001725   Thumb Code    34  ws2812.o(i.WS2812_SetCursor)
+    main                                     0x0000174d   Thumb Code  1324  ws2812testmain.o(i.main)
+    BULBS                                    0x00001d24   Data          30  ws2812testmain.o(.constdata)
+    Region$$Table$$Base                      0x00001d44   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001d64   Number         0  anon$$obj.o(Region$$Table)
+    SourcePt                                 0x20000004   Data           4  dmatimer.o(.data)
+    DestinationPt                            0x20000008   Data           4  dmatimer.o(.data)
+    BlockSize                                0x2000000c   Data           4  dmatimer.o(.data)
+    NumBlocks                                0x20000010   Data           4  dmatimer.o(.data)
+    NumberOfBuffersSent                      0x20000014   Data           4  dmatimer.o(.data)
+    Status                                   0x20000018   Data           1  dmatimer.o(.data)
+    CurrentColorOrder                        0x20000019   Data           1  ws2812.o(.data)
+    phase                                    0x2000001c   Data           1  ws2812testmain.o(.data)
+    red                                      0x2000001d   Data           1  ws2812testmain.o(.data)
+    green                                    0x2000001e   Data           1  ws2812testmain.o(.data)
+    blue                                     0x2000001f   Data           1  ws2812testmain.o(.data)
+    ired                                     0x20000020   Data           4  ws2812testmain.o(.data)
+    igreen                                   0x20000024   Data           4  ws2812testmain.o(.data)
+    iblue                                    0x20000028   Data           4  ws2812testmain.o(.data)
+    M                                        0x2000002c   Data           4  ws2812testmain.o(.data)
+    LastX                                    0x20000030   Data           4  ws2812testmain.o(.data)
+    LastY                                    0x20000034   Data           4  ws2812testmain.o(.data)
+    LastZ                                    0x20000038   Data           4  ws2812testmain.o(.data)
+    AccX                                     0x2000003c   Data           4  ws2812testmain.o(.data)
+    AccY                                     0x20000040   Data           4  ws2812testmain.o(.data)
+    AccZ                                     0x20000044   Data           4  ws2812testmain.o(.data)
+    SoundIndex                               0x20000048   Data           4  ws2812testmain.o(.data)
+    PatternDelay                             0x2000004c   Data           4  ws2812testmain.o(.data)
+    ucControlTable                           0x20000400   Data        1024  dmatimer.o(.bss)
+    buffer                                   0x20000800   Data       23040  ws2812.o(.bss)
+    cursor                                   0x20006200   Data          12  ws2812.o(.bss)
+    __libspace_start                         0x2000620c   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x2000626c   Data           0  libspace.o(.bss)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0000026d
+
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00001db8, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001d64, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
+    0x00000284   0x00000284   0x00000008   Code   RO          388  * !!!main             c_w.l(__main.o)
+    0x0000028c   0x0000028c   0x00000034   Code   RO          545    !!!scatter          c_w.l(__scatter.o)
+    0x000002c0   0x000002c0   0x0000001a   Code   RO          547    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x000002da   0x000002da   0x00000002   PAD
+    0x000002dc   0x000002dc   0x0000001c   Code   RO          549    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002f8   0x000002f8   0x00000002   Code   RO          415    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          422    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          424    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          427    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          429    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          431    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          434    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          436    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          438    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          440    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          442    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          444    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          446    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          448    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          450    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          452    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          454    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          458    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          460    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          462    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          464    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000002   Code   RO          465    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x000002fc   0x000002fc   0x00000002   Code   RO          485    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          498    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          500    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          503    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          506    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          508    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          511    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000002   Code   RO          512    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          390    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          392    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000300   0x00000300   0x00000006   Code   RO          404    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x00000306   0x00000306   0x00000000   Code   RO          394    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x00000306   0x00000306   0x00000004   Code   RO          395    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0000030a   0x0000030a   0x00000000   Code   RO          397    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0000030a   0x0000030a   0x00000008   Code   RO          398    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x00000312   0x00000312   0x00000002   Code   RO          419    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000314   0x00000314   0x00000000   Code   RO          467    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000314   0x00000314   0x00000004   Code   RO          468    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000318   0x00000318   0x00000006   Code   RO          469    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x0000031e   0x0000031e   0x00000002   PAD
+    0x00000320   0x00000320   0x00000006   Code   RO          170    .emb_text           ws2812.o
+    0x00000326   0x00000326   0x00000002   PAD
+    0x00000328   0x00000328   0x00000030   Code   RO            4    .text               startup.o
+    0x00000358   0x00000358   0x00000006   Code   RO          386    .text               c_w.l(heapauxi.o)
+    0x0000035e   0x0000035e   0x0000004a   Code   RO          406    .text               c_w.l(sys_stackheap_outer.o)
+    0x000003a8   0x000003a8   0x00000012   Code   RO          408    .text               c_w.l(exit.o)
+    0x000003ba   0x000003ba   0x00000002   PAD
+    0x000003bc   0x000003bc   0x00000008   Code   RO          416    .text               c_w.l(libspace.o)
+    0x000003c4   0x000003c4   0x0000000c   Code   RO          477    .text               c_w.l(sys_exit.o)
+    0x000003d0   0x000003d0   0x00000002   Code   RO          488    .text               c_w.l(use_no_semi.o)
+    0x000003d2   0x000003d2   0x00000000   Code   RO          490    .text               c_w.l(indicate_semi.o)
+    0x000003d2   0x000003d2   0x00000002   PAD
+    0x000003d4   0x000003d4   0x00000024   Code   RO           51    i.ADC0Seq3_Handler  adct0atrigger.o
+    0x000003f8   0x000003f8   0x00000088   Code   RO           74    i.DMA_Init          dmatimer.o
+    0x00000480   0x00000480   0x0000000c   Code   RO           75    i.DMA_Status        dmatimer.o
+    0x0000048c   0x0000048c   0x00000034   Code   RO           76    i.DMA_Stop          dmatimer.o
+    0x000004c0   0x000004c0   0x00000078   Code   RO           77    i.DMA_Transfer      dmatimer.o
+    0x00000538   0x00000538   0x0000007c   Code   RO          131    i.PLL_Init          pll.o
+    0x000005b4   0x000005b4   0x00000290   Code   RO          231    i.Pattern_Bulbs     ws2812testmain.o
+    0x00000844   0x00000844   0x00000248   Code   RO          235    i.Pattern_RainbowWaves  ws2812testmain.o
+    0x00000a8c   0x00000a8c   0x00000498   Code   RO          236    i.Pattern_RedWhiteBlue  ws2812testmain.o
+    0x00000f24   0x00000f24   0x0000000c   Code   RO          237    i.Pattern_Reset     ws2812testmain.o
+    0x00000f30   0x00000f30   0x000000ec   Code   RO          238    i.Pattern_SolidRainbow  ws2812testmain.o
+    0x0000101c   0x0000101c   0x0000023c   Code   RO          246    i.Pattern_WhiteWaves  ws2812testmain.o
+    0x00001258   0x00001258   0x00000048   Code   RO          249    i.Timer1A_Handler   ws2812testmain.o
+    0x000012a0   0x000012a0   0x00000084   Code   RO           78    i.Timer5A_Handler   dmatimer.o
+    0x00001324   0x00001324   0x00000070   Code   RO           79    i.Timer5A_Init      dmatimer.o
+    0x00001394   0x00001394   0x00000268   Code   RO          171    i.WS2812_AddColor   ws2812.o
+    0x000015fc   0x000015fc   0x0000004c   Code   RO          172    i.WS2812_ClearBuffer  ws2812.o
+    0x00001648   0x00001648   0x0000009c   Code   RO          174    i.WS2812_Init       ws2812.o
+    0x000016e4   0x000016e4   0x00000020   Code   RO          175    i.WS2812_PrintBuffer  ws2812.o
+    0x00001704   0x00001704   0x00000020   Code   RO          176    i.WS2812_SendReset  ws2812.o
+    0x00001724   0x00001724   0x00000028   Code   RO          177    i.WS2812_SetCursor  ws2812.o
+    0x0000174c   0x0000174c   0x00000538   Code   RO          251    i.main              ws2812testmain.o
+    0x00001c84   0x00001c84   0x00000050   Code   RO           80    i.setAlternate      dmatimer.o
+    0x00001cd4   0x00001cd4   0x00000050   Code   RO           81    i.setRegular        dmatimer.o
+    0x00001d24   0x00001d24   0x0000001e   Data   RO          254    .constdata          ws2812testmain.o
+    0x00001d42   0x00001d42   0x00000002   PAD
+    0x00001d44   0x00001d44   0x00000020   Data   RO          543    Region$$Table       anon$$obj.o
+
+
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001d64, Size: 0x00000054, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00001d64   0x00000004   Data   RW           53    .data               adct0atrigger.o
+    0x20000004   0x00001d68   0x00000015   Data   RW           83    .data               dmatimer.o
+    0x20000019   0x00001d7d   0x00000001   Data   RW          179    .data               ws2812.o
+    0x2000001a   0x00001d7e   0x00000002   PAD
+    0x2000001c   0x00001d80   0x00000038   Data   RW          255    .data               ws2812testmain.o
+
+
+    Execution Region ER_ZI (Exec base: 0x20000054, Load base: 0x00001db8, Size: 0x0000661c, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000054   0x00001db8   0x000003ac   PAD
+    0x20000400        -       0x00000400   Zero   RW           82    .bss                dmatimer.o
+    0x20000800        -       0x00005a0c   Zero   RW          178    .bss                ws2812.o
+    0x2000620c        -       0x00000060   Zero   RW          417    .bss                c_w.l(libspace.o)
+    0x2000626c   0x00001db8   0x00000004   PAD
+    0x20006270        -       0x00000000   Zero   RW            2    HEAP                startup.o
+    0x20006270        -       0x00000400   Zero   RW            1    STACK               startup.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+         0          0          0          0          0       4508   adcswtrigger.o
+        36          8          0          4          0        959   adct0atrigger.o
+       724        168          0         21       1024       4682   dmatimer.o
+       124          4          0          0          0        407   pll.o
+       692        632          0          0       1024        972   startup.o
+       958         62          0          1      23052       5126   ws2812.o
+      4644        206         30         56          0       9735   ws2812testmain.o
+
+    ----------------------------------------------------------------------
+      7180       1080         64         84      26040      26389   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+         2          0          2          2        940          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         6          0          0          0          0          0   __rtentry4.o
+        52          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
+        28          0          0          0          0          0   __scatter_zi.o
+        18          0          0          0          0         80   exit.o
+         6          0          0          0          0        152   heapauxi.o
+         0          0          0          0          0          0   indicate_semi.o
+         2          0          0          0          0          0   libinit.o
+         2          0          0          0          0          0   libinit2.o
+         2          0          0          0          0          0   libshutdown.o
+         2          0          0          0          0          0   libshutdown2.o
+         8          4          0          0         96         68   libspace.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        12          4          0          0          0         68   sys_exit.o
+        74          0          0          0          0         80   sys_stackheap_outer.o
+         2          0          0          0          0         68   use_no_semi.o
+
+    ----------------------------------------------------------------------
+       280         16          0          0        100        584   Library Totals
+         8          0          0          0          4          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       272         16          0          0         96        584   c_w.l
+
+    ----------------------------------------------------------------------
+       280         16          0          0        100        584   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      7460       1096         64         84      26140      25721   Grand Totals
+      7460       1096         64         84      26140      25721   ELF Image Totals
+      7460       1096         64         84          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 7524 (   7.35kB)
+    Total RW  Size (RW Data + ZI Data)             26224 (  25.61kB)
+    Total ROM Size (Code + RO Data + RW Data)       7608 (   7.43kB)
+
+==============================================================================
+

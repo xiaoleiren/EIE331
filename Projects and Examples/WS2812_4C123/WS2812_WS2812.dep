@@ -1,0 +1,29 @@
+Dependencies for Project 'WS2812', Target 'WS2812': (DO NOT MODIFY !)
+F (.\startup.s)(0x51983979)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\ADCSWTrigger.c)(0x555553AB)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\adcswtrigger.o --omf_browse .\adcswtrigger.crf --depend .\adcswtrigger.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (ADCSWTrigger.h)(0x53F25AB6)
+I (../inc/lm4f120h5qr.h)(0x5063B5B2)
+F (.\ADCT0ATrigger.c)(0x555553AB)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\adct0atrigger.o --omf_browse .\adct0atrigger.crf --depend .\adct0atrigger.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (ADCT0ATrigger.h)(0x53F25D47)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (.\DMATimer.c)(0x555553C2)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\dmatimer.o --omf_browse .\dmatimer.crf --depend .\dmatimer.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (DMATimer.h)(0x53F3DCEC)
+F (.\PLL.c)(0x53E91CF9)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (PLL.h)(0x5230F79B)
+F (.\SysTick.c)(0x5232385D)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\systick.o --omf_browse .\systick.crf --depend .\systick.d)
+F (.\WS2812.c)(0x5FCEA910)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\ws2812.o --omf_browse .\ws2812.crf --depend .\ws2812.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (DMATimer.h)(0x53F3DCEC)
+I (PLL.h)(0x5230F79B)
+I (SysTick.h)(0x5232385E)
+I (WS2812.h)(0x5FCEA6C9)
+F (.\WS2812TestMain.c)(0x5FE2CE87)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_WS2812-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\ws2812testmain.o --omf_browse .\ws2812testmain.crf --depend .\ws2812testmain.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (ADCSWTrigger.h)(0x53F25AB6)
+I (ADCT0ATrigger.h)(0x53F25D47)
+I (WS2812.h)(0x5FCEA6C9)

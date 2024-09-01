@@ -19,6 +19,6 @@ So if you have any Keil-specific questions you could register and post them at *
 You will need to find the **Keil directory** because the **TExaS example files** will be loaded into this same directory. After you have run the **MDK538A.EXE installer**, you will not need this file. However, you can use this file to install Keil on additional computers.
 
 
-```html
-<img src="[images/armKeil.png](https://github.com/xiaoleiren/EIE331/tree/main/images)" alt="Description of the image" width="600">
+<img src="https://github.com/xiaoleiren/EIE331/raw/main/images/armKeil.png" alt="Description of the image" width="600">
+
 

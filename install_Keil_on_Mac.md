@@ -1,5 +1,7 @@
 # **How to run EIE331 software on a Mac**
 
+"It is highly recommended that you consider installing these software tools on Windows first, as attempting to run them on a Mac can lead to numerous challenges and frustrations."
+
 So here is a summary of what you need:
 
 1. A Mac preferably one that has an **Intel Core Duo processor** or better.

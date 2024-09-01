@@ -21,5 +21,5 @@ You will need to find the **Keil directory** because the **TExaS example files**
 ## 添加图片的代码示例：
 
 ```html
-<img src="URL_OF_YOUR_IMAGE" alt="Description of the image" width="600">
+<img src="images/armKeil.png" alt="Description of the image" width="600">
 

@@ -1,0 +1,2 @@
+Dependencies for Project 'math', Target 'Sources': (DO NOT MODIFY !)
+F (.\Startup.s)(0x4F58FAA4)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I D:\Keil\ARM\RV31\Inc -I D:\Keil\ARM\CMSIS\Include -I D:\Keil\ARM\Inc\Luminary --list "Startup.lst" --xref -o "Startup.o" --depend "Startup.d")

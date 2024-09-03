@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\Dropbox\ArmBook\LaunchPad\LaunchPadware\Math_4C123\math.uvproj
+Project File Date:  10/12/2013
+
+<h2>Output:</h2>
+Build target 'math'
+compiling main.c...
+main.c(46): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(63): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(76): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(89): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(102): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+compiling SysTick.c...
+linking...
+Program Size: Code=7968 RO-data=472 RW-data=36 ZI-data=1124  
+".\math.axf" - 0 Errors, 5 Warning(s).
+Build target 'math'
+compiling main.c...
+main.c(46): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(63): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(76): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(89): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.c(102): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+compiling SysTick.c...
+linking...
+Program Size: Code=7968 RO-data=472 RW-data=36 ZI-data=1124  
+".\math.axf" - 0 Errors, 5 Warning(s).
+Load "E:\\Dropbox\\ArmBook\\LaunchPad\\LaunchPadware\\Math_4C123\\math.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Clean started: Project: 'math'
+   deleting intermediate output files for target 'math'

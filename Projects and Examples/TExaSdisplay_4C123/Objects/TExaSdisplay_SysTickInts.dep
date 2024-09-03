@@ -1,0 +1,30 @@
+Dependencies for Project 'TExaSdisplay', Target 'SysTickInts': (DO NOT MODIFY !)
+F (..\inc\Profile.c)(0x57E526C4)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ../inc-IE:\Dropbox\EdX\RTOS\TM4C123software\TExaSdisplay_4C123\RTE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM-o .\objects\profile.o --omf_browse .\objects\profile.crf --depend .\objects\profile.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EF4F6)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (.\SysTickInts.c)(0x57E9718A)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ../inc-IE:\Dropbox\EdX\RTOS\TM4C123software\TExaSdisplay_4C123\RTE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM-o .\objects\systickints.o --omf_browse .\objects\systickints.crf --depend .\objects\systickints.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EF4F6)
+I (../inc/CortexM.h)(0x57E52657)
+I (../inc/Profile.h)(0x57E526D5)
+I (TExaS.h)(0x57E9220E)
+I (../inc/clock.h)(0x57E5263B)
+F (.\Texas.c)(0x57E970FA)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ../inc-IE:\Dropbox\EdX\RTOS\TM4C123software\TExaSdisplay_4C123\RTE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM-o .\objects\texas.o --omf_browse .\objects\texas.crf --depend .\objects\texas.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EF4F6)
+I (../inc/CortexM.h)(0x57E52657)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (TExaS.h)(0x57E9220E)
+F (..\inc\Clock.c)(0x57E52633)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ../inc-IE:\Dropbox\EdX\RTOS\TM4C123software\TExaSdisplay_4C123\RTE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM-o .\objects\clock.o --omf_browse .\objects\clock.crf --depend .\objects\clock.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EF4F6)
+I (..\inc\../inc/CortexM.h)(0x57E52657)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x56BBE47C)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IE:\Dropbox\EdX\RTOS\TM4C123software\TExaSdisplay_4C123\RTE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
+F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x52540E94)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ../inc-IE:\Dropbox\EdX\RTOS\TM4C123software\TExaSdisplay_4C123\RTE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574EF4F6)
+I (E:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123.h)(0x530F5566)
+I (E:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x530F5566)
+I (E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56266DDC)
+I (E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x56265A20)
+I (E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56265A20)
+I (E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56265A20)
+I (E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56265A20)
+I (E:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B74676)

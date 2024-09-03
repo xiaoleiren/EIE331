@@ -1,0 +1,54 @@
+Dependencies for Project 'SSD1306', Target 'SSD1306': (DO NOT MODIFY !)
+F (.\startup.s)(0x54FDFB9F)(--cpu Cortex-M4 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (..\inc\PLL.c)(0x5E1B402E)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/PLL.h)(0x5E10D0A5)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\LaunchPad.c)(0x5E1B402E)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\launchpad.o --omf_browse .\launchpad.crf --depend .\launchpad.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/LaunchPad.h)(0x5E10D0A5)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (..\inc\../inc/CortexM.h)(0x5E10D019)
+F (..\inc\CortexM.c)(0x5E10D019)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\cortexm.o --omf_browse .\cortexm.crf --depend .\cortexm.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+F (.\SSD1306TestMain.c)(0x5FFA2B66)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\ssd1306testmain.o --omf_browse .\ssd1306testmain.crf --depend .\ssd1306testmain.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F920C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (../inc/PLL.h)(0x5E10D0A5)
+I (../inc/SSD1306.h)(0x5FF9EDCD)
+I (../inc/CortexM.h)(0x5E10D019)
+I (../inc/LaunchPad.h)(0x5E10D0A5)
+I (../inc/SysTick.h)(0x5D697071)
+I (../inc/Timer2A.h)(0x5E0D1A0C)
+I (Image.h)(0x5FEF6AAA)
+F (..\inc\SSD1306.c)(0x5FF9EDCD)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\ssd1306.o --omf_browse .\ssd1306.crf --depend .\ssd1306.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F920C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F920C)
+I (..\inc\../inc/SSD1306.h)(0x5FF9EDCD)
+I (..\inc\../inc/CortexM.h)(0x5E10D019)
+I (..\inc\../inc/I2C3.h)(0x5FF09D23)
+F (..\inc\I2CB1.c)(0x5FF0D0EF)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\i2cb1.o --omf_browse .\i2cb1.crf --depend .\i2cb1.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/I2CB1.h)(0x5FF098F3)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\SysTick.c)(0x5E0E6B8E)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\systick.o --omf_browse .\systick.crf --depend .\systick.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\Timer2A.c)(0x5E0D1A39)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\timer2a.o --omf_browse .\timer2a.crf --depend .\timer2a.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (.\Image.h)(0x5FEF6AAA)()
+F (..\inc\I2C3.c)(0x5FF0CCD7)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\i2c3.o --omf_browse .\i2c3.crf --depend .\i2c3.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/I2C3.h)(0x5FF09D23)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\I2C2.c)(0x5FF0D0EF)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\i2c2.o --omf_browse .\i2c2.crf --depend .\i2c2.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/I2C2.h)(0x5FF09FD4)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\I2C1.c)(0x5FF0D0EF)(--c99 -c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .. -I ..\..\.. --C99-I.\RTE\_SSD1306-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\i2c1.o --omf_browse .\i2c1.crf --depend .\i2c1.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/I2C1.h)(0x5FF0A812)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)

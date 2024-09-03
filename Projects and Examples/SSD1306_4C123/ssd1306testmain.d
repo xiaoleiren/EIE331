@@ -1,0 +1,11 @@
+.\ssd1306testmain.o: SSD1306TestMain.c
+.\ssd1306testmain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\ssd1306testmain.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\ssd1306testmain.o: ../inc/tm4c123gh6pm.h
+.\ssd1306testmain.o: ../inc/PLL.h
+.\ssd1306testmain.o: ../inc/SSD1306.h
+.\ssd1306testmain.o: ../inc/CortexM.h
+.\ssd1306testmain.o: ../inc/LaunchPad.h
+.\ssd1306testmain.o: ../inc/SysTick.h
+.\ssd1306testmain.o: ../inc/Timer2A.h
+.\ssd1306testmain.o: Image.h

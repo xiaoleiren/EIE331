@@ -1,0 +1,127 @@
+TI ARM Assembler PC v5.2.4 Sat Jun 20 18:50:22 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../heap.asm                                                          PAGE    1
+
+       1                    ; Heap.asm
+       2                    ; Runs on any computer
+       3                    ; A fixed-block memory manager.
+       4                    ; Valvano
+       5                    ; May 3, 2015
+       6                    
+       7                    ;  This example accompanies the book
+       8                    ;  "Embedded Systems: Introduction to Arm Cortex M Microcontrollers",
+       9                    ;  ISBN: 978-1469998749, Jonathan Valvano, copyright (c) 2015
+      10                    ;  Program 6.10 through 6.13, Section 6.6
+      11                    ;
+      12                    ;Copyright 2015 by Jonathan W. Valvano, valvano@mail.utexas.edu
+      13                    ;   You may use, edit, run or distribute this file
+      14                    ;   as long as the above copyright notice remains
+      15                    ;THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+      16                    ;OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+      17                    ;MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+      18                    ;VALVANO SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
+      19                    ;OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+      20                    ;For more information about my classes, my research, and my books, see
+      21                    ;http://users.ece.utexas.edu/~valvano/
+      22 00000000                  .thumb
+      23          00000004  SIZE   .equ 4    ; number of 32-bit words in each block
+      24          00000005  NUM    .equ 5    ; number of blocks
+      25          00000000  NULL   .equ 0    ; definition of empty pointer
+      26                    
+      27 00000000                  .data
+      28                           .align  2
+      29 00000000           FreePt .space 4
+      30 00000004           Heap   .space SIZE*NUM*4
+      31                    ;export for use with debugger
+      32                    
+      33 00000000                  .text
+      34                           .align  2
+      35                           .global  Heap_Init
+      36                           .global  Heap_Allocate
+      37                           .global  Heap_Release
+      38                    
+      39                    ;------------Heap_Init------------
+      40                    ; Initialize the heap and pointer to the first free block.  Free
+      41                    ; blocks are linked together with a linear linked list
+      42                    ; implemented using the first 32-bit word of each free block to
+      43                    ; point to the next free block.  The last free block points to
+      44                    ; NULL to signify that there are no free blocks after it.
+      45                    ; Input: none
+      46                    ; Output: none
+      47                    ; Modifies: R0, R1, R2, R3
+      48                    Heap_Init:  .asmfunc
+      49 00000000 4808                LDR  R0,HeapAddr ; [ORIG 16-BIT INS]
+      50 00000002 4909                LDR  R1,FreePtAddr ; [ORIG 16-BIT INS]
+      51 00000004 6008                STR  R0,[R1]       ; FreePt=&Heap[0]; ; [ORIG 16-BIT INS]
+      52 00000006 0204F04F            MOV  R2,#SIZE ; [KEEP 32-BIT INS]
+      53 0000000a 0304F04F            MOV  R3,#NUM-1 ; [KEEP 32-BIT INS]
+      54 0000000e 0110F100  imLoop    ADD  R1,R0,#SIZE*4 ; pt+SIZE ; [KEEP 32-BIT INS]
+      55 00000012 6001                STR  R1,[R0]       ; *pt=pt+SIZE; ; [ORIG 16-BIT INS]
+TI ARM Assembler PC v5.2.4 Sat Jun 20 18:50:22 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../heap.asm                                                          PAGE    2
+
+      56 00000014 4608                MOV  R0,R1         ; pt=pt+SIZE; ; [ORIG 16-BIT INS]
+      57 00000016 1E5B                SUBS R3,R3,#1 ; [ORIG 16-BIT INS]
+      58 00000018 D1F9                BNE  imLoop ; [ORIG 16-BIT INS]
+      59 0000001a 0100F04F            MOV  R1,#NULL ; [KEEP 32-BIT INS]
+      60 0000001e 6001                STR  R1,[R0]       ; last ptr is NULL ; [ORIG 16-BIT INS]
+      61 00000020 4770                BX   LR ; [ORIG 16-BIT INS]
+      62                        .endasmfunc
+      63 00000024 00000000! HeapAddr   .field Heap,32
+      64 00000028 00000000! FreePtAddr .field FreePt,32
+      65                    
+      66                    ;------------Heap_Allocate------------
+      67                    ; Attempt to allocate a block, removing it from the free list.
+      68                    ; The pointer to the first free block is moved to the next free
+      69                    ; block after the block that is being allocated, which is now
+      70                    ; no longer free.
+      71                    ; If no blocks are free, this function returns a NULL pointer.
+      72                    ; Input: none
+      73                    ; Output: R0 pointer to free block or NULL if all blocks full
+      74                    ; Modifies: R1, R2
+      75                    Heap_Allocate:  .asmfunc     ; R0 points to new block
+      76 0000002c 1008F85F        LDR R1,FreePtAddr ; [KEEP 32-BIT INS]
+      77 00000030 6808            LDR R0,[R1]            ; R0=FreePt; ; [ORIG 16-BIT INS]
+      78 00000032 2800            CMP R0,#NULL ; [ORIG 16-BIT INS]
+      79 00000034 D001            BEQ aDone              ; if (pt!=NULL) ; [ORIG 16-BIT INS]
+      80 00000036 6802            LDR R2,[R0]            ; link next ; [ORIG 16-BIT INS]
+      81 00000038 600A            STR R2,[R1]            ; FreePt=*pt; ; [ORIG 16-BIT INS]
+      82 0000003a 4770      aDone BX  LR ; [ORIG 16-BIT INS]
+      83                        .endasmfunc
+      84                    
+      85                    ;------------Heap_Release------------
+      86                    ; Release a block, adding it to the free list, and making it
+      87                    ; available for future use.  The pointer to the first free block
+      88                    ; is moved to this block, and the next free block is the
+      89                    ; previous first free block.  In other words, the newly freed
+      90                    ; block is inserted at the beginning of the free list.
+      91                    ; IMPORTANT: This function does not check anything about the
+      92                    ; pointer and does not check if the block was previously
+      93                    ; allocated.
+      94                    ; An invalid pointer may produce unpredictable behavior.
+      95                    ; Input: R0  pointer to the block to be released
+      96                    ; Output: none
+      97                    ; Modifies: R1, R2
+      98                    Heap_Release:  .asmfunc      ; R0 => block being released
+      99 0000003c 1018F85F        LDR R1,FreePtAddr ; [KEEP 32-BIT INS]
+     100 00000040 680A            LDR R2,[R1]            ; R2=oldFreePt ; [ORIG 16-BIT INS]
+     101 00000042 6008            STR R0,[R1]            ; FreePt=pt ; [ORIG 16-BIT INS]
+     102 00000044 6002            STR R2,[R0]            ; *pt=oldFreePt; ; [ORIG 16-BIT INS]
+     103 00000046 4770            BX  LR ; [ORIG 16-BIT INS]
+     104                        .endasmfunc
+     105                    
+     106                        .end                             ; end of file
+
+--------------------------
+Thumb2 Statistics
+--------------------------
+Number of Thumb2 ins converted to Thumb = 0 (0%)
+Number of Thumb ins in input = 19 (76%)
+Number of Thumb2 ins encoded as Thumb2 = 6 (100%)
+Number of Thumb2 ins converted to 2 OPND Thumb = 1
+
+
+No Assembly Errors, No Assembly Warnings

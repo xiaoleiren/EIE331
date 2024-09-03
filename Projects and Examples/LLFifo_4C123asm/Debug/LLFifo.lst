@@ -1,0 +1,128 @@
+TI ARM Assembler PC v5.2.4 Sat Jun 20 18:50:22 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../LLFifo.asm                                                        PAGE    1
+
+       1                    ; LLFifo.asm
+       2                    ; Runs on any computer
+       3                    ; linked list FIFO
+       4                    ; Jonathan Valvano
+       5                    ; April 23, 2013
+       6                    
+       7                    ;  This example accompanies the book
+       8                    ;  "Embedded Systems: Introduction to Arm Cortex M Microcontrollers",
+       9                    ;  ISBN: 978-1469998749, Jonathan Valvano, copyright (c) 2015
+      10                    ;  Section 6.6.2 Programs 6.14, 6.15, 6.16, 6.17
+      11                    ;
+      12                    ;Copyright 2015 by Jonathan W. Valvano, valvano@mail.utexas.edu
+      13                    ;   You may use, edit, run or distribute this file
+      14                    ;   as long as the above copyright notice remains
+      15                    ;THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+      16                    ;OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+      17                    ;MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+      18                    ;VALVANO SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
+      19                    ;OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+      20                    ;For more information about my classes, my research, and my books, see
+      21                    ;http://users.ece.utexas.edu/~valvano/
+      22 00000000                  .thumb
+      23                    
+      24 00000000                  .data
+      25                           .align  2
+      26                    ;put in RAM
+      27          00000000  Next   .equ    0   ;next
+      28          00000004  Data   .equ    4   ;32-bit data for node
+      29 00000000           GetPt  .space  4   ; GetPt  is pointer to oldest node
+      30 00000004           PutPt  .space  4   ; PutPt is pointer to newest node
+      31          00000000  NULL   .equ    0
+      32 00000000                  .text
+      33                           .align 2
+      34                           .global  Fifo_Init
+      35                           .global  Fifo_Put
+      36                           .global  Fifo_Get
+      37                           .global  Heap_Init
+      38                           .global  Heap_Allocate
+      39                           .global  Heap_Release
+      40 00000000 00000000! GetPtaddr .field GetPt,32
+      41 00000004 00000000! PutPtaddr .field PutPt,32
+      42                    
+      43                    Fifo_Init:  .asmfunc
+      44 00000008 B500          PUSH {LR} ; [ORIG 16-BIT INS]
+      45 0000000a 0100F04F      MOV  R1,#NULL ; [KEEP 32-BIT INS]
+      46 0000000e 0010F85F      LDR  R0,GetPtaddr ; [KEEP 32-BIT INS]
+      47 00000012 6001          STR  R1,[R0]    ;GetPt=NULL ; [ORIG 16-BIT INS]
+      48 00000014 0014F85F      LDR  R0,PutPtaddr ; [KEEP 32-BIT INS]
+      49 00000018 6001          STR  R1,[R0]    ;PutPt=NULL ; [ORIG 16-BIT INS]
+      50 0000001a FFFEF7FF!     BL   Heap_Init ; [KEEP 32-BIT INS]
+      51 0000001e BD00          POP  {PC} ; [ORIG 16-BIT INS]
+      52                        .endasmfunc
+      53                    
+      54                    ; Inputs:  R0 value, data to put
+      55                    ; Outputs: R0=1 if successful
+TI ARM Assembler PC v5.2.4 Sat Jun 20 18:50:22 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../LLFifo.asm                                                        PAGE    2
+
+      56                    ;          R0=0 if unsuccessful
+      57                    Fifo_Put:  .asmfunc
+      58 00000020 B510           PUSH {R4,LR} ; [ORIG 16-BIT INS]
+      59 00000022 4604           MOV  R4,R0   ;data to put ; [ORIG 16-BIT INS]
+      60 00000024 FFFEF7FF!      BL   Heap_Allocate ; [KEEP 32-BIT INS]
+      61 00000028 2800           CMP  R0,#NULL ; [ORIG 16-BIT INS]
+      62 0000002a D011           BEQ  PFul     ;skip if full ; [ORIG 16-BIT INS]
+      63 0000002c 6044           STR  R4,[R0,#Data] ;store data ; [ORIG 16-BIT INS]
+      64 0000002e 0100F04F       MOV  R1,#NULL ; [KEEP 32-BIT INS]
+      65 00000032 6001           STR  R1,[R0,#Next] ;next=NULL ; [ORIG 16-BIT INS]
+      66 00000034 2034F85F       LDR  R2,PutPtaddr ;R2= &PutPt ; [KEEP 32-BIT INS]
+      67 00000038 6813           LDR  R3,[R2]   ;R3=PutPt ; [ORIG 16-BIT INS]
+      68 0000003a 2B00           CMP  R3,#NULL  ;previously MT? ; [ORIG 16-BIT INS]
+      69 0000003c D001           BEQ  PMT ; [ORIG 16-BIT INS]
+      70 0000003e 6018           STR  R0,[R3,#Next] ;link previous ; [ORIG 16-BIT INS]
+      71 00000040 E002           B    PCon ; [ORIG 16-BIT INS]
+      72 00000042 1044F85F  PMT  LDR  R1,GetPtaddr ;R1= &GetPt ; [KEEP 32-BIT INS]
+      73 00000046 6008           STR  R0,[R1]   ;Now one entry ; [ORIG 16-BIT INS]
+      74 00000048 6010      PCon STR  R0,[R2]   ;points to newest ; [ORIG 16-BIT INS]
+      75 0000004a 0001F04F       MOV  R0,#1     ;success ; [KEEP 32-BIT INS]
+      76 0000004e E001           B    PDon ; [ORIG 16-BIT INS]
+      77 00000050 0000F04F  PFul MOV  R0,#0     ;failure, full ; [KEEP 32-BIT INS]
+      78 00000054 BD10      PDon POP  {R4,PC} ; [ORIG 16-BIT INS]
+      79                        .endasmfunc
+      80                    
+      81                    ; Inputs:  R0 points to an empty place
+      82                    ; Outputs: data removed to place
+      83                    ;          R0=0 if successful
+      84                    ;          R0=1 if empty
+      85                    Fifo_Get:  .asmfunc
+      86 00000056 B510           PUSH {R4,LR} ; [ORIG 16-BIT INS]
+      87 00000058 105CF85F       LDR  R1,GetPtaddr ;R1= &GetPt ; [KEEP 32-BIT INS]
+      88 0000005c 680A           LDR  R2,[R1]   ;R2=GetPt ; [ORIG 16-BIT INS]
+      89 0000005e 2A00           CMP  R2,#NULL ; [ORIG 16-BIT INS]
+      90 00000060 D00E           BEQ  GMT     ;empty if NULL ; [ORIG 16-BIT INS]
+      91 00000062 6853           LDR  R3,[R2,#Data]  ;read ; [ORIG 16-BIT INS]
+      92 00000064 6003           STR  R3,[R0] ;by reference ; [ORIG 16-BIT INS]
+      93 00000066 6813           LDR  R3,[R2,#Next] ;next link ; [ORIG 16-BIT INS]
+      94 00000068 600B           STR  R3,[R1] ; update GetPt ; [ORIG 16-BIT INS]
+      95 0000006a 2B00           CMP  R3,#NULL ; [ORIG 16-BIT INS]
+      96 0000006c D102           BNE  GCon ; [ORIG 16-BIT INS]
+      97 0000006e 106CF85F       LDR  R1,PutPtaddr   ;Now empty ; [KEEP 32-BIT INS]
+      98 00000072 600B           STR  R3,[R1]  ;update PutPt ; [ORIG 16-BIT INS]
+      99 00000074 4610      GCon MOV  R0,R2    ;old data ; [ORIG 16-BIT INS]
+     100 00000076 FFFEF7FF!      BL   Heap_Release ; [KEEP 32-BIT INS]
+     101 0000007a 0001F04F       MOV  R0,#1    ;success ; [KEEP 32-BIT INS]
+     102 0000007e E001           B    GDon ; [ORIG 16-BIT INS]
+     103 00000080 0000F04F  GMT  MOV  R0,#0    ;failure, empty ; [KEEP 32-BIT INS]
+     104 00000084 BD10      GDon POP  {R4,PC} ; [ORIG 16-BIT INS]
+     105                        .endasmfunc
+     106                    
+     107                        .end                             ; end of file
+
+--------------------------
+Thumb2 Statistics
+--------------------------
+Number of Thumb2 ins converted to Thumb = 0 (0%)
+Number of Thumb ins in input = 33 (68%)
+Number of Thumb2 ins encoded as Thumb2 = 15 (100%)
+Number of Thumb2 ins converted to 2 OPND Thumb = 5
+
+
+No Assembly Errors, No Assembly Warnings

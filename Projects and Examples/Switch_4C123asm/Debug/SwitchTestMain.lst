@@ -1,0 +1,158 @@
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:44:34 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../SwitchTestMain.asm                                                PAGE    1
+
+       1                    ; SwitchTestMain.s
+       2                    ; Runs on LM4F120/TM4C123
+       3                    ; Test the switch initialization functions by setting the LED
+       4                    ; color according to the status of the switches.
+       5                    ; Daniel and Jonathan Valvano
+       6                    ; September 12, 2013
+       7                    
+       8                    ; This example accompanies the book
+       9                    ;  "Embedded Systems: Introduction to ARM Cortex M Microcontrollers"
+      10                    ;  ISBN: 978-1469998749, Jonathan Valvano, copyright (c) 2015
+      11                    ;  Section 4.2.2, Program 4.2, Figure 4.9
+      12                    
+      13                    ;Copyright 2015 by Jonathan W. Valvano, valvano@mail.utexas.edu
+      14                    ;   You may use, edit, run or distribute this file
+      15                    ;   as long as the above copyright notice remains
+      16                    ;THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+      17                    ;OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+      18                    ;MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+      19                    ;VALVANO SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
+      20                    ;OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+      21                    ;For more information about my classes, my research, and my books, see
+      22                    ;http://users.ece.utexas.edu/~valvano/
+      23                    
+      24                    ; negative logic switches connected to PF0 and PF4 on the Launchpad
+      25                    ; red LED connected to PF1 on the Launchpad
+      26                    ; blue LED connected to PF2 on the Launchpad
+      27                    ; green LED connected to PF3 on the Launchpad
+      28                    ; NOTE: The NMI (non-maskable interrupt) is on PF0.  That means that
+      29                    ; the Alternate Function Select, Pull-Up Resistor, Pull-Down Resistor,
+      30                    ; and Digital Enable are all locked for PF0 until a value of 0x4C4F434B
+      31                    ; is written to the Port F GPIO Lock Register.  After Port F is
+      32                    ; unlocked, bit 0 of the Port F GPIO Commit Register must be set to
+      33                    ; allow access to PF0's control registers.  On the LM4F120, the other
+      34                    ; bits of the Port F GPIO Commit Register are hard-wired to 1, meaning
+      35                    ; that the rest of Port F can always be freely re-configured at any
+      36                    ; time.  Requiring this procedure makes it unlikely to accidentally
+      37                    ; re-configure the JTAG and NMI pins as GPIO, which can lock the
+      38                    ; debugger out of the processor and make it permanently unable to be
+      39                    ; debugged or re-programmed.
+      40 00000000                   .thumb
+      41 00000000                   .text
+      42                            .align 2
+      43                            .global  Switch_Init
+      44                            .global  Switch_Input
+      45                            .global  Board_Init
+      46                            .global  Board_Input
+      47 00000000 40025400  GPIO_PORTF_DIR_R   .field 0x40025400,32
+      48 00000004 40025420  GPIO_PORTF_AFSEL_R .field 0x40025420,32
+      49 00000008 4002551C  GPIO_PORTF_DEN_R   .field 0x4002551C,32
+      50 0000000c 40025528  GPIO_PORTF_AMSEL_R .field 0x40025528,32
+      51 00000010 4002552C  GPIO_PORTF_PCTL_R  .field 0x4002552C,32
+      52 00000014 40025004  PF0       .field 0x40025004,32
+      53 00000018 40025008  PF1       .field 0x40025008,32
+      54 0000001c 40025010  PF2       .field 0x40025010,32
+      55 00000020 40025020  PF3       .field 0x40025020,32
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:44:34 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../SwitchTestMain.asm                                                PAGE    2
+
+      56 00000024 40025040  PF4       .field 0x40025040,32
+      57 00000028 40025038  LEDS      .field 0x40025038,32
+      58          00000002  RED       .equ 0x02
+      59          00000004  BLUE      .equ 0x04
+      60          00000008  GREEN     .equ 0x08
+      61 0000002c 40025044  SWITCHES  .field 0x40025044,32
+      62          00000010  SW1       .equ 0x10                 ; on the left side of the Launchpad board
+      63          00000001  SW2       .equ 0x01                 ; on the right side of the Launchpad board
+      64                    
+      65                    
+      66                            .global  main
+      67                    main:  .asmfunc
+      68 00000030 FFFEF7FF!     BL  Switch_Init   ; initialize PA5 is input ; [KEEP 32-BIT INS]
+      69 00000034 FFFEF7FF!     BL  Switch_Input  ; R0 returned as 0x20 or 0x00 ; [KEEP 32-BIT INS]
+      70 00000038 FFFEF7FF!     BL  Switch_Input  ; R0 returned as 0x20 or 0x00 ; [KEEP 32-BIT INS]
+      71                    
+      72                    ;----------------------------------------------------------------
+      73 0000003c FFFEF7FF!     BL  Board_Init                  ; initialize PF0 and PF4 and make them inputs ; [KEEP 32-BIT INS]
+      74                        ; set direction register
+      75 00000040 1044F85F      LDR R1, GPIO_PORTF_DIR_R        ; R1 = &GPIO_PORTF_DIR_R ; [KEEP 32-BIT INS]
+      76 00000044 6808          LDR R0, [R1]                    ; R0 = [R1] ; [ORIG 16-BIT INS]
+      77 00000046 000EF040      ORR R0, R0, #(RED+BLUE+GREEN)   ; R0 = R0|(RED|BLUE|GREEN) (make PF3-1 output; PF3-1 built-in LEDs
+      78 0000004a 6008          STR R0, [R1]                    ; [R1] = R0 ; [ORIG 16-BIT INS]
+      79                        ; regular port function
+      80 0000004c 104CF85F      LDR R1, GPIO_PORTF_AFSEL_R      ; R1 = &GPIO_PORTF_AFSEL_R ; [KEEP 32-BIT INS]
+      81 00000050 6808          LDR R0, [R1]                    ; R0 = [R1] ; [ORIG 16-BIT INS]
+      82 00000052 000EF020      BIC R0, R0, #(RED+BLUE+GREEN)   ; R0 = R0&~(RED|BLUE|GREEN) (disable alt funct on PF3-1) ; [KEEP 3
+      83 00000056 6008          STR R0, [R1]                    ; [R1] = R0 ; [ORIG 16-BIT INS]
+      84                        ; enable digital port
+      85 00000058 1054F85F      LDR R1, GPIO_PORTF_DEN_R        ; R1 = &GPIO_PORTF_DEN_R ; [KEEP 32-BIT INS]
+      86 0000005c 6808          LDR R0, [R1]                    ; R0 = [R1] ; [ORIG 16-BIT INS]
+      87 0000005e 000EF040      ORR R0, R0, #(RED+BLUE+GREEN)   ; R0 = R0|(RED|BLUE|GREEN) (enable digital I/O on PF3-1) ; [KEEP 3
+      88 00000062 6008          STR R0, [R1]                    ; [R1] = R0 ; [ORIG 16-BIT INS]
+      89                        ; configure as GPIO
+      90 00000064 1058F85F      LDR R1, GPIO_PORTF_PCTL_R       ; R1 = &GPIO_PORTF_PCTL_R ; [KEEP 32-BIT INS]
+      91 00000068 6808          LDR R0, [R1]                    ; R0 = [R1] ; [ORIG 16-BIT INS]
+      92 0000006a 407FF420      BIC R0, R0, #0x0000FF00         ; R0 = R0&~0x0000FF00 (clear port control field for PF3-2) ; [KEEP
+      93 0000006e 00F0F020      BIC R0, R0, #0x000000F0         ; R0 = R0&~0x000000F0 (clear port control field for PF1) ; [KEEP 3
+      94 00000072 6008          STR R0, [R1]                    ; [R1] = R0 ; [ORIG 16-BIT INS]
+      95                        ; disable analog functionality
+      96 00000074 106CF85F      LDR R1, GPIO_PORTF_AMSEL_R      ; R1 = &GPIO_PORTF_AMSEL_R ; [KEEP 32-BIT INS]
+      97 00000078 0000F04F      MOV R0, #0                      ; R0 = 0 (disable analog functionality on PF) ; [KEEP 32-BIT INS]
+      98 0000007c 6008          STR R0, [R1]                    ; [R1] = R0 ; [ORIG 16-BIT INS]
+      99 0000007e 4058F85F      LDR R4, LEDS                    ; R4 = &LEDS ; [KEEP 32-BIT INS]
+     100 00000082 0502F04F      MOV R5, #RED                    ; R5 = RED (red LED on) ; [KEEP 32-BIT INS]
+     101 00000086 0604F04F      MOV R6, #BLUE                   ; R6 = BLUE (blue LED on) ; [KEEP 32-BIT INS]
+     102 0000008a 0708F04F      MOV R7, #GREEN                  ; R7 = GREEN (green LED on) ; [KEEP 32-BIT INS]
+     103 0000008e 0800F04F      MOV R8, #0                      ; R8 = 0 (no LEDs on) ; [KEEP 32-BIT INS]
+     104 00000092 090EF04F      MOV R9, #(RED+GREEN+BLUE)       ; R9 = (RED|GREEN|BLUE) (all LEDs on) ; [KEEP 32-BIT INS]
+     105 00000096           loop
+     106 00000096 FFFEF7FF!     BL  Board_Input ; [KEEP 32-BIT INS]
+     107 0000009a 2801          CMP R0, #0x01                   ; R0 == 0x01? ; [ORIG 16-BIT INS]
+     108 0000009c D008          BEQ sw1pressed                  ; if so, switch 1 pressed ; [ORIG 16-BIT INS]
+     109 0000009e 2810          CMP R0, #0x10                   ; R0 == 0x10? ; [ORIG 16-BIT INS]
+     110 000000a0 D008          BEQ sw2pressed                  ; if so, switch 2 pressed ; [ORIG 16-BIT INS]
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:44:34 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../SwitchTestMain.asm                                                PAGE    3
+
+     111 000000a2 2800          CMP R0, #0x00                   ; R0 == 0x00? ; [ORIG 16-BIT INS]
+     112 000000a4 D008          BEQ bothpressed                 ; if so, both switches pressed ; [ORIG 16-BIT INS]
+     113 000000a6 2811          CMP R0, #0x11                   ; R0 == 0x11? ; [ORIG 16-BIT INS]
+     114 000000a8 D008          BEQ nopressed                   ; if so, neither switch pressed ; [ORIG 16-BIT INS]
+     115                                                        ; if none of the above, unexpected return value
+     116 000000aa 9000F8C4      STR R9, [R4]                    ; [R4] = R9 = (RED|GREEN|BLUE) (all LEDs on) ; [KEEP 32-BIT INS]
+     117 000000ae E7F2          B   loop ; [ORIG 16-BIT INS]
+     118 000000b0           sw1pressed
+     119 000000b0 6026          STR R6, [R4]                    ; [R4] = R6 = BLUE (blue LED on) ; [ORIG 16-BIT INS]
+     120 000000b2 E7F0          B   loop ; [ORIG 16-BIT INS]
+     121 000000b4           sw2pressed
+     122 000000b4 6025          STR R5, [R4]                    ; [R4] = R5 = RED (red LED on) ; [ORIG 16-BIT INS]
+     123 000000b6 E7EE          B   loop ; [ORIG 16-BIT INS]
+     124 000000b8           bothpressed
+     125 000000b8 6027          STR R7, [R4]                    ; [R4] = R7 = GREEN (green LED on) ; [ORIG 16-BIT INS]
+     126 000000ba E7EC          B   loop ; [ORIG 16-BIT INS]
+     127 000000bc           nopressed
+     128 000000bc 8000F8C4      STR R8, [R4]                    ; [R4] = R8 = 0 (no LEDs on) ; [KEEP 32-BIT INS]
+     129 000000c0 E7E9          B   loop ; [ORIG 16-BIT INS]
+     130                        .endasmfunc
+     131                    
+     132                         .end                             ; end of file
+
+--------------------------
+Thumb2 Statistics
+--------------------------
+Number of Thumb2 ins converted to Thumb = 0 (0%)
+Number of Thumb ins in input = 27 (52%)
+Number of Thumb2 ins encoded as Thumb2 = 24 (100%)
+Number of Thumb2 ins converted to 2 OPND Thumb = 1
+
+
+No Assembly Errors, No Assembly Warnings

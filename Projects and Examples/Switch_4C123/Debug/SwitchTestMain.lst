@@ -1,0 +1,721 @@
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    1
+
+       1                    ;******************************************************************************
+       2                    ;* TI ARM C/C++ Codegen                                             PC v5.2.4 *
+       3                    ;* Date/Time created: Mon Jun 29 08:38:11 2015                                *
+       4                    ;******************************************************************************
+       5                            .compiler_opts --abi=eabi --arm_vmrs_si_workaround=off --code_state=16 --diag_wrap=off --disab
+       6 00000000                   .thumb
+       7                    
+       8                    $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                            .dwattr $C$DW$CU, DW_AT_name("../SwitchTestMain.c")
+      10                            .dwattr $C$DW$CU, DW_AT_producer("TI TI ARM C/C++ Codegen PC v5.2.4 Copyright (c) 1996-2015 Te
+      11                            .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                            .dwattr $C$DW$CU, DW_AT_comp_dir("C:\Dropbox\ArmBook\LaunchPad\ValvanoWareTM4C123\Switch_4C123
+      13                    
+      14                    $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("Switch_Init")
+      15                            .dwattr $C$DW$1, DW_AT_TI_symbol_name("Switch_Init")
+      16                            .dwattr $C$DW$1, DW_AT_declaration
+      17                            .dwattr $C$DW$1, DW_AT_external
+      18                            .dwattr $C$DW$1, DW_AT_decl_file("..\Switch.h")
+      19                            .dwattr $C$DW$1, DW_AT_decl_line(0x34)
+      20                            .dwattr $C$DW$1, DW_AT_decl_column(0x06)
+      21                    
+      22                    $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("Switch_Input")
+      23                            .dwattr $C$DW$2, DW_AT_TI_symbol_name("Switch_Input")
+      24                            .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$36)
+      25                            .dwattr $C$DW$2, DW_AT_declaration
+      26                            .dwattr $C$DW$2, DW_AT_external
+      27                            .dwattr $C$DW$2, DW_AT_decl_file("..\Switch.h")
+      28                            .dwattr $C$DW$2, DW_AT_decl_line(0x3b)
+      29                            .dwattr $C$DW$2, DW_AT_decl_column(0x0a)
+      30                    
+      31                    $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("Board_Init")
+      32                            .dwattr $C$DW$3, DW_AT_TI_symbol_name("Board_Init")
+      33                            .dwattr $C$DW$3, DW_AT_declaration
+      34                            .dwattr $C$DW$3, DW_AT_external
+      35                            .dwattr $C$DW$3, DW_AT_decl_file("..\Switch.h")
+      36                            .dwattr $C$DW$3, DW_AT_decl_line(0x44)
+      37                            .dwattr $C$DW$3, DW_AT_decl_column(0x06)
+      38                    
+      39                    $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("Board_Input")
+      40                            .dwattr $C$DW$4, DW_AT_TI_symbol_name("Board_Input")
+      41                            .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$36)
+      42                            .dwattr $C$DW$4, DW_AT_declaration
+      43                            .dwattr $C$DW$4, DW_AT_external
+      44                            .dwattr $C$DW$4, DW_AT_decl_file("..\Switch.h")
+      45                            .dwattr $C$DW$4, DW_AT_decl_line(0x4d)
+      46                            .dwattr $C$DW$4, DW_AT_decl_column(0x0a)
+      47                    ;       C:\ti\ccsv6\tools\compiler\ti-cgt-arm_5.2.4\bin\armacpia.exe -@C:\\Users\\VALVAN~1\\AppData\\L
+      48 00000000                   .sect   ".text"
+      49                            .clink
+      50                            .thumbfunc main
+      51 00000000                   .thumb
+      52                            .global main
+      53                    
+      54                    $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+      55                            .dwattr $C$DW$5, DW_AT_low_pc(main)
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    2
+
+      56                            .dwattr $C$DW$5, DW_AT_high_pc(0x00)
+      57                            .dwattr $C$DW$5, DW_AT_TI_symbol_name("main")
+      58                            .dwattr $C$DW$5, DW_AT_external
+      59                            .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$10)
+      60                            .dwattr $C$DW$5, DW_AT_TI_begin_file("../SwitchTestMain.c")
+      61                            .dwattr $C$DW$5, DW_AT_TI_begin_line(0x3a)
+      62                            .dwattr $C$DW$5, DW_AT_TI_begin_column(0x05)
+      63                            .dwattr $C$DW$5, DW_AT_decl_file("../SwitchTestMain.c")
+      64                            .dwattr $C$DW$5, DW_AT_decl_line(0x3a)
+      65                            .dwattr $C$DW$5, DW_AT_decl_column(0x05)
+      66                            .dwattr $C$DW$5, DW_AT_TI_max_frame_size(0x08)
+      67                            .dwpsn  file "../SwitchTestMain.c",line 58,column 15,is_stmt,address main,isa 1
+      68                    
+      69                            .dwfde $C$DW$CIE, main
+      70                    ;----------------------------------------------------------------------
+      71                    ;  58 | int main(void){ uint32_t status;                                       
+      72                    ;----------------------------------------------------------------------
+      73                    
+      74                    ;*****************************************************************************
+      75                    ;* FUNCTION NAME: main                                                       *
+      76                    ;*                                                                           *
+      77                    ;*   Regs Modified     : A1,A2,A3,A4,V9,SP,LR,SR,D0,D0_hi,D1,D1_hi,D2,D2_hi, *
+      78                    ;*                           D3,D3_hi,D4,D4_hi,D5,D5_hi,D6,D6_hi,D7,D7_hi,   *
+      79                    ;*                           FPEXC,FPSCR                                     *
+      80                    ;*   Regs Used         : A1,A2,A3,A4,V9,SP,LR,SR,D0,D0_hi,D1,D1_hi,D2,D2_hi, *
+      81                    ;*                           D3,D3_hi,D4,D4_hi,D5,D5_hi,D6,D6_hi,D7,D7_hi,   *
+      82                    ;*                           FPEXC,FPSCR                                     *
+      83                    ;*   Local Frame Size  : 0 Args + 4 Auto + 4 Save = 8 byte                   *
+      84                    ;*****************************************************************************
+      85 00000000           main:
+      86                    ;* --------------------------------------------------------------------------*
+      87                            .dwcfi  cfa_offset, 0
+      88 00000000 B508              PUSH      {A4, LR}              ; [DPU_3_PIPE]  ; [ORIG 16-BIT INS]
+      89                            .dwcfi  cfa_offset, 8
+      90                            .dwcfi  save_reg_to_mem, 14, -4
+      91                            .dwcfi  save_reg_to_mem, 3, -8
+      92                    $C$DW$6 .dwtag  DW_TAG_variable, DW_AT_name("status")
+      93                            .dwattr $C$DW$6, DW_AT_TI_symbol_name("status")
+      94                            .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$36)
+      95                            .dwattr $C$DW$6, DW_AT_location[DW_OP_breg13 0]
+      96                            .dwpsn  file "../SwitchTestMain.c",line 59,column 3,is_stmt,isa 1
+      97                    ;----------------------------------------------------------------------
+      98                    ;  59 | Switch_Init();           // PA5 is input                               
+      99                    ;----------------------------------------------------------------------
+     100                    $C$DW$7 .dwtag  DW_TAG_TI_branch
+     101                            .dwattr $C$DW$7, DW_AT_low_pc(0x00)
+     102                            .dwattr $C$DW$7, DW_AT_name("Switch_Init")
+     103                            .dwattr $C$DW$7, DW_AT_TI_call
+     104 00000002 FFFEF7FF!         BL        Switch_Init           ; [DPU_3_PIPE] |59|  ; [KEEP 32-BIT INS]
+     105                            ; CALL OCCURS {Switch_Init }     ; [] |59| 
+     106                            .dwpsn  file "../SwitchTestMain.c",line 60,column 3,is_stmt,isa 1
+     107                    ;----------------------------------------------------------------------
+     108                    ;  60 | status = Switch_Input(); // 0x00 or 0x20                               
+     109                    ;----------------------------------------------------------------------
+     110                    $C$DW$8 .dwtag  DW_TAG_TI_branch
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    3
+
+     111                            .dwattr $C$DW$8, DW_AT_low_pc(0x00)
+     112                            .dwattr $C$DW$8, DW_AT_name("Switch_Input")
+     113                            .dwattr $C$DW$8, DW_AT_TI_call
+     114 00000006 FFFEF7FF!         BL        Switch_Input          ; [DPU_3_PIPE] |60|  ; [KEEP 32-BIT INS]
+     115                            ; CALL OCCURS {Switch_Input }    ; [] |60| 
+     116 0000000a 9000              STR       A1, [SP, #0]          ; [DPU_3_PIPE] |60|  ; [ORIG 16-BIT INS]
+     117                            .dwpsn  file "../SwitchTestMain.c",line 61,column 3,is_stmt,isa 1
+     118                    ;----------------------------------------------------------------------
+     119                    ;  61 | status = Switch_Input(); // 0x00 or 0x20                               
+     120                    ;----------------------------------------------------------------------
+     121                    $C$DW$9 .dwtag  DW_TAG_TI_branch
+     122                            .dwattr $C$DW$9, DW_AT_low_pc(0x00)
+     123                            .dwattr $C$DW$9, DW_AT_name("Switch_Input")
+     124                            .dwattr $C$DW$9, DW_AT_TI_call
+     125 0000000c FFFEF7FF!         BL        Switch_Input          ; [DPU_3_PIPE] |61|  ; [KEEP 32-BIT INS]
+     126                            ; CALL OCCURS {Switch_Input }    ; [] |61| 
+     127 00000010 9000              STR       A1, [SP, #0]          ; [DPU_3_PIPE] |61|  ; [ORIG 16-BIT INS]
+     128                            .dwpsn  file "../SwitchTestMain.c",line 63,column 3,is_stmt,isa 1
+     129                    ;----------------------------------------------------------------------
+     130                    ;  63 | Board_Init();             // initialize PF0 and PF4 and make them input
+     131                    ;     | s                                                                      
+     132                    ;  64 |                           // make PF3-1 out (PF3-1 built-in LEDs)      
+     133                    ;----------------------------------------------------------------------
+     134                    $C$DW$10        .dwtag  DW_TAG_TI_branch
+     135                            .dwattr $C$DW$10, DW_AT_low_pc(0x00)
+     136                            .dwattr $C$DW$10, DW_AT_name("Board_Init")
+     137                            .dwattr $C$DW$10, DW_AT_TI_call
+     138 00000012 FFFEF7FF!         BL        Board_Init            ; [DPU_3_PIPE] |63|  ; [KEEP 32-BIT INS]
+     139                            ; CALL OCCURS {Board_Init }      ; [] |63| 
+     140                            .dwpsn  file "../SwitchTestMain.c",line 65,column 3,is_stmt,isa 1
+     141                    ;----------------------------------------------------------------------
+     142                    ;  65 | GPIO_PORTF_DIR_R |= (RED|BLUE|GREEN);                                  
+     143                    ;  66 |                             // disable alt funct on PF3-1              
+     144                    ;----------------------------------------------------------------------
+     145 00000016 491D              LDR       A2, $C$CON1           ; [DPU_3_PIPE] |65|  ; [ORIG 16-BIT INS]
+     146 00000018 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |65|  ; [ORIG 16-BIT INS]
+     147 0000001a 000EF040          ORR       A1, A1, #14           ; [DPU_3_PIPE] |65|  ; [KEEP 32-BIT INS]
+     148 0000001e 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |65|  ; [ORIG 16-BIT INS]
+     149                            .dwpsn  file "../SwitchTestMain.c",line 67,column 3,is_stmt,isa 1
+     150                    ;----------------------------------------------------------------------
+     151                    ;  67 | GPIO_PORTF_AFSEL_R &= ~(RED|BLUE|GREEN);                               
+     152                    ;  68 |                             // enable digital I/O on PF3-1             
+     153                    ;----------------------------------------------------------------------
+     154 00000020 491B              LDR       A2, $C$CON2           ; [DPU_3_PIPE] |67|  ; [ORIG 16-BIT INS]
+     155 00000022 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |67|  ; [ORIG 16-BIT INS]
+     156 00000024 000EF020          BIC       A1, A1, #14           ; [DPU_3_PIPE] |67|  ; [KEEP 32-BIT INS]
+     157 00000028 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |67|  ; [ORIG 16-BIT INS]
+     158                            .dwpsn  file "../SwitchTestMain.c",line 69,column 3,is_stmt,isa 1
+     159                    ;----------------------------------------------------------------------
+     160                    ;  69 | GPIO_PORTF_DEN_R |= (RED|BLUE|GREEN);                                  
+     161                    ;  70 |                             // configure PF3-1 as GPIO                 
+     162                    ;----------------------------------------------------------------------
+     163 0000002a 491A              LDR       A2, $C$CON3           ; [DPU_3_PIPE] |69|  ; [ORIG 16-BIT INS]
+     164 0000002c 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |69|  ; [ORIG 16-BIT INS]
+     165 0000002e 000EF040          ORR       A1, A1, #14           ; [DPU_3_PIPE] |69|  ; [KEEP 32-BIT INS]
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    4
+
+     166 00000032 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |69|  ; [ORIG 16-BIT INS]
+     167                            .dwpsn  file "../SwitchTestMain.c",line 71,column 3,is_stmt,isa 1
+     168                    ;----------------------------------------------------------------------
+     169                    ;  71 | GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFF000F)+0x00000000;         
+     170                    ;----------------------------------------------------------------------
+     171 00000034 4818              LDR       A1, $C$CON4           ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     172 00000036 4918              LDR       A2, $C$CON4           ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     173 00000038 6800              LDR       A1, [A1, #0]          ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     174 0000003a 100FF36F          BFC       A1, #4, #12           ; [DPU_3_PIPE] |71|  ; [KEEP 32-BIT INS]
+     175 0000003e 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     176                            .dwpsn  file "../SwitchTestMain.c",line 72,column 3,is_stmt,isa 1
+     177                    ;----------------------------------------------------------------------
+     178                    ;  72 | GPIO_PORTF_AMSEL_R = 0;     // disable analog functionality on PF      
+     179                    ;----------------------------------------------------------------------
+     180 00000040 4916              LDR       A2, $C$CON5           ; [DPU_3_PIPE] |72|  ; [ORIG 16-BIT INS]
+     181 00000042 2000              MOVS      A1, #0                ; [DPU_3_PIPE] |72|  ; [ORIG 16-BIT INS]
+     182 00000044 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |72|  ; [ORIG 16-BIT INS]
+     183                            .dwpsn  file "../SwitchTestMain.c",line 73,column 9,is_stmt,isa 1
+     184                    ;----------------------------------------------------------------------
+     185                    ;  73 | while(1){                                                              
+     186                    ;----------------------------------------------------------------------
+     187                    ;* --------------------------------------------------------------------------*
+     188                    ;*   BEGIN LOOP ||$C$L1||
+     189                    ;*
+     190                    ;*   Loop source line                : 73
+     191                    ;*   Loop closing brace source line  : 82
+     192                    ;*   Known Minimum Trip Count        : 1
+     193                    ;*   Known Maximum Trip Count        : 4294967295
+     194                    ;*   Known Max Trip Count Factor     : 1
+     195                    ;* --------------------------------------------------------------------------*
+     196 00000046           ||$C$L1||:    
+     197                            .dwpsn  file "../SwitchTestMain.c",line 74,column 5,is_stmt,isa 1
+     198                    ;----------------------------------------------------------------------
+     199                    ;  74 | status = Board_Input();                                                
+     200                    ;----------------------------------------------------------------------
+     201                    $C$DW$11        .dwtag  DW_TAG_TI_branch
+     202                            .dwattr $C$DW$11, DW_AT_low_pc(0x00)
+     203                            .dwattr $C$DW$11, DW_AT_name("Board_Input")
+     204                            .dwattr $C$DW$11, DW_AT_TI_call
+     205 00000046 FFFEF7FF!         BL        Board_Input           ; [DPU_3_PIPE] |74|  ; [KEEP 32-BIT INS]
+     206                            ; CALL OCCURS {Board_Input }     ; [] |74| 
+     207 0000004a 9000              STR       A1, [SP, #0]          ; [DPU_3_PIPE] |74|  ; [ORIG 16-BIT INS]
+     208                            .dwpsn  file "../SwitchTestMain.c",line 75,column 5,is_stmt,isa 1
+     209                    ;----------------------------------------------------------------------
+     210                    ;  75 | switch(status){                    // switches are negative logic on PF
+     211                    ;     | 0 and PF4                                                              
+     212                    ;----------------------------------------------------------------------
+     213 0000004c E013              B         ||$C$L7||             ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     214                            ; BRANCH OCCURS {||$C$L7||}      ; [] |75| 
+     215                    ;* --------------------------------------------------------------------------*
+     216 0000004e           ||$C$L2||:    
+     217                            .dwpsn  file "../SwitchTestMain.c",line 76,column 18,is_stmt,isa 1
+     218                    ;----------------------------------------------------------------------
+     219                    ;  76 | case 0x01: LEDS = BLUE; break;   // SW1 pressed                        
+     220                    ;----------------------------------------------------------------------
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    5
+
+     221 0000004e 4914              LDR       A2, $C$CON6           ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     222 00000050 2004              MOVS      A1, #4                ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     223 00000052 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     224                            .dwpsn  file "../SwitchTestMain.c",line 76,column 31,is_stmt,isa 1
+     225 00000054 E7F7              B         ||$C$L1||             ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     226                            ; BRANCH OCCURS {||$C$L1||}      ; [] |76| 
+     227                    ;* --------------------------------------------------------------------------*
+     228 00000056           ||$C$L3||:    
+     229                            .dwpsn  file "../SwitchTestMain.c",line 77,column 18,is_stmt,isa 1
+     230                    ;----------------------------------------------------------------------
+     231                    ;  77 | case 0x10: LEDS = RED; break;    // SW2 pressed                        
+     232                    ;----------------------------------------------------------------------
+     233 00000056 4912              LDR       A2, $C$CON6           ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     234 00000058 2002              MOVS      A1, #2                ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     235 0000005a 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     236                            .dwpsn  file "../SwitchTestMain.c",line 77,column 30,is_stmt,isa 1
+     237 0000005c E7F3              B         ||$C$L1||             ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     238                            ; BRANCH OCCURS {||$C$L1||}      ; [] |77| 
+     239                    ;* --------------------------------------------------------------------------*
+     240 0000005e           ||$C$L4||:    
+     241                            .dwpsn  file "../SwitchTestMain.c",line 78,column 18,is_stmt,isa 1
+     242                    ;----------------------------------------------------------------------
+     243                    ;  78 | case 0x00: LEDS = GREEN; break;  // both switches pressed              
+     244                    ;----------------------------------------------------------------------
+     245 0000005e 4910              LDR       A2, $C$CON6           ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     246 00000060 2008              MOVS      A1, #8                ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     247 00000062 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     248                            .dwpsn  file "../SwitchTestMain.c",line 78,column 32,is_stmt,isa 1
+     249 00000064 E7EF              B         ||$C$L1||             ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     250                            ; BRANCH OCCURS {||$C$L1||}      ; [] |78| 
+     251                    ;* --------------------------------------------------------------------------*
+     252 00000066           ||$C$L5||:    
+     253                            .dwpsn  file "../SwitchTestMain.c",line 79,column 18,is_stmt,isa 1
+     254                    ;----------------------------------------------------------------------
+     255                    ;  79 | case 0x11: LEDS = 0; break;      // neither switch pressed             
+     256                    ;----------------------------------------------------------------------
+     257 00000066 490E              LDR       A2, $C$CON6           ; [DPU_3_PIPE] |79|  ; [ORIG 16-BIT INS]
+     258 00000068 2000              MOVS      A1, #0                ; [DPU_3_PIPE] |79|  ; [ORIG 16-BIT INS]
+     259 0000006a 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |79|  ; [ORIG 16-BIT INS]
+     260                            .dwpsn  file "../SwitchTestMain.c",line 79,column 28,is_stmt,isa 1
+     261 0000006c E7EB              B         ||$C$L1||             ; [DPU_3_PIPE] |79|  ; [ORIG 16-BIT INS]
+     262                            ; BRANCH OCCURS {||$C$L1||}      ; [] |79| 
+     263                    ;* --------------------------------------------------------------------------*
+     264 0000006e           ||$C$L6||:    
+     265                            .dwpsn  file "../SwitchTestMain.c",line 80,column 16,is_stmt,isa 1
+     266                    ;----------------------------------------------------------------------
+     267                    ;  80 | default: LEDS = (RED|GREEN|BLUE);// unexpected return value            
+     268                    ;----------------------------------------------------------------------
+     269 0000006e 490C              LDR       A2, $C$CON6           ; [DPU_3_PIPE] |80|  ; [ORIG 16-BIT INS]
+     270 00000070 200E              MOVS      A1, #14               ; [DPU_3_PIPE] |80|  ; [ORIG 16-BIT INS]
+     271 00000072 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |80|  ; [ORIG 16-BIT INS]
+     272                            .dwpsn  file "../SwitchTestMain.c",line 81,column 5,is_stmt,isa 1
+     273 00000074 E7E7              B         ||$C$L1||             ; [DPU_3_PIPE] |81|  ; [ORIG 16-BIT INS]
+     274                            ; BRANCH OCCURS {||$C$L1||}      ; [] |81| 
+     275                    ;* --------------------------------------------------------------------------*
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    6
+
+     276 00000076           ||$C$L7||:    
+     277                            .dwpsn  file "../SwitchTestMain.c",line 75,column 5,is_stmt,isa 1
+     278 00000076 9800              LDR       A1, [SP, #0]          ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     279 00000078 2800              CMP       A1, #0                ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     280 0000007a D0F0              BEQ       ||$C$L4||             ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     281                            ; BRANCHCC OCCURS {||$C$L4||}    ; [] |75| 
+     282                    ;* --------------------------------------------------------------------------*
+     283 0000007c 1E40              SUBS      A1, A1, #1            ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     284 0000007e D0E6              BEQ       ||$C$L2||             ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     285                            ; BRANCHCC OCCURS {||$C$L2||}    ; [] |75| 
+     286                    ;* --------------------------------------------------------------------------*
+     287 00000080 380F              SUBS      A1, A1, #15           ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     288 00000082 D0E8              BEQ       ||$C$L3||             ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     289                            ; BRANCHCC OCCURS {||$C$L3||}    ; [] |75| 
+     290                    ;* --------------------------------------------------------------------------*
+     291 00000084 1E40              SUBS      A1, A1, #1            ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     292 00000086 D0EE              BEQ       ||$C$L5||             ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     293                            ; BRANCHCC OCCURS {||$C$L5||}    ; [] |75| 
+     294                    ;* --------------------------------------------------------------------------*
+     295 00000088 E7F1              B         ||$C$L6||             ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     296                            ; BRANCH OCCURS {||$C$L6||}      ; [] |75| 
+     297                    ;* --------------------------------------------------------------------------*
+     298                            .dwattr $C$DW$5, DW_AT_TI_end_file("../SwitchTestMain.c")
+     299                            .dwattr $C$DW$5, DW_AT_TI_end_line(0x53)
+     300                            .dwattr $C$DW$5, DW_AT_TI_end_column(0x01)
+     301                            .dwendentry
+     302                            .dwendtag $C$DW$5
+     303                    
+     304                    ;******************************************************************************
+     305                    ;* CONSTANT TABLE                                                             *
+     306                    ;******************************************************************************
+     307 0000008a                   .sect   ".text"
+     308                            .align  4
+     309 0000008a 540046C0  ||$C$CON1||:    .bits   1073894400,32
+         0000008e 00004002 
+     310                            .align  4
+     311 0000008e 54204002  ||$C$CON2||:    .bits   1073894432,32
+         00000092 00004002 
+     312                            .align  4
+     313 00000092 551C4002  ||$C$CON3||:    .bits   1073894684,32
+         00000096 00004002 
+     314                            .align  4
+     315 00000096 552C4002  ||$C$CON4||:    .bits   1073894700,32
+         0000009a 00004002 
+     316                            .align  4
+     317 0000009a 55284002  ||$C$CON5||:    .bits   1073894696,32
+         0000009e 00004002 
+     318                            .align  4
+     319 0000009e 50384002  ||$C$CON6||:    .bits   1073893432,32
+         000000a2 00004002 
+     320                    ;*****************************************************************************
+     321                    ;* UNDEFINED EXTERNAL REFERENCES                                             *
+     322                    ;*****************************************************************************
+     323                            .global Switch_Init
+     324                            .global Switch_Input
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    7
+
+     325                            .global Board_Init
+     326                            .global Board_Input
+     327                    
+     328                    ;******************************************************************************
+     329                    ;* BUILD ATTRIBUTES                                                           *
+     330                    ;******************************************************************************
+     331                            .battr "aeabi", Tag_File, 1, Tag_ABI_PCS_wchar_t(2)
+     332                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_rounding(0)
+     333                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_denormal(0)
+     334                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_exceptions(0)
+     335                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_number_model(1)
+     336                            .battr "aeabi", Tag_File, 1, Tag_ABI_enum_size(0)
+     337                            .battr "aeabi", Tag_File, 1, Tag_ABI_optimization_goals(5)
+     338                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_optimization_goals(0)
+     339                            .battr "TI", Tag_File, 1, Tag_Bitfield_layout(2)
+     340                            .battr "TI", Tag_File, 1, Tag_FP_interface(1)
+     341                    
+     342                    ;******************************************************************************
+     343                    ;* TYPE INFORMATION                                                           *
+     344                    ;******************************************************************************
+     345                    $C$DW$T$2       .dwtag  DW_TAG_unspecified_type
+     346                            .dwattr $C$DW$T$2, DW_AT_name("void")
+     347                    $C$DW$T$4       .dwtag  DW_TAG_base_type
+     348                            .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     349                            .dwattr $C$DW$T$4, DW_AT_name("bool")
+     350                            .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     351                    $C$DW$T$5       .dwtag  DW_TAG_base_type
+     352                            .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     353                            .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     354                            .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     355                    $C$DW$T$21      .dwtag  DW_TAG_typedef, DW_AT_name("int8_t")
+     356                            .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$5)
+     357                            .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+     358                            .dwattr $C$DW$T$21, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     359                            .dwattr $C$DW$T$21, DW_AT_decl_line(0x2a)
+     360                            .dwattr $C$DW$T$21, DW_AT_decl_column(0x1d)
+     361                    $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("int_least8_t")
+     362                            .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+     363                            .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+     364                            .dwattr $C$DW$T$22, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     365                            .dwattr $C$DW$T$22, DW_AT_decl_line(0x37)
+     366                            .dwattr $C$DW$T$22, DW_AT_decl_column(0x17)
+     367                    $C$DW$T$6       .dwtag  DW_TAG_base_type
+     368                            .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     369                            .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     370                            .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     371                    $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("uint8_t")
+     372                            .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$6)
+     373                            .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+     374                            .dwattr $C$DW$T$23, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     375                            .dwattr $C$DW$T$23, DW_AT_decl_line(0x2b)
+     376                            .dwattr $C$DW$T$23, DW_AT_decl_column(0x1c)
+     377                    $C$DW$T$24      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least8_t")
+     378                            .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
+     379                            .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    8
+
+     380                            .dwattr $C$DW$T$24, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     381                            .dwattr $C$DW$T$24, DW_AT_decl_line(0x38)
+     382                            .dwattr $C$DW$T$24, DW_AT_decl_column(0x16)
+     383                    $C$DW$T$7       .dwtag  DW_TAG_base_type
+     384                            .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     385                            .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     386                            .dwattr $C$DW$T$7, DW_AT_byte_size(0x02)
+     387                    $C$DW$T$8       .dwtag  DW_TAG_base_type
+     388                            .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     389                            .dwattr $C$DW$T$8, DW_AT_name("short")
+     390                            .dwattr $C$DW$T$8, DW_AT_byte_size(0x02)
+     391                    $C$DW$T$25      .dwtag  DW_TAG_typedef, DW_AT_name("int16_t")
+     392                            .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$8)
+     393                            .dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
+     394                            .dwattr $C$DW$T$25, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     395                            .dwattr $C$DW$T$25, DW_AT_decl_line(0x2c)
+     396                            .dwattr $C$DW$T$25, DW_AT_decl_column(0x1d)
+     397                    $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("int_least16_t")
+     398                            .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+     399                            .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+     400                            .dwattr $C$DW$T$26, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     401                            .dwattr $C$DW$T$26, DW_AT_decl_line(0x3a)
+     402                            .dwattr $C$DW$T$26, DW_AT_decl_column(0x17)
+     403                    $C$DW$T$9       .dwtag  DW_TAG_base_type
+     404                            .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     405                            .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     406                            .dwattr $C$DW$T$9, DW_AT_byte_size(0x02)
+     407                    $C$DW$T$27      .dwtag  DW_TAG_typedef, DW_AT_name("uint16_t")
+     408                            .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$9)
+     409                            .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+     410                            .dwattr $C$DW$T$27, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     411                            .dwattr $C$DW$T$27, DW_AT_decl_line(0x2d)
+     412                            .dwattr $C$DW$T$27, DW_AT_decl_column(0x1c)
+     413                    $C$DW$T$28      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least16_t")
+     414                            .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$27)
+     415                            .dwattr $C$DW$T$28, DW_AT_language(DW_LANG_C)
+     416                            .dwattr $C$DW$T$28, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     417                            .dwattr $C$DW$T$28, DW_AT_decl_line(0x3b)
+     418                            .dwattr $C$DW$T$28, DW_AT_decl_column(0x16)
+     419                    $C$DW$T$10      .dwtag  DW_TAG_base_type
+     420                            .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     421                            .dwattr $C$DW$T$10, DW_AT_name("int")
+     422                            .dwattr $C$DW$T$10, DW_AT_byte_size(0x04)
+     423                    $C$DW$T$30      .dwtag  DW_TAG_typedef, DW_AT_name("int32_t")
+     424                            .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$10)
+     425                            .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
+     426                            .dwattr $C$DW$T$30, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     427                            .dwattr $C$DW$T$30, DW_AT_decl_line(0x2e)
+     428                            .dwattr $C$DW$T$30, DW_AT_decl_column(0x1d)
+     429                    $C$DW$T$31      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast16_t")
+     430                            .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
+     431                            .dwattr $C$DW$T$31, DW_AT_language(DW_LANG_C)
+     432                            .dwattr $C$DW$T$31, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     433                            .dwattr $C$DW$T$31, DW_AT_decl_line(0x47)
+     434                            .dwattr $C$DW$T$31, DW_AT_decl_column(0x17)
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE    9
+
+     435                    $C$DW$T$32      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast32_t")
+     436                            .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$30)
+     437                            .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+     438                            .dwattr $C$DW$T$32, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     439                            .dwattr $C$DW$T$32, DW_AT_decl_line(0x4a)
+     440                            .dwattr $C$DW$T$32, DW_AT_decl_column(0x17)
+     441                    $C$DW$T$33      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast8_t")
+     442                            .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$30)
+     443                            .dwattr $C$DW$T$33, DW_AT_language(DW_LANG_C)
+     444                            .dwattr $C$DW$T$33, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     445                            .dwattr $C$DW$T$33, DW_AT_decl_line(0x45)
+     446                            .dwattr $C$DW$T$33, DW_AT_decl_column(0x17)
+     447                    $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("int_least32_t")
+     448                            .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$30)
+     449                            .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+     450                            .dwattr $C$DW$T$34, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     451                            .dwattr $C$DW$T$34, DW_AT_decl_line(0x3c)
+     452                            .dwattr $C$DW$T$34, DW_AT_decl_column(0x17)
+     453                    $C$DW$T$35      .dwtag  DW_TAG_typedef, DW_AT_name("intptr_t")
+     454                            .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$10)
+     455                            .dwattr $C$DW$T$35, DW_AT_language(DW_LANG_C)
+     456                            .dwattr $C$DW$T$35, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     457                            .dwattr $C$DW$T$35, DW_AT_decl_line(0x52)
+     458                            .dwattr $C$DW$T$35, DW_AT_decl_column(0x1a)
+     459                    $C$DW$T$11      .dwtag  DW_TAG_base_type
+     460                            .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     461                            .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     462                            .dwattr $C$DW$T$11, DW_AT_byte_size(0x04)
+     463                    $C$DW$T$36      .dwtag  DW_TAG_typedef, DW_AT_name("uint32_t")
+     464                            .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$11)
+     465                            .dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
+     466                            .dwattr $C$DW$T$36, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     467                            .dwattr $C$DW$T$36, DW_AT_decl_line(0x2f)
+     468                            .dwattr $C$DW$T$36, DW_AT_decl_column(0x1c)
+     469                    $C$DW$T$41      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast16_t")
+     470                            .dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$36)
+     471                            .dwattr $C$DW$T$41, DW_AT_language(DW_LANG_C)
+     472                            .dwattr $C$DW$T$41, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     473                            .dwattr $C$DW$T$41, DW_AT_decl_line(0x48)
+     474                            .dwattr $C$DW$T$41, DW_AT_decl_column(0x16)
+     475                    $C$DW$T$42      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast32_t")
+     476                            .dwattr $C$DW$T$42, DW_AT_type(*$C$DW$T$36)
+     477                            .dwattr $C$DW$T$42, DW_AT_language(DW_LANG_C)
+     478                            .dwattr $C$DW$T$42, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     479                            .dwattr $C$DW$T$42, DW_AT_decl_line(0x4b)
+     480                            .dwattr $C$DW$T$42, DW_AT_decl_column(0x16)
+     481                    $C$DW$T$43      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast8_t")
+     482                            .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$36)
+     483                            .dwattr $C$DW$T$43, DW_AT_language(DW_LANG_C)
+     484                            .dwattr $C$DW$T$43, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     485                            .dwattr $C$DW$T$43, DW_AT_decl_line(0x46)
+     486                            .dwattr $C$DW$T$43, DW_AT_decl_column(0x16)
+     487                    $C$DW$T$44      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least32_t")
+     488                            .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$T$36)
+     489                            .dwattr $C$DW$T$44, DW_AT_language(DW_LANG_C)
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE   10
+
+     490                            .dwattr $C$DW$T$44, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     491                            .dwattr $C$DW$T$44, DW_AT_decl_line(0x3d)
+     492                            .dwattr $C$DW$T$44, DW_AT_decl_column(0x16)
+     493                    $C$DW$T$45      .dwtag  DW_TAG_typedef, DW_AT_name("uintptr_t")
+     494                            .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$T$11)
+     495                            .dwattr $C$DW$T$45, DW_AT_language(DW_LANG_C)
+     496                            .dwattr $C$DW$T$45, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     497                            .dwattr $C$DW$T$45, DW_AT_decl_line(0x53)
+     498                            .dwattr $C$DW$T$45, DW_AT_decl_column(0x1a)
+     499                    $C$DW$T$12      .dwtag  DW_TAG_base_type
+     500                            .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     501                            .dwattr $C$DW$T$12, DW_AT_name("long")
+     502                            .dwattr $C$DW$T$12, DW_AT_byte_size(0x04)
+     503                    $C$DW$T$13      .dwtag  DW_TAG_base_type
+     504                            .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     505                            .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     506                            .dwattr $C$DW$T$13, DW_AT_byte_size(0x04)
+     507                    $C$DW$T$14      .dwtag  DW_TAG_base_type
+     508                            .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     509                            .dwattr $C$DW$T$14, DW_AT_name("long long")
+     510                            .dwattr $C$DW$T$14, DW_AT_byte_size(0x08)
+     511                    $C$DW$T$46      .dwtag  DW_TAG_typedef, DW_AT_name("int64_t")
+     512                            .dwattr $C$DW$T$46, DW_AT_type(*$C$DW$T$14)
+     513                            .dwattr $C$DW$T$46, DW_AT_language(DW_LANG_C)
+     514                            .dwattr $C$DW$T$46, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     515                            .dwattr $C$DW$T$46, DW_AT_decl_line(0x32)
+     516                            .dwattr $C$DW$T$46, DW_AT_decl_column(0x21)
+     517                    $C$DW$T$47      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast64_t")
+     518                            .dwattr $C$DW$T$47, DW_AT_type(*$C$DW$T$46)
+     519                            .dwattr $C$DW$T$47, DW_AT_language(DW_LANG_C)
+     520                            .dwattr $C$DW$T$47, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     521                            .dwattr $C$DW$T$47, DW_AT_decl_line(0x4e)
+     522                            .dwattr $C$DW$T$47, DW_AT_decl_column(0x17)
+     523                    $C$DW$T$48      .dwtag  DW_TAG_typedef, DW_AT_name("int_least64_t")
+     524                            .dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$46)
+     525                            .dwattr $C$DW$T$48, DW_AT_language(DW_LANG_C)
+     526                            .dwattr $C$DW$T$48, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     527                            .dwattr $C$DW$T$48, DW_AT_decl_line(0x40)
+     528                            .dwattr $C$DW$T$48, DW_AT_decl_column(0x17)
+     529                    $C$DW$T$49      .dwtag  DW_TAG_typedef, DW_AT_name("intmax_t")
+     530                            .dwattr $C$DW$T$49, DW_AT_type(*$C$DW$T$14)
+     531                            .dwattr $C$DW$T$49, DW_AT_language(DW_LANG_C)
+     532                            .dwattr $C$DW$T$49, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     533                            .dwattr $C$DW$T$49, DW_AT_decl_line(0x56)
+     534                            .dwattr $C$DW$T$49, DW_AT_decl_column(0x20)
+     535                    $C$DW$T$15      .dwtag  DW_TAG_base_type
+     536                            .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     537                            .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     538                            .dwattr $C$DW$T$15, DW_AT_byte_size(0x08)
+     539                    $C$DW$T$50      .dwtag  DW_TAG_typedef, DW_AT_name("uint64_t")
+     540                            .dwattr $C$DW$T$50, DW_AT_type(*$C$DW$T$15)
+     541                            .dwattr $C$DW$T$50, DW_AT_language(DW_LANG_C)
+     542                            .dwattr $C$DW$T$50, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     543                            .dwattr $C$DW$T$50, DW_AT_decl_line(0x33)
+     544                            .dwattr $C$DW$T$50, DW_AT_decl_column(0x20)
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE   11
+
+     545                    $C$DW$T$51      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast64_t")
+     546                            .dwattr $C$DW$T$51, DW_AT_type(*$C$DW$T$50)
+     547                            .dwattr $C$DW$T$51, DW_AT_language(DW_LANG_C)
+     548                            .dwattr $C$DW$T$51, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     549                            .dwattr $C$DW$T$51, DW_AT_decl_line(0x4f)
+     550                            .dwattr $C$DW$T$51, DW_AT_decl_column(0x16)
+     551                    $C$DW$T$52      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least64_t")
+     552                            .dwattr $C$DW$T$52, DW_AT_type(*$C$DW$T$50)
+     553                            .dwattr $C$DW$T$52, DW_AT_language(DW_LANG_C)
+     554                            .dwattr $C$DW$T$52, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     555                            .dwattr $C$DW$T$52, DW_AT_decl_line(0x41)
+     556                            .dwattr $C$DW$T$52, DW_AT_decl_column(0x16)
+     557                    $C$DW$T$53      .dwtag  DW_TAG_typedef, DW_AT_name("uintmax_t")
+     558                            .dwattr $C$DW$T$53, DW_AT_type(*$C$DW$T$15)
+     559                            .dwattr $C$DW$T$53, DW_AT_language(DW_LANG_C)
+     560                            .dwattr $C$DW$T$53, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     561                            .dwattr $C$DW$T$53, DW_AT_decl_line(0x57)
+     562                            .dwattr $C$DW$T$53, DW_AT_decl_column(0x20)
+     563                    $C$DW$T$16      .dwtag  DW_TAG_base_type
+     564                            .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     565                            .dwattr $C$DW$T$16, DW_AT_name("float")
+     566                            .dwattr $C$DW$T$16, DW_AT_byte_size(0x04)
+     567                    $C$DW$T$17      .dwtag  DW_TAG_base_type
+     568                            .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     569                            .dwattr $C$DW$T$17, DW_AT_name("double")
+     570                            .dwattr $C$DW$T$17, DW_AT_byte_size(0x08)
+     571                    $C$DW$T$18      .dwtag  DW_TAG_base_type
+     572                            .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     573                            .dwattr $C$DW$T$18, DW_AT_name("long double")
+     574                            .dwattr $C$DW$T$18, DW_AT_byte_size(0x08)
+     575                    $C$DW$T$55      .dwtag  DW_TAG_pointer_type
+     576                            .dwattr $C$DW$T$55, DW_AT_type(*$C$DW$T$6)
+     577                            .dwattr $C$DW$T$55, DW_AT_address_class(0x20)
+     578                    $C$DW$T$56      .dwtag  DW_TAG_typedef, DW_AT_name("__builtin_va_list")
+     579                            .dwattr $C$DW$T$56, DW_AT_type(*$C$DW$T$55)
+     580                            .dwattr $C$DW$T$56, DW_AT_language(DW_LANG_C)
+     581                            .dwattr $C$DW$T$56, DW_AT_decl_file("../SwitchTestMain.c")
+     582                            .dwattr $C$DW$T$56, DW_AT_decl_line(0x53)
+     583                            .dwattr $C$DW$T$56, DW_AT_decl_column(0x01)
+     584                            .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     585                    
+     586                    ;***************************************************************
+     587                    ;* DWARF CIE ENTRIES                                           *
+     588                    ;***************************************************************
+     589                    
+     590                    $C$DW$CIE       .dwcie 14
+     591                            .dwcfi  cfa_register, 13
+     592                            .dwcfi  cfa_offset, 0
+     593                            .dwcfi  undefined, 0
+     594                            .dwcfi  undefined, 1
+     595                            .dwcfi  undefined, 2
+     596                            .dwcfi  undefined, 3
+     597                            .dwcfi  same_value, 4
+     598                            .dwcfi  same_value, 5
+     599                            .dwcfi  same_value, 6
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:38:11 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+SwitchTestMain.asm                                                   PAGE   12
+
+     600                            .dwcfi  same_value, 7
+     601                            .dwcfi  same_value, 8
+     602                            .dwcfi  same_value, 9
+     603                            .dwcfi  same_value, 10
+     604                            .dwcfi  same_value, 11
+     605                            .dwcfi  undefined, 12
+     606                            .dwcfi  undefined, 13
+     607                            .dwcfi  undefined, 14
+     608                            .dwcfi  undefined, 14
+     609                            .dwcfi  undefined, 7
+     610                            .dwcfi  undefined, 64
+     611                            .dwcfi  undefined, 65
+     612                            .dwcfi  undefined, 66
+     613                            .dwcfi  undefined, 67
+     614                            .dwcfi  undefined, 68
+     615                            .dwcfi  undefined, 69
+     616                            .dwcfi  undefined, 70
+     617                            .dwcfi  undefined, 71
+     618                            .dwcfi  undefined, 72
+     619                            .dwcfi  undefined, 73
+     620                            .dwcfi  undefined, 74
+     621                            .dwcfi  undefined, 75
+     622                            .dwcfi  undefined, 76
+     623                            .dwcfi  undefined, 77
+     624                            .dwcfi  undefined, 78
+     625                            .dwcfi  undefined, 79
+     626                            .dwcfi  same_value, 80
+     627                            .dwcfi  same_value, 81
+     628                            .dwcfi  same_value, 82
+     629                            .dwcfi  same_value, 83
+     630                            .dwcfi  same_value, 84
+     631                            .dwcfi  same_value, 85
+     632                            .dwcfi  same_value, 86
+     633                            .dwcfi  same_value, 87
+     634                            .dwcfi  same_value, 88
+     635                            .dwcfi  same_value, 89
+     636                            .dwcfi  same_value, 90
+     637                            .dwcfi  same_value, 91
+     638                            .dwcfi  same_value, 92
+     639                            .dwcfi  same_value, 93
+     640                            .dwcfi  same_value, 94
+     641                            .dwcfi  same_value, 95
+     642                            .dwendentry
+     643                            .dwendtag $C$DW$CU
+     644                    
+
+--------------------------
+Thumb2 Statistics
+--------------------------
+Number of Thumb2 ins converted to Thumb = 0 (0%)
+Number of Thumb ins in input = 52 (85%)
+Number of Thumb2 ins encoded as Thumb2 = 9 (100%)
+Number of Thumb2 ins converted to 2 OPND Thumb = 1
+
+
+No Assembly Errors, No Assembly Warnings

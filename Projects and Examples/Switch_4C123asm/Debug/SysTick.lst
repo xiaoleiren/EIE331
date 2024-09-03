@@ -1,0 +1,136 @@
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:44:34 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../SysTick.asm                                                       PAGE    1
+
+       1                    ; SysTick.asm
+       2                    ; Runs on LM4F120/TM4C123
+       3                    ; Provide functions that initialize the SysTick module, wait at least a
+       4                    ; designated number of clock cycles, and wait approximately a multiple
+       5                    ; of 10 milliseconds using busy wait.  After a power-on-reset, the
+       6                    ; LM4F120 gets its clock from the 16 MHz precision internal oscillator,
+       7                    ; which can vary by +/- 1% at room temperature and +/- 3% across all
+       8                    ; temperature ranges.  If you are using this module, you may need more
+       9                    ; precise timing, so it is assumed that you are using the PLL to set
+      10                    ; the system clock to 50 MHz.  This matters for the function
+      11                    ; SysTick_Wait10ms(), which will wait longer than 10 ms if the clock is
+      12                    ; slower.
+      13                    ; Daniel Valvano
+      14                    ; September 12, 2013
+      15                    
+      16                    ;  This example accompanies the book
+      17                    ;  "Embedded Systems: Introduction to ARM Cortex M Microcontrollers",
+      18                    ;  ISBN: 978-1469998749, Jonathan Valvano, copyright (c) 2015
+      19                    ;  Program 2.11, Section 2.6
+      20                    ;
+      21                    ;Copyright 2015 by Jonathan W. Valvano, valvano@mail.utexas.edu
+      22                    ;   You may use, edit, run or distribute this file
+      23                    ;   as long as the above copyright notice remains
+      24                    ;THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+      25                    ;OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+      26                    ;MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+      27                    ;VALVANO SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
+      28                    ;OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+      29                    ;For more information about my classes, my research, and my books, see
+      30                    ;http://users.ece.utexas.edu/~valvano/
+      31 00000000              .thumb
+      32 00000000              .text
+      33                       .align 2
+      34 00000000 E000E010  NVIC_ST_CTRL_R        .field 0xE000E010,32
+      35 00000004 E000E014  NVIC_ST_RELOAD_R      .field 0xE000E014,32
+      36 00000008 E000E018  NVIC_ST_CURRENT_R     .field 0xE000E018,32
+      37 0000000c 00010000  NVIC_ST_CTRL_COUNT    .field 0x00010000,32  ; Count flag
+      38          00000004  NVIC_ST_CTRL_CLK_SRC  .equ 0x00000004  ; Clock Source
+      39          00000002  NVIC_ST_CTRL_INTEN    .equ 0x00000002  ; Interrupt enable
+      40          00000001  NVIC_ST_CTRL_ENABLE   .equ 0x00000001  ; Counter mode
+      41 00000010 00FFFFFF  NVIC_ST_RELOAD_M      .field 0x00FFFFFF,32  ; Counter load value
+      42                    
+      43                    
+      44                            .global   SysTick_Init
+      45                            .global   SysTick_Wait
+      46                            .global   SysTick_Wait10ms
+      47                    
+      48                    ;------------SysTick_Init------------
+      49                    ; Initialize SysTick with busy wait running at bus clock.
+      50                    ; Input: none
+      51                    ; Output: none
+      52                    ; Modifies: R0, R1
+      53                    SysTick_Init:  .asmfunc
+      54                        ; disable SysTick during setup
+      55 00000014 1018F85F      LDR R1, NVIC_ST_CTRL_R          ; R1 = &NVIC_ST_CTRL_R ; [KEEP 32-BIT INS]
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:44:34 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../SysTick.asm                                                       PAGE    2
+
+      56 00000018 0000F04F      MOV R0, #0                      ; R0 = 0 ; [KEEP 32-BIT INS]
+      57 0000001c 6008          STR R0, [R1]                    ; [R1] = R0 = 0 ; [ORIG 16-BIT INS]
+      58                        ; maximum reload value
+      59 0000001e 101CF85F      LDR R1, NVIC_ST_RELOAD_R        ; R1 = &NVIC_ST_RELOAD_R ; [KEEP 32-BIT INS]
+      60 00000022 0014F85F      LDR R0, NVIC_ST_RELOAD_M        ; R0 = NVIC_ST_RELOAD_M ; [KEEP 32-BIT INS]
+      61 00000026 6008          STR R0, [R1]                    ; [R1] = R0 = NVIC_ST_RELOAD_M ; [ORIG 16-BIT INS]
+      62                        ; any write to current clears it
+      63 00000028 1024F85F      LDR R1, NVIC_ST_CURRENT_R       ; R1 = &NVIC_ST_CURRENT_R ; [KEEP 32-BIT INS]
+      64 0000002c 0000F04F      MOV R0, #0                      ; R0 = 0 ; [KEEP 32-BIT INS]
+      65 00000030 6008          STR R0, [R1]                    ; [R1] = R0 = 0 ; [ORIG 16-BIT INS]
+      66                        ; enable SysTick with core clock
+      67 00000032 1034F85F      LDR R1, NVIC_ST_CTRL_R          ; R1 = &NVIC_ST_CTRL_R ; [KEEP 32-BIT INS]
+      68                                                        ; R0 = ENABLE and CLK_SRC bits set
+      69 00000036 0005F04F      MOV R0, #(NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_CLK_SRC) ; [KEEP 32-BIT INS]
+      70 0000003a 6008          STR R0, [R1]                    ; [R1] = R0 = (NVIC_ST_CTRL_ENABLE|NVIC_ST_CTRL_CLK_SRC) ; [ORIG 1
+      71 0000003c 4770          BX  LR                          ; return ; [ORIG 16-BIT INS]
+      72                        .endasmfunc
+      73                    ;------------SysTick_Wait------------
+      74                    ; Time delay using busy wait.
+      75                    ; Input: R0  delay parameter in units of the core clock (units of 62.5 nsec for 16 MHz clock)
+      76                    ; Output: none
+      77                    ; Modifies: R0, R1, R3
+      78                    SysTick_Wait:  .asmfunc
+      79 0000003e 103CF85F      LDR  R1, NVIC_ST_RELOAD_R       ; R1 = &NVIC_ST_RELOAD_R ; [KEEP 32-BIT INS]
+      80 00000042 0001F1A0      SUB  R0, #1 ; [KEEP 32-BIT INS]
+      81 00000046 6008          STR  R0, [R1]                   ;delay-1;  // number of counts to wait ; [ORIG 16-BIT INS]
+      82 00000048 104CF85F      LDR  R1, NVIC_ST_CTRL_R         ; R1 = &NVIC_ST_CTRL_R ; [KEEP 32-BIT INS]
+      83 0000004c           SysTick_Wait_loop
+      84 0000004c 680B          LDR  R3, [R1]                   ; R3 = NVIC_ST_CTRL_R ; [ORIG 16-BIT INS]
+      85 0000004e 3380F413      ANDS R3, R3, #0x00010000       ; Count set? ; [KEEP 32-BIT INS]
+      86 00000052 D0FB          BEQ  SysTick_Wait_loop ; [ORIG 16-BIT INS]
+      87 00000054 4770          BX   LR                         ; return ; [ORIG 16-BIT INS]
+      88                        .endasmfunc
+      89                        .align 4
+      90                    ;------------SysTick_Wait10ms------------
+      91                    ; Time delay using busy wait.  This assumes 16 MHz clock
+      92                    ; Input: R0  number of times to wait 10 ms before returning
+      93                    ; Output: none
+      94                    ; Modifies: R0
+      95 00000056 710046C0  DELAY10MS             .field 160000,32    ; clock cycles in 10 ms (assumes 16 MHz clock)
+         0000005a 00000002 
+      96                    SysTick_Wait10ms:  .asmfunc
+      97 0000005c B510          PUSH {R4, LR}                   ; save current value of R4 and LR ; [ORIG 16-BIT INS]
+      98 0000005e 1C04          MOVS R4, R0                     ; R4 = R0 = remainingWaits ; [ORIG 16-BIT INS]
+      99 00000060 D005          BEQ SysTick_Wait10ms_done       ; R4 == 0, done ; [ORIG 16-BIT INS]
+     100 00000062           SysTick_Wait10ms_loop
+     101 00000062 000CF85F      LDR R0, DELAY10MS               ; R0 = DELAY10MS ; [KEEP 32-BIT INS]
+     102 00000066 FFEAF7FF      BL  SysTick_Wait                ; wait 10 ms ; [KEEP 32-BIT INS]
+     103 0000006a 1E64          SUBS R4, R4, #1                 ; R4 = R4 - 1; remainingWaits-- ; [ORIG 16-BIT INS]
+     104 0000006c D8F9          BHI SysTick_Wait10ms_loop       ; if(R4 > 0), wait another 10 ms ; [ORIG 16-BIT INS]
+     105 0000006e           SysTick_Wait10ms_done
+     106 0000006e 4010E8BD      POP {R4, LR}                    ; restore previous value of R4 and LR ; [KEEP 32-BIT INS]
+     107 00000072 4770          BX  LR                          ; return ; [ORIG 16-BIT INS]
+     108                        .endasmfunc
+     109                        .end                             ; end of file
+
+--------------------------
+Thumb2 Statistics
+--------------------------
+Number of Thumb2 ins converted to Thumb = 0 (0%)
+Number of Thumb ins in input = 18 (54%)
+Number of Thumb2 ins encoded as Thumb2 = 15 (100%)
+Number of Thumb2 ins converted to 2 OPND Thumb = 0
+
+TI ARM Assembler PC v5.2.4 Mon Jun 29 08:44:34 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../SysTick.asm                                                       PAGE    3
+
+
+No Assembly Errors, No Assembly Warnings

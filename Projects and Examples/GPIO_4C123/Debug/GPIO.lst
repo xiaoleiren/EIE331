@@ -1,0 +1,824 @@
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    1
+
+       1                    ;******************************************************************************
+       2                    ;* TI ARM C/C++ Codegen                                             PC v5.2.4 *
+       3                    ;* Date/Time created: Mon Jun 22 22:17:29 2015                                *
+       4                    ;******************************************************************************
+       5                            .compiler_opts --abi=eabi --arm_vmrs_si_workaround=off --code_state=16 --diag_wrap=off --disab
+       6 00000000                   .thumb
+       7                    
+       8                    $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                            .dwattr $C$DW$CU, DW_AT_name("../GPIO.c")
+      10                            .dwattr $C$DW$CU, DW_AT_producer("TI TI ARM C/C++ Codegen PC v5.2.4 Copyright (c) 1996-2015 Te
+      11                            .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                            .dwattr $C$DW$CU, DW_AT_comp_dir("C:\Dropbox\ArmBook\LaunchPad\ValvanoWareTM4C123\GPIO_4C123\D
+      13                    ;       C:\ti\ccsv6\tools\compiler\ti-cgt-arm_5.2.4\bin\armacpia.exe -@C:\\Users\\VALVAN~1\\AppData\\L
+      14 00000000                   .sect   ".text"
+      15                            .clink
+      16                            .thumbfunc GPIO_Init
+      17 00000000                   .thumb
+      18                            .global GPIO_Init
+      19                    
+      20                    $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("GPIO_Init")
+      21                            .dwattr $C$DW$1, DW_AT_low_pc(GPIO_Init)
+      22                            .dwattr $C$DW$1, DW_AT_high_pc(0x00)
+      23                            .dwattr $C$DW$1, DW_AT_TI_symbol_name("GPIO_Init")
+      24                            .dwattr $C$DW$1, DW_AT_external
+      25                            .dwattr $C$DW$1, DW_AT_TI_begin_file("../GPIO.c")
+      26                            .dwattr $C$DW$1, DW_AT_TI_begin_line(0x28)
+      27                            .dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
+      28                            .dwattr $C$DW$1, DW_AT_decl_file("../GPIO.c")
+      29                            .dwattr $C$DW$1, DW_AT_decl_line(0x28)
+      30                            .dwattr $C$DW$1, DW_AT_decl_column(0x06)
+      31                            .dwattr $C$DW$1, DW_AT_TI_max_frame_size(0x00)
+      32                            .dwpsn  file "../GPIO.c",line 40,column 21,is_stmt,address GPIO_Init,isa 1
+      33                    
+      34                            .dwfde $C$DW$CIE, GPIO_Init
+      35                    ;----------------------------------------------------------------------
+      36                    ;  40 | void GPIO_Init(void){                                                  
+      37                    ;----------------------------------------------------------------------
+      38                    
+      39                    ;*****************************************************************************
+      40                    ;* FUNCTION NAME: GPIO_Init                                                  *
+      41                    ;*                                                                           *
+      42                    ;*   Regs Modified     : A1,A2,SR                                            *
+      43                    ;*   Regs Used         : A1,A2,LR,SR                                         *
+      44                    ;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                   *
+      45                    ;*****************************************************************************
+      46 00000000           GPIO_Init:
+      47                    ;* --------------------------------------------------------------------------*
+      48                            .dwcfi  cfa_offset, 0
+      49                            .dwpsn  file "../GPIO.c",line 41,column 3,is_stmt,isa 1
+      50                    ;----------------------------------------------------------------------
+      51                    ;  41 | SYSCTL_RCGCGPIO_R |= 0x08;        // 1) activate port D                
+      52                    ;----------------------------------------------------------------------
+      53 00000000 4930              LDR       A2, $C$CON1           ; [DPU_3_PIPE] |41|  ; [ORIG 16-BIT INS]
+      54 00000002 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |41|  ; [ORIG 16-BIT INS]
+      55 00000004 0008F040          ORR       A1, A1, #8            ; [DPU_3_PIPE] |41|  ; [KEEP 32-BIT INS]
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    2
+
+      56 00000008 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |41|  ; [ORIG 16-BIT INS]
+      57                            .dwpsn  file "../GPIO.c",line 42,column 3,is_stmt,isa 1
+      58                    ;----------------------------------------------------------------------
+      59                    ;  42 | while((SYSCTL_PRGPIO_R&0x08)==0){};   // allow time for clock to stabil
+      60                    ;     | ize                                                                    
+      61                    ;----------------------------------------------------------------------
+      62                    ;* --------------------------------------------------------------------------*
+      63                    ;*   BEGIN LOOP ||$C$L1||
+      64                    ;*
+      65                    ;*   Loop source line                : 42
+      66                    ;*   Loop closing brace source line  : 42
+      67                    ;*   Known Minimum Trip Count        : 1
+      68                    ;*   Known Maximum Trip Count        : 4294967295
+      69                    ;*   Known Max Trip Count Factor     : 1
+      70                    ;* --------------------------------------------------------------------------*
+      71 0000000a           ||$C$L1||:    
+      72                            .dwpsn  file "../GPIO.c",line 42,column 9,is_stmt,isa 1
+      73                    ;----------------------------------------------------------------------
+      74                    ;  43 | // 2) no need to unlock PD3-0                                          
+      75                    ;----------------------------------------------------------------------
+      76 0000000a 482F              LDR       A1, $C$CON2           ; [DPU_3_PIPE] |42|  ; [ORIG 16-BIT INS]
+      77 0000000c 6800              LDR       A1, [A1, #0]          ; [DPU_3_PIPE] |42|  ; [ORIG 16-BIT INS]
+      78 0000000e 0900              LSRS      A1, A1, #4            ; [DPU_3_PIPE] |42|  ; [ORIG 16-BIT INS]
+      79 00000010 D3FB              BCC       ||$C$L1||             ; [DPU_3_PIPE] |42|  ; [ORIG 16-BIT INS]
+      80                            ; BRANCHCC OCCURS {||$C$L1||}    ; [] |42| 
+      81                    ;* --------------------------------------------------------------------------*
+      82                            .dwpsn  file "../GPIO.c",line 44,column 3,is_stmt,isa 1
+      83                    ;----------------------------------------------------------------------
+      84                    ;  44 | GPIO_PORTD_AMSEL_R &= ~0x0F;      // 3) disable analog functionality on
+      85                    ;     |  PD3-0                                                                 
+      86                    ;----------------------------------------------------------------------
+      87 00000012 492E              LDR       A2, $C$CON3           ; [DPU_3_PIPE] |44|  ; [ORIG 16-BIT INS]
+      88 00000014 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |44|  ; [ORIG 16-BIT INS]
+      89 00000016 000FF020          BIC       A1, A1, #15           ; [DPU_3_PIPE] |44|  ; [KEEP 32-BIT INS]
+      90 0000001a 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |44|  ; [ORIG 16-BIT INS]
+      91                            .dwpsn  file "../GPIO.c",line 45,column 3,is_stmt,isa 1
+      92                    ;----------------------------------------------------------------------
+      93                    ;  45 | GPIO_PORTD_PCTL_R &= ~0x0000FFFF; // 4) GPIO                           
+      94                    ;----------------------------------------------------------------------
+      95 0000001c 492C              LDR       A2, $C$CON4           ; [DPU_3_PIPE] |45|  ; [ORIG 16-BIT INS]
+      96 0000001e 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |45|  ; [ORIG 16-BIT INS]
+      97 00000020 000FF36F          BFC       A1, #0, #16           ; [DPU_3_PIPE] |45|  ; [KEEP 32-BIT INS]
+      98 00000024 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |45|  ; [ORIG 16-BIT INS]
+      99                            .dwpsn  file "../GPIO.c",line 46,column 3,is_stmt,isa 1
+     100                    ;----------------------------------------------------------------------
+     101                    ;  46 | GPIO_PORTD_DIR_R |= 0x0F;         // 5) make PD3-0 out                 
+     102                    ;----------------------------------------------------------------------
+     103 00000026 492B              LDR       A2, $C$CON5           ; [DPU_3_PIPE] |46|  ; [ORIG 16-BIT INS]
+     104 00000028 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |46|  ; [ORIG 16-BIT INS]
+     105 0000002a 000FF040          ORR       A1, A1, #15           ; [DPU_3_PIPE] |46|  ; [KEEP 32-BIT INS]
+     106 0000002e 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |46|  ; [ORIG 16-BIT INS]
+     107                            .dwpsn  file "../GPIO.c",line 47,column 3,is_stmt,isa 1
+     108                    ;----------------------------------------------------------------------
+     109                    ;  47 | GPIO_PORTD_AFSEL_R &= ~0x0F;      // 6) regular port function          
+     110                    ;----------------------------------------------------------------------
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    3
+
+     111 00000030 4929              LDR       A2, $C$CON6           ; [DPU_3_PIPE] |47|  ; [ORIG 16-BIT INS]
+     112 00000032 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |47|  ; [ORIG 16-BIT INS]
+     113 00000034 000FF020          BIC       A1, A1, #15           ; [DPU_3_PIPE] |47|  ; [KEEP 32-BIT INS]
+     114 00000038 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |47|  ; [ORIG 16-BIT INS]
+     115                            .dwpsn  file "../GPIO.c",line 48,column 3,is_stmt,isa 1
+     116                    ;----------------------------------------------------------------------
+     117                    ;  48 | GPIO_PORTD_DEN_R |= 0x0F;         // 7) enable digital I/O on PD3-0    
+     118                    ;----------------------------------------------------------------------
+     119 0000003a 4928              LDR       A2, $C$CON7           ; [DPU_3_PIPE] |48|  ; [ORIG 16-BIT INS]
+     120 0000003c 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |48|  ; [ORIG 16-BIT INS]
+     121 0000003e 000FF040          ORR       A1, A1, #15           ; [DPU_3_PIPE] |48|  ; [KEEP 32-BIT INS]
+     122 00000042 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |48|  ; [ORIG 16-BIT INS]
+     123                            .dwpsn  file "../GPIO.c",line 49,column 1,is_stmt,isa 1
+     124                    $C$DW$2 .dwtag  DW_TAG_TI_branch
+     125                            .dwattr $C$DW$2, DW_AT_low_pc(0x00)
+     126                            .dwattr $C$DW$2, DW_AT_TI_return
+     127 00000044 4770              BX        LR                    ; [DPU_3_PIPE]  ; [ORIG 16-BIT INS]
+     128                            ; BRANCH OCCURS                  ; [] 
+     129                            .dwattr $C$DW$1, DW_AT_TI_end_file("../GPIO.c")
+     130                            .dwattr $C$DW$1, DW_AT_TI_end_line(0x31)
+     131                            .dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
+     132                            .dwendentry
+     133                            .dwendtag $C$DW$1
+     134                    
+     135 00000046                   .sect   ".text"
+     136                            .clink
+     137                            .thumbfunc main
+     138 00000046                   .thumb
+     139                            .global main
+     140                    
+     141                    $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("main")
+     142                            .dwattr $C$DW$3, DW_AT_low_pc(main)
+     143                            .dwattr $C$DW$3, DW_AT_high_pc(0x00)
+     144                            .dwattr $C$DW$3, DW_AT_TI_symbol_name("main")
+     145                            .dwattr $C$DW$3, DW_AT_external
+     146                            .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$10)
+     147                            .dwattr $C$DW$3, DW_AT_TI_begin_file("../GPIO.c")
+     148                            .dwattr $C$DW$3, DW_AT_TI_begin_line(0x35)
+     149                            .dwattr $C$DW$3, DW_AT_TI_begin_column(0x05)
+     150                            .dwattr $C$DW$3, DW_AT_decl_file("../GPIO.c")
+     151                            .dwattr $C$DW$3, DW_AT_decl_line(0x35)
+     152                            .dwattr $C$DW$3, DW_AT_decl_column(0x05)
+     153                            .dwattr $C$DW$3, DW_AT_TI_max_frame_size(0x08)
+     154                            .dwpsn  file "../GPIO.c",line 53,column 15,is_stmt,address main,isa 1
+     155                    
+     156                            .dwfde $C$DW$CIE, main
+     157                    ;----------------------------------------------------------------------
+     158                    ;  53 | int main(void){                                                        
+     159                    ;----------------------------------------------------------------------
+     160                    
+     161                    ;*****************************************************************************
+     162                    ;* FUNCTION NAME: main                                                       *
+     163                    ;*                                                                           *
+     164                    ;*   Regs Modified     : A1,A2,A4,SP,LR,SR,FPEXC,FPSCR                       *
+     165                    ;*   Regs Used         : A1,A2,A4,SP,LR,SR,FPEXC,FPSCR                       *
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    4
+
+     166                    ;*   Local Frame Size  : 0 Args + 0 Auto + 4 Save = 4 byte                   *
+     167                    ;*****************************************************************************
+     168 00000046           main:
+     169                    ;* --------------------------------------------------------------------------*
+     170                            .dwcfi  cfa_offset, 0
+     171 00000046 B508              PUSH      {A4, LR}              ; [DPU_3_PIPE]  ; [ORIG 16-BIT INS]
+     172                            .dwcfi  cfa_offset, 8
+     173                            .dwcfi  save_reg_to_mem, 14, -4
+     174                            .dwcfi  save_reg_to_mem, 3, -8
+     175                            .dwpsn  file "../GPIO.c",line 54,column 3,is_stmt,isa 1
+     176                    ;----------------------------------------------------------------------
+     177                    ;  54 | GPIO_Init();                                                           
+     178                    ;----------------------------------------------------------------------
+     179                    $C$DW$4 .dwtag  DW_TAG_TI_branch
+     180                            .dwattr $C$DW$4, DW_AT_low_pc(0x00)
+     181                            .dwattr $C$DW$4, DW_AT_name("GPIO_Init")
+     182                            .dwattr $C$DW$4, DW_AT_TI_call
+     183 00000048 FFDAF7FF          BL        GPIO_Init             ; [DPU_3_PIPE] |54|  ; [KEEP 32-BIT INS]
+     184                            ; CALL OCCURS {GPIO_Init }       ; [] |54| 
+     185                            .dwpsn  file "../GPIO.c",line 55,column 9,is_stmt,isa 1
+     186                    ;----------------------------------------------------------------------
+     187                    ;  55 | while(1){                                                              
+     188                    ;----------------------------------------------------------------------
+     189                    ;* --------------------------------------------------------------------------*
+     190                    ;*   BEGIN LOOP ||$C$L2||
+     191                    ;*
+     192                    ;*   Loop source line                : 55
+     193                    ;*   Loop closing brace source line  : 60
+     194                    ;*   Known Minimum Trip Count        : 1
+     195                    ;*   Known Maximum Trip Count        : 4294967295
+     196                    ;*   Known Max Trip Count Factor     : 1
+     197                    ;* --------------------------------------------------------------------------*
+     198 0000004c           ||$C$L2||:    
+     199                            .dwpsn  file "../GPIO.c",line 56,column 5,is_stmt,isa 1
+     200                    ;----------------------------------------------------------------------
+     201                    ;  56 | LEDS = 10; // 1010, LED is 0101                                        
+     202                    ;----------------------------------------------------------------------
+     203 0000004c 4924              LDR       A2, $C$CON8           ; [DPU_3_PIPE] |56|  ; [ORIG 16-BIT INS]
+     204 0000004e 200A              MOVS      A1, #10               ; [DPU_3_PIPE] |56|  ; [ORIG 16-BIT INS]
+     205 00000050 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |56|  ; [ORIG 16-BIT INS]
+     206                            .dwpsn  file "../GPIO.c",line 57,column 5,is_stmt,isa 1
+     207                    ;----------------------------------------------------------------------
+     208                    ;  57 | LEDS = 9;  // 1001, LED is 0110                                        
+     209                    ;----------------------------------------------------------------------
+     210 00000052 4923              LDR       A2, $C$CON8           ; [DPU_3_PIPE] |57|  ; [ORIG 16-BIT INS]
+     211 00000054 2009              MOVS      A1, #9                ; [DPU_3_PIPE] |57|  ; [ORIG 16-BIT INS]
+     212 00000056 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |57|  ; [ORIG 16-BIT INS]
+     213                            .dwpsn  file "../GPIO.c",line 58,column 5,is_stmt,isa 1
+     214                    ;----------------------------------------------------------------------
+     215                    ;  58 | LEDS = 5;  // 0101, LED is 1010                                        
+     216                    ;----------------------------------------------------------------------
+     217 00000058 4921              LDR       A2, $C$CON8           ; [DPU_3_PIPE] |58|  ; [ORIG 16-BIT INS]
+     218 0000005a 2005              MOVS      A1, #5                ; [DPU_3_PIPE] |58|  ; [ORIG 16-BIT INS]
+     219 0000005c 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |58|  ; [ORIG 16-BIT INS]
+     220                            .dwpsn  file "../GPIO.c",line 59,column 5,is_stmt,isa 1
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    5
+
+     221                    ;----------------------------------------------------------------------
+     222                    ;  59 | LEDS = 6;  // 0110, LED is 1001                                        
+     223                    ;----------------------------------------------------------------------
+     224 0000005e 4920              LDR       A2, $C$CON8           ; [DPU_3_PIPE] |59|  ; [ORIG 16-BIT INS]
+     225 00000060 2006              MOVS      A1, #6                ; [DPU_3_PIPE] |59|  ; [ORIG 16-BIT INS]
+     226 00000062 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |59|  ; [ORIG 16-BIT INS]
+     227                            .dwpsn  file "../GPIO.c",line 55,column 9,is_stmt,isa 1
+     228 00000064 E7F2              B         ||$C$L2||             ; [DPU_3_PIPE] |55|  ; [ORIG 16-BIT INS]
+     229                            ; BRANCH OCCURS {||$C$L2||}      ; [] |55| 
+     230                    ;* --------------------------------------------------------------------------*
+     231                            .dwattr $C$DW$3, DW_AT_TI_end_file("../GPIO.c")
+     232                            .dwattr $C$DW$3, DW_AT_TI_end_line(0x3d)
+     233                            .dwattr $C$DW$3, DW_AT_TI_end_column(0x01)
+     234                            .dwendentry
+     235                            .dwendtag $C$DW$3
+     236                    
+     237 00000066                   .sect   ".text"
+     238                            .clink
+     239                            .thumbfunc main2
+     240 00000066                   .thumb
+     241                            .global main2
+     242                    
+     243                    $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("main2")
+     244                            .dwattr $C$DW$5, DW_AT_low_pc(main2)
+     245                            .dwattr $C$DW$5, DW_AT_high_pc(0x00)
+     246                            .dwattr $C$DW$5, DW_AT_TI_symbol_name("main2")
+     247                            .dwattr $C$DW$5, DW_AT_external
+     248                            .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$10)
+     249                            .dwattr $C$DW$5, DW_AT_TI_begin_file("../GPIO.c")
+     250                            .dwattr $C$DW$5, DW_AT_TI_begin_line(0x42)
+     251                            .dwattr $C$DW$5, DW_AT_TI_begin_column(0x05)
+     252                            .dwattr $C$DW$5, DW_AT_decl_file("../GPIO.c")
+     253                            .dwattr $C$DW$5, DW_AT_decl_line(0x42)
+     254                            .dwattr $C$DW$5, DW_AT_decl_column(0x05)
+     255                            .dwattr $C$DW$5, DW_AT_TI_max_frame_size(0x00)
+     256                            .dwpsn  file "../GPIO.c",line 66,column 16,is_stmt,address main2,isa 1
+     257                    
+     258                            .dwfde $C$DW$CIE, main2
+     259                    ;----------------------------------------------------------------------
+     260                    ;  66 | int main2(void){                                                       
+     261                    ;----------------------------------------------------------------------
+     262                    
+     263                    ;*****************************************************************************
+     264                    ;* FUNCTION NAME: main2                                                      *
+     265                    ;*                                                                           *
+     266                    ;*   Regs Modified     : A1,A2,SR                                            *
+     267                    ;*   Regs Used         : A1,A2,LR,SR                                         *
+     268                    ;*   Local Frame Size  : 0 Args + 0 Auto + 0 Save = 0 byte                   *
+     269                    ;*****************************************************************************
+     270 00000066           main2:
+     271                    ;* --------------------------------------------------------------------------*
+     272                            .dwcfi  cfa_offset, 0
+     273                            .dwpsn  file "../GPIO.c",line 67,column 3,is_stmt,isa 1
+     274                    ;----------------------------------------------------------------------
+     275                    ;  67 | SYSCTL_RCGCGPIO_R |= 0x10;        // 1) activate clock for Port E      
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    6
+
+     276                    ;----------------------------------------------------------------------
+     277 00000066 4917              LDR       A2, $C$CON1           ; [DPU_3_PIPE] |67|  ; [ORIG 16-BIT INS]
+     278 00000068 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |67|  ; [ORIG 16-BIT INS]
+     279 0000006a 0010F040          ORR       A1, A1, #16           ; [DPU_3_PIPE] |67|  ; [KEEP 32-BIT INS]
+     280 0000006e 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |67|  ; [ORIG 16-BIT INS]
+     281                            .dwpsn  file "../GPIO.c",line 68,column 3,is_stmt,isa 1
+     282                    ;----------------------------------------------------------------------
+     283                    ;  68 | while((SYSCTL_PRGPIO_R&0x10) == 0){};// ready?                         
+     284                    ;----------------------------------------------------------------------
+     285                    ;* --------------------------------------------------------------------------*
+     286                    ;*   BEGIN LOOP ||$C$L3||
+     287                    ;*
+     288                    ;*   Loop source line                : 68
+     289                    ;*   Loop closing brace source line  : 68
+     290                    ;*   Known Minimum Trip Count        : 1
+     291                    ;*   Known Maximum Trip Count        : 4294967295
+     292                    ;*   Known Max Trip Count Factor     : 1
+     293                    ;* --------------------------------------------------------------------------*
+     294 00000070           ||$C$L3||:    
+     295                            .dwpsn  file "../GPIO.c",line 68,column 9,is_stmt,isa 1
+     296 00000070 4815              LDR       A1, $C$CON2           ; [DPU_3_PIPE] |68|  ; [ORIG 16-BIT INS]
+     297 00000072 6800              LDR       A1, [A1, #0]          ; [DPU_3_PIPE] |68|  ; [ORIG 16-BIT INS]
+     298 00000074 0940              LSRS      A1, A1, #5            ; [DPU_3_PIPE] |68|  ; [ORIG 16-BIT INS]
+     299 00000076 D3FB              BCC       ||$C$L3||             ; [DPU_3_PIPE] |68|  ; [ORIG 16-BIT INS]
+     300                            ; BRANCHCC OCCURS {||$C$L3||}    ; [] |68| 
+     301                    ;* --------------------------------------------------------------------------*
+     302                            .dwpsn  file "../GPIO.c",line 69,column 3,is_stmt,isa 1
+     303                    ;----------------------------------------------------------------------
+     304                    ;  69 | GPIO_PORTE_DIR_R |= 0x0F;         // PE3-0 is an output                
+     305                    ;----------------------------------------------------------------------
+     306 00000078 491A              LDR       A2, $C$CON9           ; [DPU_3_PIPE] |69|  ; [ORIG 16-BIT INS]
+     307 0000007a 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |69|  ; [ORIG 16-BIT INS]
+     308 0000007c 000FF040          ORR       A1, A1, #15           ; [DPU_3_PIPE] |69|  ; [KEEP 32-BIT INS]
+     309 00000080 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |69|  ; [ORIG 16-BIT INS]
+     310                            .dwpsn  file "../GPIO.c",line 70,column 3,is_stmt,isa 1
+     311                    ;----------------------------------------------------------------------
+     312                    ;  70 | GPIO_PORTE_AFSEL_R &= ~0x0F;      // regular port function             
+     313                    ;----------------------------------------------------------------------
+     314 00000082 4919              LDR       A2, $C$CON10          ; [DPU_3_PIPE] |70|  ; [ORIG 16-BIT INS]
+     315 00000084 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |70|  ; [ORIG 16-BIT INS]
+     316 00000086 000FF020          BIC       A1, A1, #15           ; [DPU_3_PIPE] |70|  ; [KEEP 32-BIT INS]
+     317 0000008a 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |70|  ; [ORIG 16-BIT INS]
+     318                            .dwpsn  file "../GPIO.c",line 71,column 3,is_stmt,isa 1
+     319                    ;----------------------------------------------------------------------
+     320                    ;  71 | GPIO_PORTE_AMSEL_R &= ~0x0F;      // disable analog on PE3-0           
+     321                    ;----------------------------------------------------------------------
+     322 0000008c 4917              LDR       A2, $C$CON11          ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     323 0000008e 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     324 00000090 000FF020          BIC       A1, A1, #15           ; [DPU_3_PIPE] |71|  ; [KEEP 32-BIT INS]
+     325 00000094 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |71|  ; [ORIG 16-BIT INS]
+     326                            .dwpsn  file "../GPIO.c",line 72,column 3,is_stmt,isa 1
+     327                    ;----------------------------------------------------------------------
+     328                    ;  72 | GPIO_PORTE_PCTL_R &= ~0x0000FFFF; // PCTL GPIO on PE3-0                
+     329                    ;----------------------------------------------------------------------
+     330 00000096 4916              LDR       A2, $C$CON12          ; [DPU_3_PIPE] |72|  ; [ORIG 16-BIT INS]
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    7
+
+     331 00000098 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |72|  ; [ORIG 16-BIT INS]
+     332 0000009a 000FF36F          BFC       A1, #0, #16           ; [DPU_3_PIPE] |72|  ; [KEEP 32-BIT INS]
+     333 0000009e 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |72|  ; [ORIG 16-BIT INS]
+     334                            .dwpsn  file "../GPIO.c",line 73,column 3,is_stmt,isa 1
+     335                    ;----------------------------------------------------------------------
+     336                    ;  73 | GPIO_PORTE_DEN_R |= 0x0F;         // PE3-0 enabled as a digital port   
+     337                    ;----------------------------------------------------------------------
+     338 000000a0 4914              LDR       A2, $C$CON13          ; [DPU_3_PIPE] |73|  ; [ORIG 16-BIT INS]
+     339 000000a2 6808              LDR       A1, [A2, #0]          ; [DPU_3_PIPE] |73|  ; [ORIG 16-BIT INS]
+     340 000000a4 000FF040          ORR       A1, A1, #15           ; [DPU_3_PIPE] |73|  ; [KEEP 32-BIT INS]
+     341 000000a8 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |73|  ; [ORIG 16-BIT INS]
+     342                            .dwpsn  file "../GPIO.c",line 74,column 9,is_stmt,isa 1
+     343                    ;----------------------------------------------------------------------
+     344                    ;  74 | while(1){                                                              
+     345                    ;----------------------------------------------------------------------
+     346                    ;* --------------------------------------------------------------------------*
+     347                    ;*   BEGIN LOOP ||$C$L4||
+     348                    ;*
+     349                    ;*   Loop source line                : 74
+     350                    ;*   Loop closing brace source line  : 79
+     351                    ;*   Known Minimum Trip Count        : 1
+     352                    ;*   Known Maximum Trip Count        : 4294967295
+     353                    ;*   Known Max Trip Count Factor     : 1
+     354                    ;* --------------------------------------------------------------------------*
+     355 000000aa           ||$C$L4||:    
+     356                            .dwpsn  file "../GPIO.c",line 75,column 5,is_stmt,isa 1
+     357                    ;----------------------------------------------------------------------
+     358                    ;  75 | LEDS2 = 10; // 1010, LED is 0101                                       
+     359                    ;----------------------------------------------------------------------
+     360 000000aa 4913              LDR       A2, $C$CON14          ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     361 000000ac 200A              MOVS      A1, #10               ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     362 000000ae 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |75|  ; [ORIG 16-BIT INS]
+     363                            .dwpsn  file "../GPIO.c",line 76,column 5,is_stmt,isa 1
+     364                    ;----------------------------------------------------------------------
+     365                    ;  76 | LEDS2 = 9;  // 1001, LED is 0110                                       
+     366                    ;----------------------------------------------------------------------
+     367 000000b0 4911              LDR       A2, $C$CON14          ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     368 000000b2 2009              MOVS      A1, #9                ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     369 000000b4 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |76|  ; [ORIG 16-BIT INS]
+     370                            .dwpsn  file "../GPIO.c",line 77,column 5,is_stmt,isa 1
+     371                    ;----------------------------------------------------------------------
+     372                    ;  77 | LEDS2 = 5;  // 0101, LED is 1010                                       
+     373                    ;----------------------------------------------------------------------
+     374 000000b6 4910              LDR       A2, $C$CON14          ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     375 000000b8 2005              MOVS      A1, #5                ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     376 000000ba 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |77|  ; [ORIG 16-BIT INS]
+     377                            .dwpsn  file "../GPIO.c",line 78,column 5,is_stmt,isa 1
+     378                    ;----------------------------------------------------------------------
+     379                    ;  78 | LEDS2 = 6;  // 0110, LED is 1001                                       
+     380                    ;----------------------------------------------------------------------
+     381 000000bc 490E              LDR       A2, $C$CON14          ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     382 000000be 2006              MOVS      A1, #6                ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     383 000000c0 6008              STR       A1, [A2, #0]          ; [DPU_3_PIPE] |78|  ; [ORIG 16-BIT INS]
+     384                            .dwpsn  file "../GPIO.c",line 74,column 9,is_stmt,isa 1
+     385 000000c2 E7F2              B         ||$C$L4||             ; [DPU_3_PIPE] |74|  ; [ORIG 16-BIT INS]
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    8
+
+     386                            ; BRANCH OCCURS {||$C$L4||}      ; [] |74| 
+     387                    ;* --------------------------------------------------------------------------*
+     388                            .dwattr $C$DW$5, DW_AT_TI_end_file("../GPIO.c")
+     389                            .dwattr $C$DW$5, DW_AT_TI_end_line(0x50)
+     390                            .dwattr $C$DW$5, DW_AT_TI_end_column(0x01)
+     391                            .dwendentry
+     392                            .dwendtag $C$DW$5
+     393                    
+     394                    ;******************************************************************************
+     395                    ;* CONSTANT TABLE                                                             *
+     396                    ;******************************************************************************
+     397 000000c4                   .sect   ".text"
+     398                            .align  4
+     399 000000c4 400FE608  ||$C$CON1||:    .bits   1074783752,32
+     400                            .align  4
+     401 000000c8 400FEA08  ||$C$CON2||:    .bits   1074784776,32
+     402                            .align  4
+     403 000000cc 40007528  ||$C$CON3||:    .bits   1073771816,32
+     404                            .align  4
+     405 000000d0 4000752C  ||$C$CON4||:    .bits   1073771820,32
+     406                            .align  4
+     407 000000d4 40007400  ||$C$CON5||:    .bits   1073771520,32
+     408                            .align  4
+     409 000000d8 40007420  ||$C$CON6||:    .bits   1073771552,32
+     410                            .align  4
+     411 000000dc 4000751C  ||$C$CON7||:    .bits   1073771804,32
+     412                            .align  4
+     413 000000e0 4000703C  ||$C$CON8||:    .bits   1073770556,32
+     414                            .align  4
+     415 000000e4 40024400  ||$C$CON9||:    .bits   1073890304,32
+     416                            .align  4
+     417 000000e8 40024420  ||$C$CON10||:   .bits   1073890336,32
+     418                            .align  4
+     419 000000ec 40024528  ||$C$CON11||:   .bits   1073890600,32
+     420                            .align  4
+     421 000000f0 4002452C  ||$C$CON12||:   .bits   1073890604,32
+     422                            .align  4
+     423 000000f4 4002451C  ||$C$CON13||:   .bits   1073890588,32
+     424                            .align  4
+     425 000000f8 4002403C  ||$C$CON14||:   .bits   1073889340,32
+     426                    
+     427                    ;******************************************************************************
+     428                    ;* BUILD ATTRIBUTES                                                           *
+     429                    ;******************************************************************************
+     430                            .battr "aeabi", Tag_File, 1, Tag_ABI_PCS_wchar_t(2)
+     431                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_rounding(0)
+     432                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_denormal(0)
+     433                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_exceptions(0)
+     434                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_number_model(1)
+     435                            .battr "aeabi", Tag_File, 1, Tag_ABI_enum_size(0)
+     436                            .battr "aeabi", Tag_File, 1, Tag_ABI_optimization_goals(5)
+     437                            .battr "aeabi", Tag_File, 1, Tag_ABI_FP_optimization_goals(0)
+     438                            .battr "TI", Tag_File, 1, Tag_Bitfield_layout(2)
+     439                            .battr "TI", Tag_File, 1, Tag_FP_interface(1)
+     440                    
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE    9
+
+     441                    ;******************************************************************************
+     442                    ;* TYPE INFORMATION                                                           *
+     443                    ;******************************************************************************
+     444                    $C$DW$T$2       .dwtag  DW_TAG_unspecified_type
+     445                            .dwattr $C$DW$T$2, DW_AT_name("void")
+     446                    $C$DW$T$4       .dwtag  DW_TAG_base_type
+     447                            .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     448                            .dwattr $C$DW$T$4, DW_AT_name("bool")
+     449                            .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     450                    $C$DW$T$5       .dwtag  DW_TAG_base_type
+     451                            .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     452                            .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     453                            .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     454                    $C$DW$T$21      .dwtag  DW_TAG_typedef, DW_AT_name("int8_t")
+     455                            .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$5)
+     456                            .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+     457                            .dwattr $C$DW$T$21, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     458                            .dwattr $C$DW$T$21, DW_AT_decl_line(0x2a)
+     459                            .dwattr $C$DW$T$21, DW_AT_decl_column(0x1d)
+     460                    $C$DW$T$22      .dwtag  DW_TAG_typedef, DW_AT_name("int_least8_t")
+     461                            .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+     462                            .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+     463                            .dwattr $C$DW$T$22, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     464                            .dwattr $C$DW$T$22, DW_AT_decl_line(0x37)
+     465                            .dwattr $C$DW$T$22, DW_AT_decl_column(0x17)
+     466                    $C$DW$T$6       .dwtag  DW_TAG_base_type
+     467                            .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     468                            .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     469                            .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     470                    $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("uint8_t")
+     471                            .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$6)
+     472                            .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+     473                            .dwattr $C$DW$T$23, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     474                            .dwattr $C$DW$T$23, DW_AT_decl_line(0x2b)
+     475                            .dwattr $C$DW$T$23, DW_AT_decl_column(0x1c)
+     476                    $C$DW$T$24      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least8_t")
+     477                            .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
+     478                            .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+     479                            .dwattr $C$DW$T$24, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     480                            .dwattr $C$DW$T$24, DW_AT_decl_line(0x38)
+     481                            .dwattr $C$DW$T$24, DW_AT_decl_column(0x16)
+     482                    $C$DW$T$7       .dwtag  DW_TAG_base_type
+     483                            .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     484                            .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     485                            .dwattr $C$DW$T$7, DW_AT_byte_size(0x02)
+     486                    $C$DW$T$8       .dwtag  DW_TAG_base_type
+     487                            .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     488                            .dwattr $C$DW$T$8, DW_AT_name("short")
+     489                            .dwattr $C$DW$T$8, DW_AT_byte_size(0x02)
+     490                    $C$DW$T$25      .dwtag  DW_TAG_typedef, DW_AT_name("int16_t")
+     491                            .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$8)
+     492                            .dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
+     493                            .dwattr $C$DW$T$25, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     494                            .dwattr $C$DW$T$25, DW_AT_decl_line(0x2c)
+     495                            .dwattr $C$DW$T$25, DW_AT_decl_column(0x1d)
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE   10
+
+     496                    $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("int_least16_t")
+     497                            .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$25)
+     498                            .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+     499                            .dwattr $C$DW$T$26, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     500                            .dwattr $C$DW$T$26, DW_AT_decl_line(0x3a)
+     501                            .dwattr $C$DW$T$26, DW_AT_decl_column(0x17)
+     502                    $C$DW$T$9       .dwtag  DW_TAG_base_type
+     503                            .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     504                            .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     505                            .dwattr $C$DW$T$9, DW_AT_byte_size(0x02)
+     506                    $C$DW$T$27      .dwtag  DW_TAG_typedef, DW_AT_name("uint16_t")
+     507                            .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$9)
+     508                            .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+     509                            .dwattr $C$DW$T$27, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     510                            .dwattr $C$DW$T$27, DW_AT_decl_line(0x2d)
+     511                            .dwattr $C$DW$T$27, DW_AT_decl_column(0x1c)
+     512                    $C$DW$T$28      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least16_t")
+     513                            .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$27)
+     514                            .dwattr $C$DW$T$28, DW_AT_language(DW_LANG_C)
+     515                            .dwattr $C$DW$T$28, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     516                            .dwattr $C$DW$T$28, DW_AT_decl_line(0x3b)
+     517                            .dwattr $C$DW$T$28, DW_AT_decl_column(0x16)
+     518                    $C$DW$T$10      .dwtag  DW_TAG_base_type
+     519                            .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     520                            .dwattr $C$DW$T$10, DW_AT_name("int")
+     521                            .dwattr $C$DW$T$10, DW_AT_byte_size(0x04)
+     522                    $C$DW$T$30      .dwtag  DW_TAG_typedef, DW_AT_name("int32_t")
+     523                            .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$10)
+     524                            .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
+     525                            .dwattr $C$DW$T$30, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     526                            .dwattr $C$DW$T$30, DW_AT_decl_line(0x2e)
+     527                            .dwattr $C$DW$T$30, DW_AT_decl_column(0x1d)
+     528                    $C$DW$T$31      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast16_t")
+     529                            .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
+     530                            .dwattr $C$DW$T$31, DW_AT_language(DW_LANG_C)
+     531                            .dwattr $C$DW$T$31, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     532                            .dwattr $C$DW$T$31, DW_AT_decl_line(0x47)
+     533                            .dwattr $C$DW$T$31, DW_AT_decl_column(0x17)
+     534                    $C$DW$T$32      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast32_t")
+     535                            .dwattr $C$DW$T$32, DW_AT_type(*$C$DW$T$30)
+     536                            .dwattr $C$DW$T$32, DW_AT_language(DW_LANG_C)
+     537                            .dwattr $C$DW$T$32, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     538                            .dwattr $C$DW$T$32, DW_AT_decl_line(0x4a)
+     539                            .dwattr $C$DW$T$32, DW_AT_decl_column(0x17)
+     540                    $C$DW$T$33      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast8_t")
+     541                            .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$30)
+     542                            .dwattr $C$DW$T$33, DW_AT_language(DW_LANG_C)
+     543                            .dwattr $C$DW$T$33, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     544                            .dwattr $C$DW$T$33, DW_AT_decl_line(0x45)
+     545                            .dwattr $C$DW$T$33, DW_AT_decl_column(0x17)
+     546                    $C$DW$T$34      .dwtag  DW_TAG_typedef, DW_AT_name("int_least32_t")
+     547                            .dwattr $C$DW$T$34, DW_AT_type(*$C$DW$T$30)
+     548                            .dwattr $C$DW$T$34, DW_AT_language(DW_LANG_C)
+     549                            .dwattr $C$DW$T$34, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     550                            .dwattr $C$DW$T$34, DW_AT_decl_line(0x3c)
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE   11
+
+     551                            .dwattr $C$DW$T$34, DW_AT_decl_column(0x17)
+     552                    $C$DW$T$35      .dwtag  DW_TAG_typedef, DW_AT_name("intptr_t")
+     553                            .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$10)
+     554                            .dwattr $C$DW$T$35, DW_AT_language(DW_LANG_C)
+     555                            .dwattr $C$DW$T$35, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     556                            .dwattr $C$DW$T$35, DW_AT_decl_line(0x52)
+     557                            .dwattr $C$DW$T$35, DW_AT_decl_column(0x1a)
+     558                    $C$DW$T$11      .dwtag  DW_TAG_base_type
+     559                            .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     560                            .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     561                            .dwattr $C$DW$T$11, DW_AT_byte_size(0x04)
+     562                    $C$DW$T$36      .dwtag  DW_TAG_typedef, DW_AT_name("uint32_t")
+     563                            .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$11)
+     564                            .dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
+     565                            .dwattr $C$DW$T$36, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     566                            .dwattr $C$DW$T$36, DW_AT_decl_line(0x2f)
+     567                            .dwattr $C$DW$T$36, DW_AT_decl_column(0x1c)
+     568                    $C$DW$T$39      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast16_t")
+     569                            .dwattr $C$DW$T$39, DW_AT_type(*$C$DW$T$36)
+     570                            .dwattr $C$DW$T$39, DW_AT_language(DW_LANG_C)
+     571                            .dwattr $C$DW$T$39, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     572                            .dwattr $C$DW$T$39, DW_AT_decl_line(0x48)
+     573                            .dwattr $C$DW$T$39, DW_AT_decl_column(0x16)
+     574                    $C$DW$T$40      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast32_t")
+     575                            .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$36)
+     576                            .dwattr $C$DW$T$40, DW_AT_language(DW_LANG_C)
+     577                            .dwattr $C$DW$T$40, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     578                            .dwattr $C$DW$T$40, DW_AT_decl_line(0x4b)
+     579                            .dwattr $C$DW$T$40, DW_AT_decl_column(0x16)
+     580                    $C$DW$T$41      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast8_t")
+     581                            .dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$36)
+     582                            .dwattr $C$DW$T$41, DW_AT_language(DW_LANG_C)
+     583                            .dwattr $C$DW$T$41, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     584                            .dwattr $C$DW$T$41, DW_AT_decl_line(0x46)
+     585                            .dwattr $C$DW$T$41, DW_AT_decl_column(0x16)
+     586                    $C$DW$T$42      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least32_t")
+     587                            .dwattr $C$DW$T$42, DW_AT_type(*$C$DW$T$36)
+     588                            .dwattr $C$DW$T$42, DW_AT_language(DW_LANG_C)
+     589                            .dwattr $C$DW$T$42, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     590                            .dwattr $C$DW$T$42, DW_AT_decl_line(0x3d)
+     591                            .dwattr $C$DW$T$42, DW_AT_decl_column(0x16)
+     592                    $C$DW$T$43      .dwtag  DW_TAG_typedef, DW_AT_name("uintptr_t")
+     593                            .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$11)
+     594                            .dwattr $C$DW$T$43, DW_AT_language(DW_LANG_C)
+     595                            .dwattr $C$DW$T$43, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     596                            .dwattr $C$DW$T$43, DW_AT_decl_line(0x53)
+     597                            .dwattr $C$DW$T$43, DW_AT_decl_column(0x1a)
+     598                    $C$DW$T$12      .dwtag  DW_TAG_base_type
+     599                            .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     600                            .dwattr $C$DW$T$12, DW_AT_name("long")
+     601                            .dwattr $C$DW$T$12, DW_AT_byte_size(0x04)
+     602                    $C$DW$T$13      .dwtag  DW_TAG_base_type
+     603                            .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     604                            .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     605                            .dwattr $C$DW$T$13, DW_AT_byte_size(0x04)
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE   12
+
+     606                    $C$DW$T$14      .dwtag  DW_TAG_base_type
+     607                            .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     608                            .dwattr $C$DW$T$14, DW_AT_name("long long")
+     609                            .dwattr $C$DW$T$14, DW_AT_byte_size(0x08)
+     610                    $C$DW$T$44      .dwtag  DW_TAG_typedef, DW_AT_name("int64_t")
+     611                            .dwattr $C$DW$T$44, DW_AT_type(*$C$DW$T$14)
+     612                            .dwattr $C$DW$T$44, DW_AT_language(DW_LANG_C)
+     613                            .dwattr $C$DW$T$44, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     614                            .dwattr $C$DW$T$44, DW_AT_decl_line(0x32)
+     615                            .dwattr $C$DW$T$44, DW_AT_decl_column(0x21)
+     616                    $C$DW$T$45      .dwtag  DW_TAG_typedef, DW_AT_name("int_fast64_t")
+     617                            .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$T$44)
+     618                            .dwattr $C$DW$T$45, DW_AT_language(DW_LANG_C)
+     619                            .dwattr $C$DW$T$45, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     620                            .dwattr $C$DW$T$45, DW_AT_decl_line(0x4e)
+     621                            .dwattr $C$DW$T$45, DW_AT_decl_column(0x17)
+     622                    $C$DW$T$46      .dwtag  DW_TAG_typedef, DW_AT_name("int_least64_t")
+     623                            .dwattr $C$DW$T$46, DW_AT_type(*$C$DW$T$44)
+     624                            .dwattr $C$DW$T$46, DW_AT_language(DW_LANG_C)
+     625                            .dwattr $C$DW$T$46, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     626                            .dwattr $C$DW$T$46, DW_AT_decl_line(0x40)
+     627                            .dwattr $C$DW$T$46, DW_AT_decl_column(0x17)
+     628                    $C$DW$T$47      .dwtag  DW_TAG_typedef, DW_AT_name("intmax_t")
+     629                            .dwattr $C$DW$T$47, DW_AT_type(*$C$DW$T$14)
+     630                            .dwattr $C$DW$T$47, DW_AT_language(DW_LANG_C)
+     631                            .dwattr $C$DW$T$47, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     632                            .dwattr $C$DW$T$47, DW_AT_decl_line(0x56)
+     633                            .dwattr $C$DW$T$47, DW_AT_decl_column(0x20)
+     634                    $C$DW$T$15      .dwtag  DW_TAG_base_type
+     635                            .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     636                            .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     637                            .dwattr $C$DW$T$15, DW_AT_byte_size(0x08)
+     638                    $C$DW$T$48      .dwtag  DW_TAG_typedef, DW_AT_name("uint64_t")
+     639                            .dwattr $C$DW$T$48, DW_AT_type(*$C$DW$T$15)
+     640                            .dwattr $C$DW$T$48, DW_AT_language(DW_LANG_C)
+     641                            .dwattr $C$DW$T$48, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     642                            .dwattr $C$DW$T$48, DW_AT_decl_line(0x33)
+     643                            .dwattr $C$DW$T$48, DW_AT_decl_column(0x20)
+     644                    $C$DW$T$49      .dwtag  DW_TAG_typedef, DW_AT_name("uint_fast64_t")
+     645                            .dwattr $C$DW$T$49, DW_AT_type(*$C$DW$T$48)
+     646                            .dwattr $C$DW$T$49, DW_AT_language(DW_LANG_C)
+     647                            .dwattr $C$DW$T$49, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     648                            .dwattr $C$DW$T$49, DW_AT_decl_line(0x4f)
+     649                            .dwattr $C$DW$T$49, DW_AT_decl_column(0x16)
+     650                    $C$DW$T$50      .dwtag  DW_TAG_typedef, DW_AT_name("uint_least64_t")
+     651                            .dwattr $C$DW$T$50, DW_AT_type(*$C$DW$T$48)
+     652                            .dwattr $C$DW$T$50, DW_AT_language(DW_LANG_C)
+     653                            .dwattr $C$DW$T$50, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     654                            .dwattr $C$DW$T$50, DW_AT_decl_line(0x41)
+     655                            .dwattr $C$DW$T$50, DW_AT_decl_column(0x16)
+     656                    $C$DW$T$51      .dwtag  DW_TAG_typedef, DW_AT_name("uintmax_t")
+     657                            .dwattr $C$DW$T$51, DW_AT_type(*$C$DW$T$15)
+     658                            .dwattr $C$DW$T$51, DW_AT_language(DW_LANG_C)
+     659                            .dwattr $C$DW$T$51, DW_AT_decl_file("C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.4/include/stdin
+     660                            .dwattr $C$DW$T$51, DW_AT_decl_line(0x57)
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE   13
+
+     661                            .dwattr $C$DW$T$51, DW_AT_decl_column(0x20)
+     662                    $C$DW$T$16      .dwtag  DW_TAG_base_type
+     663                            .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     664                            .dwattr $C$DW$T$16, DW_AT_name("float")
+     665                            .dwattr $C$DW$T$16, DW_AT_byte_size(0x04)
+     666                    $C$DW$T$17      .dwtag  DW_TAG_base_type
+     667                            .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     668                            .dwattr $C$DW$T$17, DW_AT_name("double")
+     669                            .dwattr $C$DW$T$17, DW_AT_byte_size(0x08)
+     670                    $C$DW$T$18      .dwtag  DW_TAG_base_type
+     671                            .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     672                            .dwattr $C$DW$T$18, DW_AT_name("long double")
+     673                            .dwattr $C$DW$T$18, DW_AT_byte_size(0x08)
+     674                    $C$DW$T$53      .dwtag  DW_TAG_pointer_type
+     675                            .dwattr $C$DW$T$53, DW_AT_type(*$C$DW$T$6)
+     676                            .dwattr $C$DW$T$53, DW_AT_address_class(0x20)
+     677                    $C$DW$T$54      .dwtag  DW_TAG_typedef, DW_AT_name("__builtin_va_list")
+     678                            .dwattr $C$DW$T$54, DW_AT_type(*$C$DW$T$53)
+     679                            .dwattr $C$DW$T$54, DW_AT_language(DW_LANG_C)
+     680                            .dwattr $C$DW$T$54, DW_AT_decl_file("../GPIO.c")
+     681                            .dwattr $C$DW$T$54, DW_AT_decl_line(0x50)
+     682                            .dwattr $C$DW$T$54, DW_AT_decl_column(0x01)
+     683                            .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     684                    
+     685                    ;***************************************************************
+     686                    ;* DWARF CIE ENTRIES                                           *
+     687                    ;***************************************************************
+     688                    
+     689                    $C$DW$CIE       .dwcie 14
+     690                            .dwcfi  cfa_register, 13
+     691                            .dwcfi  cfa_offset, 0
+     692                            .dwcfi  undefined, 0
+     693                            .dwcfi  undefined, 1
+     694                            .dwcfi  undefined, 2
+     695                            .dwcfi  undefined, 3
+     696                            .dwcfi  same_value, 4
+     697                            .dwcfi  same_value, 5
+     698                            .dwcfi  same_value, 6
+     699                            .dwcfi  same_value, 7
+     700                            .dwcfi  same_value, 8
+     701                            .dwcfi  same_value, 9
+     702                            .dwcfi  same_value, 10
+     703                            .dwcfi  same_value, 11
+     704                            .dwcfi  undefined, 12
+     705                            .dwcfi  undefined, 13
+     706                            .dwcfi  undefined, 14
+     707                            .dwcfi  undefined, 14
+     708                            .dwcfi  undefined, 7
+     709                            .dwcfi  undefined, 64
+     710                            .dwcfi  undefined, 65
+     711                            .dwcfi  undefined, 66
+     712                            .dwcfi  undefined, 67
+     713                            .dwcfi  undefined, 68
+     714                            .dwcfi  undefined, 69
+     715                            .dwcfi  undefined, 70
+TI ARM Assembler PC v5.2.4 Mon Jun 22 22:17:29 2015
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+GPIO.asm                                                             PAGE   14
+
+     716                            .dwcfi  undefined, 71
+     717                            .dwcfi  undefined, 72
+     718                            .dwcfi  undefined, 73
+     719                            .dwcfi  undefined, 74
+     720                            .dwcfi  undefined, 75
+     721                            .dwcfi  undefined, 76
+     722                            .dwcfi  undefined, 77
+     723                            .dwcfi  undefined, 78
+     724                            .dwcfi  undefined, 79
+     725                            .dwcfi  same_value, 80
+     726                            .dwcfi  same_value, 81
+     727                            .dwcfi  same_value, 82
+     728                            .dwcfi  same_value, 83
+     729                            .dwcfi  same_value, 84
+     730                            .dwcfi  same_value, 85
+     731                            .dwcfi  same_value, 86
+     732                            .dwcfi  same_value, 87
+     733                            .dwcfi  same_value, 88
+     734                            .dwcfi  same_value, 89
+     735                            .dwcfi  same_value, 90
+     736                            .dwcfi  same_value, 91
+     737                            .dwcfi  same_value, 92
+     738                            .dwcfi  same_value, 93
+     739                            .dwcfi  same_value, 94
+     740                            .dwcfi  same_value, 95
+     741                            .dwendentry
+     742                            .dwendtag $C$DW$CU
+     743                    
+
+--------------------------
+Thumb2 Statistics
+--------------------------
+Number of Thumb2 ins converted to Thumb = 0 (0%)
+Number of Thumb ins in input = 70 (84%)
+Number of Thumb2 ins encoded as Thumb2 = 13 (100%)
+Number of Thumb2 ins converted to 2 OPND Thumb = 0
+
+
+No Assembly Errors, No Assembly Warnings

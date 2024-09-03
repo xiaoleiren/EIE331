@@ -1,0 +1,16 @@
+Feel free to use this part that I created for mounting the laser
+sensors on the front of the vehicle. The outermost are angled at 45
+degrees from center, inner two at 30 degrees from center. To mount
+sensors either drill a hole through the plastic or heat up a nail to
+melt a hole. I recommend the latter. The file with the gcode extension
+is ready to just be dropped onto a flash drive and print on the
+makerspace's 3D printers. The SolidWorks part is included if want to
+make any modifications. (Like adding mounting holes).
+
+Contents:
+ToFSensorMount.gcode - 3D print job G-Code file
+ToFSensorMount.STL - CAD file
+ToFSensorMount.SLDPRT - SolidWorks file
+
+Credit:
+Nino Teruya <nino.teruya@utexas.edu>

@@ -1,0 +1,29 @@
+Attached are the .stl (MakerBot 3D printer format) and Autodesk Fusion 360
+CAD files for the rack.
+
+Description from my Lab 7 report:
+
+*To give us better steering control with virtually no hysteresis, we
+designed a rack-and-pinion steering system for the front servo that we
+implemented alongside our differential drive system. The rack was 3D
+printed and the .stl file has been included in our code submission. Note
+that for the best results on a MakerBot Dual Replicator, the rack should be
+oriented flat, with the teeth facing up and the curved side to the back of
+the printer. We used 25% infill and ran the printer at 50% speed until we
+reached the teeth, at which point we switched to 25% speed. We printed the
+rack out of ABS, so the extruder was at 240 degrees Celsius and the printer
+plate was at 110 degrees Celsius. The gear we used to mesh with the rack is
+a 16-tooth high-torque servo gear, ServoCity part number 615278. It can be
+found at the following link for $14.99 plus
+shipping:https://www.servocity.com/32p-24t-c1-spline-servo-mount-gears-metal
+<https://www.servocity.com/32p-24t-c1-spline-servo-mount-gears-metal>*
+
+Picture of installation:
+*[image: 20170503_131030.jpg]*
+
+UPDATE 4/27/18:
+We've included the .stl file for the gear as well. It can be 3D
+printed at 25% speed. Thanks to David Schwarz and Manish Reddy for the
+file!
+
+-Shan

@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\Dropbox\ArmBook\LaunchPad\LaunchPadware\Flash_4C123\Flash.uvproj
+Project File Date:  10/21/2014
+
+<h2>Output:</h2>
+Rebuild target 'Flash'
+assembling startup.s...
+compiling FlashProgram.c...
+compiling FlashTestMain.c...
+compiling PLL.c...
+compiling Scoreboard.c...
+compiling UART.c...
+linking...
+Program Size: Code=4212 RO-data=32 RW-data=32 ZI-data=1200  
+".\Flash.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Dropbox\\ArmBook\\LaunchPad\\LaunchPadware\\Flash_4C123\\Flash.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Full Chip Erase Done.
+Programming Failed!
+Load "E:\\Dropbox\\ArmBook\\LaunchPad\\LaunchPadware\\Flash_4C123\\Flash.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
+Load "E:\\Dropbox\\ArmBook\\LaunchPad\\LaunchPadware\\Flash_4C123\\Flash.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Clean started: Project: 'Flash'
+   deleting intermediate output files for target 'Flash'

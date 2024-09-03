@@ -1,0 +1,28 @@
+Dependencies for Project 'Timer1A', Target 'Timer1A': (DO NOT MODIFY !)
+F (.\startup.s)(0x5548E5CD)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Timer1A-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\main.c)(0x6005ABD6)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\..-I.\RTE\_Timer1A-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (../inc/PLL.h)(0x5E10D0A5)
+I (../inc/Timer1A.h)(0x5E0D15DE)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (../inc/CortexM.h)(0x5E10D019)
+I (../inc/LaunchPad.h)(0x5E10D0A5)
+I (../inc/TExaS.h)(0x6005A14A)
+F (..\inc\PLL.c)(0x5E1B402E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\..-I.\RTE\_Timer1A-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (..\inc\../inc/PLL.h)(0x5E10D0A5)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\Timer1A.c)(0x5E0D197E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\..-I.\RTE\_Timer1A-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\timer1a.o --omf_browse .\timer1a.crf --depend .\timer1a.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\LaunchPad.c)(0x5E1B402E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\..-I.\RTE\_Timer1A-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\launchpad.o --omf_browse .\launchpad.crf --depend .\launchpad.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (..\inc\../inc/LaunchPad.h)(0x5E10D0A5)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (..\inc\../inc/CortexM.h)(0x5E10D019)
+F (..\inc\Texas.c)(0x6005A19C)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\..-I.\RTE\_Timer1A-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\texas.o --omf_browse .\texas.crf --depend .\texas.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C4824)
+I (..\inc\../inc/CortexM.h)(0x5E10D019)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (..\inc\../inc/TExaS.h)(0x6005A14A)
+I (..\inc\../inc/PLL.h)(0x5E10D0A5)

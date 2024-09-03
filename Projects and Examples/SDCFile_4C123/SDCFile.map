@@ -1,0 +1,1339 @@
+Component: ARM Compiler 5.06 update 6 (build 750) Tool: armlink [4d35ed]
+
+==============================================================================
+
+Section Cross References
+
+    startup.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(RESET) refers to startup.o(STACK) for StackMem
+    startup.o(RESET) refers to diskio.o(i.Timer5A_Handler) for Timer5A_Handler
+    startup.o(RESET) refers to __main.o(!!!main) for __main
+    startup.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup.o(.text) refers to startup.o(HEAP) for HeapMem
+    startup.o(.text) refers to startup.o(STACK) for StackMem
+    diskio.o(i.SSI0_Init) refers to diskio.o(i.Timer5_Init) for Timer5_Init
+    diskio.o(i.SSI0_Init) refers to diskio.o(i.CS_Init) for CS_Init
+    diskio.o(i.Timer5A_Handler) refers to diskio.o(i.disk_timerproc) for disk_timerproc
+    diskio.o(i.deselect) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.disk_initialize) refers to diskio.o(i.init_spi) for init_spi
+    diskio.o(i.disk_initialize) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.disk_initialize) refers to diskio.o(i.send_cmd) for send_cmd
+    diskio.o(i.disk_initialize) refers to diskio.o(i.deselect) for deselect
+    diskio.o(i.disk_initialize) refers to diskio.o(.data) for Stat
+    diskio.o(i.disk_ioctl) refers to diskio.o(i.select) for select
+    diskio.o(i.disk_ioctl) refers to diskio.o(i.send_cmd) for send_cmd
+    diskio.o(i.disk_ioctl) refers to diskio.o(i.rcvr_datablock) for rcvr_datablock
+    diskio.o(i.disk_ioctl) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.disk_ioctl) refers to diskio.o(i.wait_ready) for wait_ready
+    diskio.o(i.disk_ioctl) refers to diskio.o(i.deselect) for deselect
+    diskio.o(i.disk_ioctl) refers to diskio.o(.data) for Stat
+    diskio.o(i.disk_read) refers to diskio.o(i.send_cmd) for send_cmd
+    diskio.o(i.disk_read) refers to diskio.o(i.rcvr_datablock) for rcvr_datablock
+    diskio.o(i.disk_read) refers to diskio.o(i.deselect) for deselect
+    diskio.o(i.disk_read) refers to diskio.o(.data) for Stat
+    diskio.o(i.disk_status) refers to diskio.o(.data) for Stat
+    diskio.o(i.disk_timerproc) refers to diskio.o(.data) for Timer1
+    diskio.o(i.disk_write) refers to diskio.o(i.send_cmd) for send_cmd
+    diskio.o(i.disk_write) refers to diskio.o(i.xmit_datablock) for xmit_datablock
+    diskio.o(i.disk_write) refers to diskio.o(i.deselect) for deselect
+    diskio.o(i.disk_write) refers to diskio.o(.data) for Stat
+    diskio.o(i.init_spi) refers to diskio.o(i.SSI0_Init) for SSI0_Init
+    diskio.o(i.init_spi) refers to diskio.o(.data) for Timer1
+    diskio.o(i.rcvr_datablock) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.rcvr_datablock) refers to diskio.o(i.rcvr_spi_multi) for rcvr_spi_multi
+    diskio.o(i.rcvr_datablock) refers to diskio.o(.data) for Timer1
+    diskio.o(i.rcvr_spi_multi) refers to diskio.o(i.rcvr_spi) for rcvr_spi
+    diskio.o(i.select) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.select) refers to diskio.o(i.wait_ready) for wait_ready
+    diskio.o(i.select) refers to diskio.o(i.deselect) for deselect
+    diskio.o(i.send_cmd) refers to diskio.o(i.deselect) for deselect
+    diskio.o(i.send_cmd) refers to diskio.o(i.select) for select
+    diskio.o(i.send_cmd) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.wait_ready) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.wait_ready) refers to diskio.o(.data) for Timer2
+    diskio.o(i.xmit_datablock) refers to diskio.o(i.wait_ready) for wait_ready
+    diskio.o(i.xmit_datablock) refers to diskio.o(i.xchg_spi) for xchg_spi
+    diskio.o(i.xmit_datablock) refers to diskio.o(i.xmit_spi_multi) for xmit_spi_multi
+    ff.o(i.check_fs) refers to ff.o(i.move_window) for move_window
+    ff.o(i.create_chain) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.create_chain) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.create_name) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.create_name) refers to ff.o(i.chk_chr) for chk_chr
+    ff.o(i.dir_alloc) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_alloc) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_alloc) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_find) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_find) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_find) refers to ff.o(i.mem_cmp) for mem_cmp
+    ff.o(i.dir_find) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_next) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.dir_next) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.dir_next) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.dir_next) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.dir_next) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.dir_read) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_read) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.dir_register) refers to ff.o(i.dir_alloc) for dir_alloc
+    ff.o(i.dir_register) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_register) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.dir_register) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.dir_remove) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.dir_remove) refers to ff.o(i.move_window) for move_window
+    ff.o(i.dir_remove) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.dir_sdi) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.dir_sdi) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.f_chdir) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_chdir) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_chdir) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_chmod) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_chmod) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_chmod) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_close) refers to ff.o(i.f_sync) for f_sync
+    ff.o(i.f_close) refers to ff.o(i.validate) for validate
+    ff.o(i.f_closedir) refers to ff.o(i.validate) for validate
+    ff.o(i.f_getcwd) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_getcwd) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_getcwd) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_getcwd) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_getcwd) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.f_getcwd) refers to ff.o(i.get_fileinfo) for get_fileinfo
+    ff.o(i.f_getfree) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_getfree) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_getfree) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_getlabel) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_getlabel) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_getlabel) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_getlabel) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_getlabel) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_lseek) refers to ff.o(i.validate) for validate
+    ff.o(i.f_lseek) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.f_lseek) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_lseek) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.f_lseek) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_lseek) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.f_mkdir) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_mkdir) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_mkdir) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.f_mkdir) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.f_mkdir) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.f_mkdir) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.f_mkdir) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_mkdir) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_mkdir) refers to ff.o(i.dir_register) for dir_register
+    ff.o(i.f_mkdir) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_mkdir) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_mkfs) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.f_mkfs) refers to diskio.o(i.disk_initialize) for disk_initialize
+    ff.o(i.f_mkfs) refers to diskio.o(i.disk_ioctl) for disk_ioctl
+    ff.o(i.f_mkfs) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.f_mkfs) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_mkfs) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_mkfs) refers to ff.o(.data) for FatFs
+    ff.o(i.f_mkfs) refers to ff.o(.constdata) for vst
+    ff.o(i.f_mount) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.f_mount) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_mount) refers to ff.o(.data) for FatFs
+    ff.o(i.f_open) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_open) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_open) refers to ff.o(i.dir_register) for dir_register
+    ff.o(i.f_open) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_open) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_open) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_open) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_opendir) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_opendir) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_opendir) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_opendir) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_read) refers to ff.o(i.validate) for validate
+    ff.o(i.f_read) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_read) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.f_read) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.f_read) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_read) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_readdir) refers to ff.o(i.validate) for validate
+    ff.o(i.f_readdir) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_readdir) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_readdir) refers to ff.o(i.get_fileinfo) for get_fileinfo
+    ff.o(i.f_readdir) refers to ff.o(i.dir_next) for dir_next
+    ff.o(i.f_rename) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_rename) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_rename) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_rename) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.f_rename) refers to ff.o(i.dir_register) for dir_register
+    ff.o(i.f_rename) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_rename) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.f_rename) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_rename) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_rename) refers to ff.o(i.dir_remove) for dir_remove
+    ff.o(i.f_rename) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_setlabel) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_setlabel) refers to ff.o(i.chk_chr) for chk_chr
+    ff.o(i.f_setlabel) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_setlabel) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_setlabel) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_setlabel) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_setlabel) refers to ff.o(i.dir_alloc) for dir_alloc
+    ff.o(i.f_setlabel) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.f_stat) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_stat) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_stat) refers to ff.o(i.get_fileinfo) for get_fileinfo
+    ff.o(i.f_sync) refers to ff.o(i.validate) for validate
+    ff.o(i.f_sync) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_sync) refers to ff.o(i.move_window) for move_window
+    ff.o(i.f_sync) refers to ff.o(i.st_clust) for st_clust
+    ff.o(i.f_sync) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_truncate) refers to ff.o(i.validate) for validate
+    ff.o(i.f_truncate) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_truncate) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.f_truncate) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.f_truncate) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_unlink) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_unlink) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_unlink) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.f_unlink) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_unlink) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.f_unlink) refers to ff.o(i.dir_read) for dir_read
+    ff.o(i.f_unlink) refers to ff.o(i.dir_remove) for dir_remove
+    ff.o(i.f_unlink) refers to ff.o(i.remove_chain) for remove_chain
+    ff.o(i.f_unlink) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_utime) refers to ff.o(i.find_volume) for find_volume
+    ff.o(i.f_utime) refers to ff.o(i.follow_path) for follow_path
+    ff.o(i.f_utime) refers to ff.o(i.sync_fs) for sync_fs
+    ff.o(i.f_write) refers to ff.o(i.validate) for validate
+    ff.o(i.f_write) refers to ff.o(i.create_chain) for create_chain
+    ff.o(i.f_write) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.f_write) refers to ff.o(i.clust2sect) for clust2sect
+    ff.o(i.f_write) refers to ff.o(i.mem_cpy) for mem_cpy
+    ff.o(i.f_write) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.find_volume) refers to ff.o(i.get_ldnumber) for get_ldnumber
+    ff.o(i.find_volume) refers to diskio.o(i.disk_status) for disk_status
+    ff.o(i.find_volume) refers to diskio.o(i.disk_initialize) for disk_initialize
+    ff.o(i.find_volume) refers to ff.o(i.check_fs) for check_fs
+    ff.o(i.find_volume) refers to ff.o(i.move_window) for move_window
+    ff.o(i.find_volume) refers to ff.o(.data) for FatFs
+    ff.o(i.follow_path) refers to ff.o(i.dir_sdi) for dir_sdi
+    ff.o(i.follow_path) refers to ff.o(i.create_name) for create_name
+    ff.o(i.follow_path) refers to ff.o(i.dir_find) for dir_find
+    ff.o(i.follow_path) refers to ff.o(i.ld_clust) for ld_clust
+    ff.o(i.get_fat) refers to ff.o(i.move_window) for move_window
+    ff.o(i.move_window) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.move_window) refers to diskio.o(i.disk_read) for disk_read
+    ff.o(i.put_fat) refers to ff.o(i.move_window) for move_window
+    ff.o(i.remove_chain) refers to ff.o(i.get_fat) for get_fat
+    ff.o(i.remove_chain) refers to ff.o(i.put_fat) for put_fat
+    ff.o(i.sync_fs) refers to ff.o(i.sync_window) for sync_window
+    ff.o(i.sync_fs) refers to ff.o(i.mem_set) for mem_set
+    ff.o(i.sync_fs) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.sync_fs) refers to diskio.o(i.disk_ioctl) for disk_ioctl
+    ff.o(i.sync_window) refers to diskio.o(i.disk_write) for disk_write
+    ff.o(i.validate) refers to diskio.o(i.disk_status) for disk_status
+    sdcfile.o(i.FileSystemTest) refers to ff.o(i.f_open) for f_open
+    sdcfile.o(i.FileSystemTest) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    sdcfile.o(i.FileSystemTest) refers to st7735.o(i.ST7735_DrawString) for ST7735_DrawString
+    sdcfile.o(i.FileSystemTest) refers to ff.o(i.f_write) for f_write
+    sdcfile.o(i.FileSystemTest) refers to ff.o(i.f_close) for f_close
+    sdcfile.o(i.FileSystemTest) refers to ff.o(i.f_read) for f_read
+    sdcfile.o(i.FileSystemTest) refers to st7735.o(i.ST7735_DrawChar) for ST7735_DrawChar
+    sdcfile.o(i.FileSystemTest) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    sdcfile.o(i.FileSystemTest) refers to st7735.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
+    sdcfile.o(i.FileSystemTest) refers to st7735.o(i.ST7735_OutUDec) for ST7735_OutUDec
+    sdcfile.o(i.FileSystemTest) refers to sdcfile.o(.bss) for Handle2
+    sdcfile.o(i.FileSystemTest) refers to sdcfile.o(.data) for Fresult
+    sdcfile.o(i.SimpleUnformattedTest) refers to diskio.o(i.disk_initialize) for disk_initialize
+    sdcfile.o(i.SimpleUnformattedTest) refers to sdcfile.o(i.diskError) for diskError
+    sdcfile.o(i.SimpleUnformattedTest) refers to diskio.o(i.disk_write) for disk_write
+    sdcfile.o(i.SimpleUnformattedTest) refers to diskio.o(i.disk_read) for disk_read
+    sdcfile.o(i.SimpleUnformattedTest) refers to sdcfile.o(.bss) for buffer
+    sdcfile.o(i.main) refers to pll.o(i.PLL_Init) for PLL_Init
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_InitR) for ST7735_InitR
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    sdcfile.o(i.main) refers to startup.o(.text) for EnableInterrupts
+    sdcfile.o(i.main) refers to ff.o(i.f_mount) for f_mount
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_DrawString) for ST7735_DrawString
+    sdcfile.o(i.main) refers to sdcfile.o(i.FileSystemTest) for FileSystemTest
+    sdcfile.o(i.main) refers to ff.o(i.f_open) for f_open
+    sdcfile.o(i.main) refers to ff.o(i.f_read) for f_read
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_DrawChar) for ST7735_DrawChar
+    sdcfile.o(i.main) refers to ff.o(i.f_close) for f_close
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
+    sdcfile.o(i.main) refers to st7735.o(i.ST7735_OutUDec) for ST7735_OutUDec
+    sdcfile.o(i.main) refers to ff.o(i.f_lseek) for f_lseek
+    sdcfile.o(i.main) refers to ff.o(i.f_write) for f_write
+    sdcfile.o(i.main) refers to sdcfile.o(.bss) for g_sFatFs
+    sdcfile.o(i.main) refers to sdcfile.o(.data) for MountFresult
+    sdcfile.o(i.main) refers to sdcfile.o(.constdata) for inFilename
+    st7735.o(i.Delay1ms) refers to st7735.o(.emb_text) for Delay
+    st7735.o(i.Output_Clear) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.Output_Color) refers to st7735.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
+    st7735.o(i.Output_Init) refers to st7735.o(i.ST7735_InitR) for ST7735_InitR
+    st7735.o(i.Output_Init) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.Output_Off) refers to st7735.o(i.Output_Clear) for Output_Clear
+    st7735.o(i.Output_On) refers to st7735.o(i.Output_Init) for Output_Init
+    st7735.o(i.ST7735_DrawBitmap) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawBitmap) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawBitmap) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(i.pushColor) for pushColor
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(.constdata) for Font
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(.constdata) for Font
+    st7735.o(i.ST7735_DrawCircle) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawCircle) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawCircle) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawCircle) refers to st7735.o(.constdata) for circle
+    st7735.o(i.ST7735_DrawFastHLine) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawFastHLine) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawFastHLine) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawFastVLine) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawFastVLine) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawFastVLine) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawPixel) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawPixel) refers to st7735.o(i.pushColor) for pushColor
+    st7735.o(i.ST7735_DrawPixel) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawSmallCircle) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawSmallCircle) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawSmallCircle) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawSmallCircle) refers to st7735.o(.constdata) for smallCircle
+    st7735.o(i.ST7735_DrawString) refers to st7735.o(i.ST7735_DrawCharS) for ST7735_DrawCharS
+    st7735.o(i.ST7735_FillRect) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_FillRect) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_FillRect) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_FillScreen) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    st7735.o(i.ST7735_FillScreen) refers to st7735.o(.data) for _height
+    st7735.o(i.ST7735_InitB) refers to st7735.o(i.commonInit) for commonInit
+    st7735.o(i.ST7735_InitB) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    st7735.o(i.ST7735_InitB) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.ST7735_InitB) refers to st7735.o(.constdata) for Bcmd
+    st7735.o(i.ST7735_InitB) refers to st7735.o(.data) for StTextColor
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.commonInit) for commonInit
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.commandList) for commandList
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.ST7735_InitR) refers to st7735.o(.constdata) for Rcmd1
+    st7735.o(i.ST7735_InitR) refers to st7735.o(.data) for ColStart
+    st7735.o(i.ST7735_InvertDisplay) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.ST7735_OutChar) refers to st7735.o(i.ST7735_DrawString) for ST7735_DrawString
+    st7735.o(i.ST7735_OutChar) refers to st7735.o(i.ST7735_DrawCharS) for ST7735_DrawCharS
+    st7735.o(i.ST7735_OutChar) refers to st7735.o(.data) for StY
+    st7735.o(i.ST7735_OutString) refers to st7735.o(i.ST7735_OutChar) for ST7735_OutChar
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(i.fillmessage) for fillmessage
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(i.ST7735_DrawString) for ST7735_DrawString
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(i.ST7735_DrawCharS) for ST7735_DrawCharS
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(.data) for Messageindex
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(.bss) for Message
+    st7735.o(i.ST7735_PlotBar) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
+    st7735.o(i.ST7735_PlotBar) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotClear) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    st7735.o(i.ST7735_PlotClear) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    st7735.o(i.ST7735_PlotClear) refers to st7735.o(.data) for Ymax
+    st7735.o(i.ST7735_PlotLine) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_PlotLine) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotNext) refers to st7735.o(.data) for X
+    st7735.o(i.ST7735_PlotNextErase) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    st7735.o(i.ST7735_PlotNextErase) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
+    st7735.o(i.ST7735_PlotNextErase) refers to st7735.o(.data) for X
+    st7735.o(i.ST7735_PlotPoint) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_PlotPoint) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotPoints) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_PlotPoints) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotdBfs) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
+    st7735.o(i.ST7735_PlotdBfs) refers to st7735.o(.constdata) for dBfs
+    st7735.o(i.ST7735_PlotdBfs) refers to st7735.o(.data) for X
+    st7735.o(i.ST7735_SetCursor) refers to st7735.o(.data) for StX
+    st7735.o(i.ST7735_SetRotation) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.ST7735_SetRotation) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_SetRotation) refers to st7735.o(.data) for Rotation
+    st7735.o(i.ST7735_SetTextColor) refers to st7735.o(.data) for StTextColor
+    st7735.o(i.commandList) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.commandList) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.commandList) refers to st7735.o(i.Delay1ms) for Delay1ms
+    st7735.o(i.commonInit) refers to st7735.o(i.Delay1ms) for Delay1ms
+    st7735.o(i.commonInit) refers to st7735.o(i.SDC_CS_Init) for SDC_CS_Init
+    st7735.o(i.commonInit) refers to st7735.o(i.commandList) for commandList
+    st7735.o(i.commonInit) refers to st7735.o(.data) for RowStart
+    st7735.o(i.fillmessage) refers to st7735.o(.bss) for Message
+    st7735.o(i.fillmessage) refers to st7735.o(.data) for Messageindex
+    st7735.o(i.fputc) refers to st7735.o(i.ST7735_OutChar) for ST7735_OutChar
+    st7735.o(i.pushColor) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.setAddrWindow) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.setAddrWindow) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.setAddrWindow) refers to st7735.o(.data) for ColStart
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to sdcfile.o(i.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to startup.o(.text) for __user_initial_stackheap
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000007) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000010) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing ff.o(i.dir_read), (112 bytes).
+    Removing ff.o(i.dir_remove), (54 bytes).
+    Removing ff.o(i.f_chdir), (84 bytes).
+    Removing ff.o(i.f_chmod), (96 bytes).
+    Removing ff.o(i.f_closedir), (22 bytes).
+    Removing ff.o(i.f_getcwd), (274 bytes).
+    Removing ff.o(i.f_getfree), (258 bytes).
+    Removing ff.o(i.f_getlabel), (190 bytes).
+    Removing ff.o(i.f_mkdir), (364 bytes).
+    Removing ff.o(i.f_mkfs), (1608 bytes).
+    Removing ff.o(i.f_opendir), (110 bytes).
+    Removing ff.o(i.f_readdir), (88 bytes).
+    Removing ff.o(i.f_rename), (270 bytes).
+    Removing ff.o(i.f_setlabel), (488 bytes).
+    Removing ff.o(i.f_stat), (60 bytes).
+    Removing ff.o(i.f_truncate), (184 bytes).
+    Removing ff.o(i.f_unlink), (190 bytes).
+    Removing ff.o(i.f_utime), (98 bytes).
+    Removing ff.o(i.get_fileinfo), (116 bytes).
+    Removing ff.o(.constdata), (44 bytes).
+    Removing sdcfile.o(i.SimpleUnformattedTest), (236 bytes).
+    Removing sdcfile.o(i.diskError), (4 bytes).
+    Removing st7735.o(i.Output_Clear), (10 bytes).
+    Removing st7735.o(i.Output_Color), (12 bytes).
+    Removing st7735.o(i.Output_Init), (16 bytes).
+    Removing st7735.o(i.Output_Off), (8 bytes).
+    Removing st7735.o(i.Output_On), (8 bytes).
+    Removing st7735.o(i.ST7735_DrawBitmap), (288 bytes).
+    Removing st7735.o(i.ST7735_DrawCircle), (168 bytes).
+    Removing st7735.o(i.ST7735_DrawFastHLine), (124 bytes).
+    Removing st7735.o(i.ST7735_DrawFastVLine), (124 bytes).
+    Removing st7735.o(i.ST7735_DrawSmallCircle), (168 bytes).
+    Removing st7735.o(i.ST7735_InitB), (40 bytes).
+    Removing st7735.o(i.ST7735_InvertDisplay), (22 bytes).
+    Removing st7735.o(i.ST7735_OutChar), (212 bytes).
+    Removing st7735.o(i.ST7735_OutString), (24 bytes).
+    Removing st7735.o(i.ST7735_PlotBar), (88 bytes).
+    Removing st7735.o(i.ST7735_PlotClear), (92 bytes).
+    Removing st7735.o(i.ST7735_PlotLine), (264 bytes).
+    Removing st7735.o(i.ST7735_PlotNext), (32 bytes).
+    Removing st7735.o(i.ST7735_PlotNextErase), (64 bytes).
+    Removing st7735.o(i.ST7735_PlotPoint), (152 bytes).
+    Removing st7735.o(i.ST7735_PlotPoints), (172 bytes).
+    Removing st7735.o(i.ST7735_PlotdBfs), (60 bytes).
+    Removing st7735.o(i.ST7735_SetRotation), (212 bytes).
+    Removing st7735.o(i.ST7735_SwapColor), (18 bytes).
+    Removing st7735.o(i.ferror), (8 bytes).
+    Removing st7735.o(i.fgetc), (6 bytes).
+    Removing st7735.o(i.fputc), (16 bytes).
+
+49 unused section(s) (total 7358 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      644  startup.o(RESET)
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
+    ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
+    ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
+    ..\inc\PLL.c                             0x00000000   Number         0  pll.o ABSOLUTE
+    SDCFile.c                                0x00000000   Number         0  sdcfile.o ABSOLUTE
+    ST7735.c                                 0x00000000   Number         0  st7735.o ABSOLUTE
+    ST7735.c                                 0x00000000   Number         0  st7735.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    diskio.c                                 0x00000000   Number         0  diskio.o ABSOLUTE
+    ff.c                                     0x00000000   Number         0  ff.o ABSOLUTE
+    startup.s                                0x00000000   Number         0  startup.o ABSOLUTE
+    !!!main                                  0x00000284   Section        8  __main.o(!!!main)
+    !!!scatter                               0x0000028c   Section       52  __scatter.o(!!!scatter)
+    !!handler_copy                           0x000002c0   Section       26  __scatter_copy.o(!!handler_copy)
+    !!handler_zi                             0x000002dc   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x000002f8   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000002          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    .ARM.Collect$$libinit$$00000004          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$0000000A          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    .ARM.Collect$$libinit$$0000000C          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000011          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    .ARM.Collect$$libinit$$00000013          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$0000002C          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    .ARM.Collect$$libinit$$0000002E          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x000002fa   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000033          0x000002fa   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    .ARM.Collect$$libshutdown$$00000000      0x000002fc   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000007      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    .ARM.Collect$$libshutdown$$0000000A      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    .ARM.Collect$$libshutdown$$0000000C      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000F      0x000002fe   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    .ARM.Collect$$libshutdown$$00000010      0x000002fe   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    .ARM.Collect$$rtentry$$00000000          0x00000300   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x00000300   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000004          0x00000300   Section        6  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    .ARM.Collect$$rtentry$$00000009          0x00000306   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x00000306   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x0000030a   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x0000030a   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    .ARM.Collect$$rtexit$$00000000           0x00000312   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x00000314   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x00000314   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x00000318   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .emb_text                                0x00000320   Section        6  st7735.o(.emb_text)
+    .text                                    0x00000328   Section       48  startup.o(.text)
+    .text                                    0x00000358   Section        0  heapauxi.o(.text)
+    .text                                    0x0000035e   Section       74  sys_stackheap_outer.o(.text)
+    .text                                    0x000003a8   Section        0  exit.o(.text)
+    .text                                    0x000003bc   Section        8  libspace.o(.text)
+    .text                                    0x000003c4   Section        0  sys_exit.o(.text)
+    .text                                    0x000003d0   Section        2  use_no_semi.o(.text)
+    .text                                    0x000003d2   Section        0  indicate_semi.o(.text)
+    i.CS_Init                                0x000003d4   Section        0  diskio.o(i.CS_Init)
+    i.Delay1ms                               0x00000484   Section        0  st7735.o(i.Delay1ms)
+    i.FileSystemTest                         0x0000049c   Section        0  sdcfile.o(i.FileSystemTest)
+    i.PLL_Init                               0x00000768   Section        0  pll.o(i.PLL_Init)
+    i.SDC_CS_Init                            0x000007e4   Section        0  st7735.o(i.SDC_CS_Init)
+    i.SSI0_Init                              0x00000880   Section        0  diskio.o(i.SSI0_Init)
+    i.ST7735_Color565                        0x000009cc   Section        0  st7735.o(i.ST7735_Color565)
+    i.ST7735_DrawChar                        0x000009e4   Section        0  st7735.o(i.ST7735_DrawChar)
+    i.ST7735_DrawCharS                       0x00000af4   Section        0  st7735.o(i.ST7735_DrawCharS)
+    i.ST7735_DrawPixel                       0x00000bec   Section        0  st7735.o(i.ST7735_DrawPixel)
+    i.ST7735_DrawString                      0x00000c34   Section        0  st7735.o(i.ST7735_DrawString)
+    i.ST7735_FillRect                        0x00000c8c   Section        0  st7735.o(i.ST7735_FillRect)
+    i.ST7735_FillScreen                      0x00000d38   Section        0  st7735.o(i.ST7735_FillScreen)
+    i.ST7735_InitR                           0x00000d5c   Section        0  st7735.o(i.ST7735_InitR)
+    i.ST7735_OutUDec                         0x00000dd8   Section        0  st7735.o(i.ST7735_OutUDec)
+    i.ST7735_SetCursor                       0x00000e64   Section        0  st7735.o(i.ST7735_SetCursor)
+    i.ST7735_SetTextColor                    0x00000e84   Section        0  st7735.o(i.ST7735_SetTextColor)
+    i.Timer5A_Handler                        0x00000e90   Section        0  diskio.o(i.Timer5A_Handler)
+    i.Timer5_Init                            0x00000ea4   Section        0  diskio.o(i.Timer5_Init)
+    i.check_fs                               0x00000f10   Section        0  ff.o(i.check_fs)
+    check_fs                                 0x00000f11   Thumb Code   140  ff.o(i.check_fs)
+    i.chk_chr                                0x00000fa0   Section        0  ff.o(i.chk_chr)
+    chk_chr                                  0x00000fa1   Thumb Code    24  ff.o(i.chk_chr)
+    i.clust2sect                             0x00000fb8   Section        0  ff.o(i.clust2sect)
+    i.commandList                            0x00000fd2   Section        0  st7735.o(i.commandList)
+    commandList                              0x00000fd3   Thumb Code    86  st7735.o(i.commandList)
+    i.commonInit                             0x00001028   Section        0  st7735.o(i.commonInit)
+    commonInit                               0x00001029   Thumb Code   386  st7735.o(i.commonInit)
+    i.create_chain                           0x000011e0   Section        0  ff.o(i.create_chain)
+    create_chain                             0x000011e1   Thumb Code   214  ff.o(i.create_chain)
+    i.create_name                            0x000012b8   Section        0  ff.o(i.create_name)
+    create_name                              0x000012b9   Thumb Code   418  ff.o(i.create_name)
+    i.deselect                               0x0000146c   Section        0  diskio.o(i.deselect)
+    deselect                                 0x0000146d   Thumb Code    16  diskio.o(i.deselect)
+    i.dir_alloc                              0x00001480   Section        0  ff.o(i.dir_alloc)
+    dir_alloc                                0x00001481   Thumb Code    92  ff.o(i.dir_alloc)
+    i.dir_find                               0x000014dc   Section        0  ff.o(i.dir_find)
+    dir_find                                 0x000014dd   Thumb Code    92  ff.o(i.dir_find)
+    i.dir_next                               0x00001538   Section        0  ff.o(i.dir_next)
+    dir_next                                 0x00001539   Thumb Code   272  ff.o(i.dir_next)
+    i.dir_register                           0x00001648   Section        0  ff.o(i.dir_register)
+    dir_register                             0x00001649   Thumb Code    58  ff.o(i.dir_register)
+    i.dir_sdi                                0x00001682   Section        0  ff.o(i.dir_sdi)
+    dir_sdi                                  0x00001683   Thumb Code   158  ff.o(i.dir_sdi)
+    i.disk_initialize                        0x00001720   Section        0  diskio.o(i.disk_initialize)
+    i.disk_ioctl                             0x0000187c   Section        0  diskio.o(i.disk_ioctl)
+    i.disk_read                              0x00001aa4   Section        0  diskio.o(i.disk_read)
+    i.disk_status                            0x00001b34   Section        0  diskio.o(i.disk_status)
+    i.disk_timerproc                         0x00001b48   Section        0  diskio.o(i.disk_timerproc)
+    i.disk_write                             0x00001b88   Section        0  diskio.o(i.disk_write)
+    i.f_close                                0x00001c3c   Section        0  ff.o(i.f_close)
+    i.f_lseek                                0x00001c5c   Section        0  ff.o(i.f_lseek)
+    i.f_mount                                0x00001ddc   Section        0  ff.o(i.f_mount)
+    i.f_open                                 0x00001e38   Section        0  ff.o(i.f_open)
+    i.f_read                                 0x00001f9c   Section        0  ff.o(i.f_read)
+    i.f_sync                                 0x0000213c   Section        0  ff.o(i.f_sync)
+    i.f_write                                0x000021ec   Section        0  ff.o(i.f_write)
+    i.fillmessage                            0x000023c4   Section        0  st7735.o(i.fillmessage)
+    i.find_volume                            0x0000240c   Section        0  ff.o(i.find_volume)
+    find_volume                              0x0000240d   Thumb Code   890  ff.o(i.find_volume)
+    i.follow_path                            0x00002798   Section        0  ff.o(i.follow_path)
+    follow_path                              0x00002799   Thumb Code   176  ff.o(i.follow_path)
+    i.get_fat                                0x00002848   Section        0  ff.o(i.get_fat)
+    i.get_ldnumber                           0x0000293a   Section        0  ff.o(i.get_ldnumber)
+    get_ldnumber                             0x0000293b   Thumb Code    74  ff.o(i.get_ldnumber)
+    i.init_spi                               0x00002984   Section        0  diskio.o(i.init_spi)
+    init_spi                                 0x00002985   Thumb Code    32  diskio.o(i.init_spi)
+    i.ld_clust                               0x000029ac   Section        0  ff.o(i.ld_clust)
+    ld_clust                                 0x000029ad   Thumb Code    32  ff.o(i.ld_clust)
+    i.main                                   0x000029cc   Section        0  sdcfile.o(i.main)
+    i.mem_cmp                                0x00002d1c   Section        0  ff.o(i.mem_cmp)
+    mem_cmp                                  0x00002d1d   Thumb Code    38  ff.o(i.mem_cmp)
+    i.mem_cpy                                0x00002d42   Section        0  ff.o(i.mem_cpy)
+    mem_cpy                                  0x00002d43   Thumb Code    26  ff.o(i.mem_cpy)
+    i.mem_set                                0x00002d5c   Section        0  ff.o(i.mem_set)
+    mem_set                                  0x00002d5d   Thumb Code    20  ff.o(i.mem_set)
+    i.move_window                            0x00002d70   Section        0  ff.o(i.move_window)
+    move_window                              0x00002d71   Thumb Code    52  ff.o(i.move_window)
+    i.pushColor                              0x00002da4   Section        0  st7735.o(i.pushColor)
+    pushColor                                0x00002da5   Thumb Code    18  st7735.o(i.pushColor)
+    i.put_fat                                0x00002db6   Section        0  ff.o(i.put_fat)
+    i.rcvr_datablock                         0x00002ef8   Section        0  diskio.o(i.rcvr_datablock)
+    rcvr_datablock                           0x00002ef9   Thumb Code    66  diskio.o(i.rcvr_datablock)
+    i.rcvr_spi                               0x00002f40   Section        0  diskio.o(i.rcvr_spi)
+    rcvr_spi                                 0x00002f41   Thumb Code    42  diskio.o(i.rcvr_spi)
+    i.rcvr_spi_multi                         0x00002f70   Section        0  diskio.o(i.rcvr_spi_multi)
+    rcvr_spi_multi                           0x00002f71   Thumb Code    24  diskio.o(i.rcvr_spi_multi)
+    i.remove_chain                           0x00002f88   Section        0  ff.o(i.remove_chain)
+    remove_chain                             0x00002f89   Thumb Code   108  ff.o(i.remove_chain)
+    i.select                                 0x00002ff4   Section        0  diskio.o(i.select)
+    select                                   0x00002ff5   Thumb Code    44  diskio.o(i.select)
+    i.send_cmd                               0x00003024   Section        0  diskio.o(i.send_cmd)
+    send_cmd                                 0x00003025   Thumb Code   150  diskio.o(i.send_cmd)
+    i.setAddrWindow                          0x000030bc   Section        0  st7735.o(i.setAddrWindow)
+    setAddrWindow                            0x000030bd   Thumb Code   106  st7735.o(i.setAddrWindow)
+    i.st_clust                               0x00003130   Section        0  ff.o(i.st_clust)
+    st_clust                                 0x00003131   Thumb Code    16  ff.o(i.st_clust)
+    i.sync_fs                                0x00003140   Section        0  ff.o(i.sync_fs)
+    sync_fs                                  0x00003141   Thumb Code   200  ff.o(i.sync_fs)
+    i.sync_window                            0x00003208   Section        0  ff.o(i.sync_window)
+    sync_window                              0x00003209   Thumb Code    82  ff.o(i.sync_window)
+    i.validate                               0x0000325a   Section        0  ff.o(i.validate)
+    validate                                 0x0000325b   Thumb Code    54  ff.o(i.validate)
+    i.wait_ready                             0x00003290   Section        0  diskio.o(i.wait_ready)
+    wait_ready                               0x00003291   Thumb Code    42  diskio.o(i.wait_ready)
+    i.writecommand                           0x000032c0   Section        0  st7735.o(i.writecommand)
+    writecommand                             0x000032c1   Thumb Code    68  st7735.o(i.writecommand)
+    i.writedata                              0x00003310   Section        0  st7735.o(i.writedata)
+    writedata                                0x00003311   Thumb Code    70  st7735.o(i.writedata)
+    i.xchg_spi                               0x00003364   Section        0  diskio.o(i.xchg_spi)
+    xchg_spi                                 0x00003365   Thumb Code    50  diskio.o(i.xchg_spi)
+    i.xmit_datablock                         0x0000339c   Section        0  diskio.o(i.xmit_datablock)
+    xmit_datablock                           0x0000339d   Thumb Code    76  diskio.o(i.xmit_datablock)
+    i.xmit_spi_multi                         0x000033e8   Section        0  diskio.o(i.xmit_spi_multi)
+    xmit_spi_multi                           0x000033e9   Thumb Code    42  diskio.o(i.xmit_spi_multi)
+    .constdata                               0x00003418   Section       17  sdcfile.o(.constdata)
+    .constdata                               0x0000342a   Section     2114  st7735.o(.constdata)
+    Font                                     0x0000342a   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x00003925   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x0000398c   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x000039c7   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x000039d4   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x000039e1   Data          43  st7735.o(.constdata)
+    .data                                    0x20000000   Section       13  diskio.o(.data)
+    Stat                                     0x20000000   Data           1  diskio.o(.data)
+    Timer1                                   0x20000004   Data           4  diskio.o(.data)
+    Timer2                                   0x20000008   Data           4  diskio.o(.data)
+    CardType                                 0x2000000c   Data           1  diskio.o(.data)
+    .data                                    0x20000010   Section        6  ff.o(.data)
+    FatFs                                    0x20000010   Data           4  ff.o(.data)
+    Fsid                                     0x20000014   Data           2  ff.o(.data)
+    .data                                    0x20000016   Section        2  sdcfile.o(.data)
+    .data                                    0x20000018   Section       44  st7735.o(.data)
+    ColStart                                 0x20000022   Data           1  st7735.o(.data)
+    RowStart                                 0x20000023   Data           1  st7735.o(.data)
+    Rotation                                 0x20000024   Data           1  st7735.o(.data)
+    TabColor                                 0x20000025   Data           1  st7735.o(.data)
+    _width                                   0x20000026   Data           2  st7735.o(.data)
+    _height                                  0x20000028   Data           2  st7735.o(.data)
+    .bss                                     0x20000044   Section     2172  sdcfile.o(.bss)
+    g_sFatFs                                 0x20000044   Data         564  sdcfile.o(.bss)
+    .bss                                     0x200008c0   Section       12  st7735.o(.bss)
+    .bss                                     0x200008cc   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000930   Section        0  startup.o(HEAP)
+    STACK                                    0x20000930   Section     1024  startup.o(STACK)
+    HeapMem                                  0x20000930   Data           0  startup.o(HEAP)
+    StackMem                                 0x20000930   Data           0  startup.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$UX$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  sdcfile.o ABSOLUTE
+    __Vectors                                0x00000000   Data           0  startup.o(RESET)
+    __ARM_exceptions_init                     - Undefined Weak Reference
+    __alloca_initialize                       - Undefined Weak Reference
+    __arm_preinit_                            - Undefined Weak Reference
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __rt_locale                               - Undefined Weak Reference
+    __sigvec_lookup                           - Undefined Weak Reference
+    _atexit_init                              - Undefined Weak Reference
+    _call_atexit_fns                          - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _fp_trap_init                             - Undefined Weak Reference
+    _fp_trap_shutdown                         - Undefined Weak Reference
+    _get_lc_collate                           - Undefined Weak Reference
+    _get_lc_ctype                             - Undefined Weak Reference
+    _get_lc_monetary                          - Undefined Weak Reference
+    _get_lc_numeric                           - Undefined Weak Reference
+    _get_lc_time                              - Undefined Weak Reference
+    _getenv_init                              - Undefined Weak Reference
+    _handle_redirection                       - Undefined Weak Reference
+    _init_alloc                               - Undefined Weak Reference
+    _init_user_alloc                          - Undefined Weak Reference
+    _initio                                   - Undefined Weak Reference
+    _rand_init                                - Undefined Weak Reference
+    _signal_finish                            - Undefined Weak Reference
+    _signal_init                              - Undefined Weak Reference
+    _terminate_alloc                          - Undefined Weak Reference
+    _terminate_user_alloc                     - Undefined Weak Reference
+    _terminateio                              - Undefined Weak Reference
+    Reset_Handler                            0x0000026d   Thumb Code     0  startup.o(RESET)
+    NMI_Handler                              0x00000271   Thumb Code     2  startup.o(RESET)
+    HardFault_Handler                        0x00000273   Thumb Code     2  startup.o(RESET)
+    MemManage_Handler                        0x00000275   Thumb Code     2  startup.o(RESET)
+    BusFault_Handler                         0x00000277   Thumb Code     2  startup.o(RESET)
+    UsageFault_Handler                       0x00000279   Thumb Code     2  startup.o(RESET)
+    SVC_Handler                              0x0000027b   Thumb Code     2  startup.o(RESET)
+    DebugMon_Handler                         0x0000027d   Thumb Code     2  startup.o(RESET)
+    PendSV_Handler                           0x0000027f   Thumb Code     2  startup.o(RESET)
+    SysTick_Handler                          0x00000281   Thumb Code     2  startup.o(RESET)
+    ADC0Seq0_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq1_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq2_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq3_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq0_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq1_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq2_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq3_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp2_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Ethernet_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ExtBus_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
+    FPU_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
+    Fan0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    FlashCtl_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortA_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortB_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortC_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortD_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortE_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortF_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortG_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortH_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortJ_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortK_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortL_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortM_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortN_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP1_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP2_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP3_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP4_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP5_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP6_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP7_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ1_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ2_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ3_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ4_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ5_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ6_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ7_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortR_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortS_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    Hibernate_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C4_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C5_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2S0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    LPC0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    PECI0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Fault_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator0_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator1_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator2_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator3_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Fault_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator0_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator1_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator2_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator3_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature0_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature1_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature2_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SysCtl_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer0A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer0B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer1A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer1B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer2A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer2B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer4A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer4B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer5B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    UART0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART2_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART3_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART4_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART5_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART6_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART7_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    USB0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    WDT_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer0A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer0B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer1A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer1B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer2A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer2B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer3A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer3B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer4A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer4B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer5A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer5B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    uDMA_Error                               0x00000283   Thumb Code     0  startup.o(RESET)
+    uDMA_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    __main                                   0x00000285   Thumb Code     8  __main.o(!!!main)
+    __scatterload                            0x0000028d   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x0000028d   Thumb Code    44  __scatter.o(!!!scatter)
+    __scatterload_rt2_thumb_only             0x0000028d   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x0000029b   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_copy                       0x000002c1   Thumb Code    26  __scatter_copy.o(!!handler_copy)
+    __scatterload_zeroinit                   0x000002dd   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x000002f9   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_alloca_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_argv_1                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
+    __rt_lib_init_atexit_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_clock_1                    0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_cpp_1                      0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_exceptions_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_fp_1                       0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    __rt_lib_init_fp_trap_1                  0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_getenv_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_heap_1                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
+    __rt_lib_init_lc_collate_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000011)
+    __rt_lib_init_lc_ctype_1                 0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_monetary_1              0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_numeric_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_time_1                  0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_preinit_1                  0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_rand_1                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_init_return                     0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000033)
+    __rt_lib_init_signal_1                   0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_stdio_1                    0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_user_alloc_1               0x000002fb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_shutdown                        0x000002fd   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    __rt_lib_shutdown_heap_1                 0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    __rt_lib_shutdown_return                 0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    __rt_lib_shutdown_signal_1               0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    __rt_lib_shutdown_stdio_1                0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_user_alloc_1           0x000002ff   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_entry                               0x00000301   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x00000301   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x00000301   Thumb Code     0  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    __rt_entry_li                            0x00000307   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x00000307   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x0000030b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x0000030b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x00000313   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x00000315   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x00000315   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x00000319   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    Delay                                    0x00000321   Thumb Code     6  st7735.o(.emb_text)
+    DisableInterrupts                        0x00000329   Thumb Code     0  startup.o(.text)
+    EnableInterrupts                         0x0000032d   Thumb Code     0  startup.o(.text)
+    StartCritical                            0x00000331   Thumb Code     0  startup.o(.text)
+    EndCritical                              0x00000339   Thumb Code     0  startup.o(.text)
+    WaitForInterrupt                         0x0000033f   Thumb Code     0  startup.o(.text)
+    __user_initial_stackheap                 0x00000343   Thumb Code     0  startup.o(.text)
+    __use_two_region_memory                  0x00000359   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x0000035b   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x0000035d   Thumb Code     2  heapauxi.o(.text)
+    __user_setup_stackheap                   0x0000035f   Thumb Code    74  sys_stackheap_outer.o(.text)
+    exit                                     0x000003a9   Thumb Code    18  exit.o(.text)
+    __user_libspace                          0x000003bd   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x000003bd   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x000003bd   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x000003c5   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x000003d1   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x000003d1   Thumb Code     2  use_no_semi.o(.text)
+    __semihosting_library_function           0x000003d3   Thumb Code     0  indicate_semi.o(.text)
+    CS_Init                                  0x000003d5   Thumb Code   150  diskio.o(i.CS_Init)
+    Delay1ms                                 0x00000485   Thumb Code    22  st7735.o(i.Delay1ms)
+    FileSystemTest                           0x0000049d   Thumb Code   552  sdcfile.o(i.FileSystemTest)
+    PLL_Init                                 0x00000769   Thumb Code   120  pll.o(i.PLL_Init)
+    SDC_CS_Init                              0x000007e5   Thumb Code   134  st7735.o(i.SDC_CS_Init)
+    SSI0_Init                                0x00000881   Thumb Code   300  diskio.o(i.SSI0_Init)
+    ST7735_Color565                          0x000009cd   Thumb Code    24  st7735.o(i.ST7735_Color565)
+    ST7735_DrawChar                          0x000009e5   Thumb Code   260  st7735.o(i.ST7735_DrawChar)
+    ST7735_DrawCharS                         0x00000af5   Thumb Code   236  st7735.o(i.ST7735_DrawCharS)
+    ST7735_DrawPixel                         0x00000bed   Thumb Code    64  st7735.o(i.ST7735_DrawPixel)
+    ST7735_DrawString                        0x00000c35   Thumb Code    86  st7735.o(i.ST7735_DrawString)
+    ST7735_FillRect                          0x00000c8d   Thumb Code   164  st7735.o(i.ST7735_FillRect)
+    ST7735_FillScreen                        0x00000d39   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
+    ST7735_InitR                             0x00000d5d   Thumb Code    90  st7735.o(i.ST7735_InitR)
+    ST7735_OutUDec                           0x00000dd9   Thumb Code   118  st7735.o(i.ST7735_OutUDec)
+    ST7735_SetCursor                         0x00000e65   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
+    ST7735_SetTextColor                      0x00000e85   Thumb Code     6  st7735.o(i.ST7735_SetTextColor)
+    Timer5A_Handler                          0x00000e91   Thumb Code    14  diskio.o(i.Timer5A_Handler)
+    Timer5_Init                              0x00000ea5   Thumb Code    84  diskio.o(i.Timer5_Init)
+    clust2sect                               0x00000fb9   Thumb Code    26  ff.o(i.clust2sect)
+    disk_initialize                          0x00001721   Thumb Code   330  diskio.o(i.disk_initialize)
+    disk_ioctl                               0x0000187d   Thumb Code   544  diskio.o(i.disk_ioctl)
+    disk_read                                0x00001aa5   Thumb Code   136  diskio.o(i.disk_read)
+    disk_status                              0x00001b35   Thumb Code    14  diskio.o(i.disk_status)
+    disk_timerproc                           0x00001b49   Thumb Code    52  diskio.o(i.disk_timerproc)
+    disk_write                               0x00001b89   Thumb Code   170  diskio.o(i.disk_write)
+    f_close                                  0x00001c3d   Thumb Code    32  ff.o(i.f_close)
+    f_lseek                                  0x00001c5d   Thumb Code   382  ff.o(i.f_lseek)
+    f_mount                                  0x00001ddd   Thumb Code    86  ff.o(i.f_mount)
+    f_open                                   0x00001e39   Thumb Code   352  ff.o(i.f_open)
+    f_read                                   0x00001f9d   Thumb Code   416  ff.o(i.f_read)
+    f_sync                                   0x0000213d   Thumb Code   172  ff.o(i.f_sync)
+    f_write                                  0x000021ed   Thumb Code   472  ff.o(i.f_write)
+    fillmessage                              0x000023c5   Thumb Code    64  st7735.o(i.fillmessage)
+    get_fat                                  0x00002849   Thumb Code   242  ff.o(i.get_fat)
+    main                                     0x000029cd   Thumb Code   708  sdcfile.o(i.main)
+    put_fat                                  0x00002db7   Thumb Code   322  ff.o(i.put_fat)
+    inFilename                               0x00003418   Data           9  sdcfile.o(.constdata)
+    outFilename                              0x00003421   Data           8  sdcfile.o(.constdata)
+    smallCircle                              0x00003a0c   Data          36  st7735.o(.constdata)
+    circle                                   0x00003a30   Data          60  st7735.o(.constdata)
+    dBfs                                     0x00003a6c   Data         512  st7735.o(.constdata)
+    Region$$Table$$Base                      0x00003c6c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00003c8c   Number         0  anon$$obj.o(Region$$Table)
+    MountFresult                             0x20000016   Data           1  sdcfile.o(.data)
+    Fresult                                  0x20000017   Data           1  sdcfile.o(.data)
+    StX                                      0x20000018   Data           4  st7735.o(.data)
+    StY                                      0x2000001c   Data           4  st7735.o(.data)
+    StTextColor                              0x20000020   Data           2  st7735.o(.data)
+    Messageindex                             0x2000002c   Data           4  st7735.o(.data)
+    Ymax                                     0x20000030   Data           4  st7735.o(.data)
+    Ymin                                     0x20000034   Data           4  st7735.o(.data)
+    X                                        0x20000038   Data           4  st7735.o(.data)
+    Yrange                                   0x2000003c   Data           4  st7735.o(.data)
+    lastj                                    0x20000040   Data           4  st7735.o(.data)
+    Handle                                   0x20000278   Data         548  sdcfile.o(.bss)
+    Handle2                                  0x2000049c   Data         548  sdcfile.o(.bss)
+    buffer                                   0x200006c0   Data         512  sdcfile.o(.bss)
+    Message                                  0x200008c0   Data          12  st7735.o(.bss)
+    __libspace_start                         0x200008cc   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x2000092c   Data           0  libspace.o(.bss)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0000026d
+
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00003cd0, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00003c8c, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
+    0x00000284   0x00000284   0x00000008   Code   RO          802  * !!!main             c_w.l(__main.o)
+    0x0000028c   0x0000028c   0x00000034   Code   RO          959    !!!scatter          c_w.l(__scatter.o)
+    0x000002c0   0x000002c0   0x0000001a   Code   RO          961    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x000002da   0x000002da   0x00000002   PAD
+    0x000002dc   0x000002dc   0x0000001c   Code   RO          963    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002f8   0x000002f8   0x00000002   Code   RO          829    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          836    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          838    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          841    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          843    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          845    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          848    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          850    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          852    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          854    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          856    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          858    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          860    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          862    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          864    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          866    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          868    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          872    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          874    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          876    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000000   Code   RO          878    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x000002fa   0x000002fa   0x00000002   Code   RO          879    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x000002fc   0x000002fc   0x00000002   Code   RO          899    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          912    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          914    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          917    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          920    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          922    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO          925    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x000002fe   0x000002fe   0x00000002   Code   RO          926    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          804    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          806    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000300   0x00000300   0x00000006   Code   RO          818    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x00000306   0x00000306   0x00000000   Code   RO          808    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x00000306   0x00000306   0x00000004   Code   RO          809    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0000030a   0x0000030a   0x00000000   Code   RO          811    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0000030a   0x0000030a   0x00000008   Code   RO          812    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x00000312   0x00000312   0x00000002   Code   RO          833    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000314   0x00000314   0x00000000   Code   RO          881    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000314   0x00000314   0x00000004   Code   RO          882    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000318   0x00000318   0x00000006   Code   RO          883    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x0000031e   0x0000031e   0x00000002   PAD
+    0x00000320   0x00000320   0x00000006   Code   RO          485    .emb_text           st7735.o
+    0x00000326   0x00000326   0x00000002   PAD
+    0x00000328   0x00000328   0x00000030   Code   RO            4    .text               startup.o
+    0x00000358   0x00000358   0x00000006   Code   RO          800    .text               c_w.l(heapauxi.o)
+    0x0000035e   0x0000035e   0x0000004a   Code   RO          820    .text               c_w.l(sys_stackheap_outer.o)
+    0x000003a8   0x000003a8   0x00000012   Code   RO          822    .text               c_w.l(exit.o)
+    0x000003ba   0x000003ba   0x00000002   PAD
+    0x000003bc   0x000003bc   0x00000008   Code   RO          830    .text               c_w.l(libspace.o)
+    0x000003c4   0x000003c4   0x0000000c   Code   RO          891    .text               c_w.l(sys_exit.o)
+    0x000003d0   0x000003d0   0x00000002   Code   RO          902    .text               c_w.l(use_no_semi.o)
+    0x000003d2   0x000003d2   0x00000000   Code   RO          904    .text               c_w.l(indicate_semi.o)
+    0x000003d2   0x000003d2   0x00000002   PAD
+    0x000003d4   0x000003d4   0x000000b0   Code   RO           12    i.CS_Init           diskio.o
+    0x00000484   0x00000484   0x00000016   Code   RO          486    i.Delay1ms          st7735.o
+    0x0000049a   0x0000049a   0x00000002   PAD
+    0x0000049c   0x0000049c   0x000002cc   Code   RO          444    i.FileSystemTest    sdcfile.o
+    0x00000768   0x00000768   0x0000007c   Code   RO          780    i.PLL_Init          pll.o
+    0x000007e4   0x000007e4   0x0000009c   Code   RO          492    i.SDC_CS_Init       st7735.o
+    0x00000880   0x00000880   0x0000014c   Code   RO           13    i.SSI0_Init         diskio.o
+    0x000009cc   0x000009cc   0x00000018   Code   RO          493    i.ST7735_Color565   st7735.o
+    0x000009e4   0x000009e4   0x00000110   Code   RO          495    i.ST7735_DrawChar   st7735.o
+    0x00000af4   0x00000af4   0x000000f8   Code   RO          496    i.ST7735_DrawCharS  st7735.o
+    0x00000bec   0x00000bec   0x00000048   Code   RO          500    i.ST7735_DrawPixel  st7735.o
+    0x00000c34   0x00000c34   0x00000056   Code   RO          502    i.ST7735_DrawString  st7735.o
+    0x00000c8a   0x00000c8a   0x00000002   PAD
+    0x00000c8c   0x00000c8c   0x000000ac   Code   RO          503    i.ST7735_FillRect   st7735.o
+    0x00000d38   0x00000d38   0x00000024   Code   RO          504    i.ST7735_FillScreen  st7735.o
+    0x00000d5c   0x00000d5c   0x0000007c   Code   RO          506    i.ST7735_InitR      st7735.o
+    0x00000dd8   0x00000dd8   0x0000008c   Code   RO          510    i.ST7735_OutUDec    st7735.o
+    0x00000e64   0x00000e64   0x00000020   Code   RO          519    i.ST7735_SetCursor  st7735.o
+    0x00000e84   0x00000e84   0x0000000c   Code   RO          521    i.ST7735_SetTextColor  st7735.o
+    0x00000e90   0x00000e90   0x00000014   Code   RO           14    i.Timer5A_Handler   diskio.o
+    0x00000ea4   0x00000ea4   0x0000006c   Code   RO           15    i.Timer5_Init       diskio.o
+    0x00000f10   0x00000f10   0x00000090   Code   RO          148    i.check_fs          ff.o
+    0x00000fa0   0x00000fa0   0x00000018   Code   RO          149    i.chk_chr           ff.o
+    0x00000fb8   0x00000fb8   0x0000001a   Code   RO          150    i.clust2sect        ff.o
+    0x00000fd2   0x00000fd2   0x00000056   Code   RO          523    i.commandList       st7735.o
+    0x00001028   0x00001028   0x000001b8   Code   RO          524    i.commonInit        st7735.o
+    0x000011e0   0x000011e0   0x000000d6   Code   RO          151    i.create_chain      ff.o
+    0x000012b6   0x000012b6   0x00000002   PAD
+    0x000012b8   0x000012b8   0x000001b4   Code   RO          152    i.create_name       ff.o
+    0x0000146c   0x0000146c   0x00000014   Code   RO           16    i.deselect          diskio.o
+    0x00001480   0x00001480   0x0000005c   Code   RO          153    i.dir_alloc         ff.o
+    0x000014dc   0x000014dc   0x0000005c   Code   RO          154    i.dir_find          ff.o
+    0x00001538   0x00001538   0x00000110   Code   RO          155    i.dir_next          ff.o
+    0x00001648   0x00001648   0x0000003a   Code   RO          157    i.dir_register      ff.o
+    0x00001682   0x00001682   0x0000009e   Code   RO          159    i.dir_sdi           ff.o
+    0x00001720   0x00001720   0x0000015c   Code   RO           17    i.disk_initialize   diskio.o
+    0x0000187c   0x0000187c   0x00000228   Code   RO           18    i.disk_ioctl        diskio.o
+    0x00001aa4   0x00001aa4   0x00000090   Code   RO           19    i.disk_read         diskio.o
+    0x00001b34   0x00001b34   0x00000014   Code   RO           20    i.disk_status       diskio.o
+    0x00001b48   0x00001b48   0x00000040   Code   RO           21    i.disk_timerproc    diskio.o
+    0x00001b88   0x00001b88   0x000000b4   Code   RO           22    i.disk_write        diskio.o
+    0x00001c3c   0x00001c3c   0x00000020   Code   RO          162    i.f_close           ff.o
+    0x00001c5c   0x00001c5c   0x0000017e   Code   RO          167    i.f_lseek           ff.o
+    0x00001dda   0x00001dda   0x00000002   PAD
+    0x00001ddc   0x00001ddc   0x0000005c   Code   RO          170    i.f_mount           ff.o
+    0x00001e38   0x00001e38   0x00000164   Code   RO          171    i.f_open            ff.o
+    0x00001f9c   0x00001f9c   0x000001a0   Code   RO          173    i.f_read            ff.o
+    0x0000213c   0x0000213c   0x000000b0   Code   RO          178    i.f_sync            ff.o
+    0x000021ec   0x000021ec   0x000001d8   Code   RO          182    i.f_write           ff.o
+    0x000023c4   0x000023c4   0x00000048   Code   RO          527    i.fillmessage       st7735.o
+    0x0000240c   0x0000240c   0x0000038c   Code   RO          183    i.find_volume       ff.o
+    0x00002798   0x00002798   0x000000b0   Code   RO          184    i.follow_path       ff.o
+    0x00002848   0x00002848   0x000000f2   Code   RO          185    i.get_fat           ff.o
+    0x0000293a   0x0000293a   0x0000004a   Code   RO          187    i.get_ldnumber      ff.o
+    0x00002984   0x00002984   0x00000028   Code   RO           23    i.init_spi          diskio.o
+    0x000029ac   0x000029ac   0x00000020   Code   RO          188    i.ld_clust          ff.o
+    0x000029cc   0x000029cc   0x00000350   Code   RO          447    i.main              sdcfile.o
+    0x00002d1c   0x00002d1c   0x00000026   Code   RO          189    i.mem_cmp           ff.o
+    0x00002d42   0x00002d42   0x0000001a   Code   RO          190    i.mem_cpy           ff.o
+    0x00002d5c   0x00002d5c   0x00000014   Code   RO          191    i.mem_set           ff.o
+    0x00002d70   0x00002d70   0x00000034   Code   RO          192    i.move_window       ff.o
+    0x00002da4   0x00002da4   0x00000012   Code   RO          529    i.pushColor         st7735.o
+    0x00002db6   0x00002db6   0x00000142   Code   RO          193    i.put_fat           ff.o
+    0x00002ef8   0x00002ef8   0x00000048   Code   RO           24    i.rcvr_datablock    diskio.o
+    0x00002f40   0x00002f40   0x00000030   Code   RO           25    i.rcvr_spi          diskio.o
+    0x00002f70   0x00002f70   0x00000018   Code   RO           26    i.rcvr_spi_multi    diskio.o
+    0x00002f88   0x00002f88   0x0000006c   Code   RO          194    i.remove_chain      ff.o
+    0x00002ff4   0x00002ff4   0x00000030   Code   RO           27    i.select            diskio.o
+    0x00003024   0x00003024   0x00000096   Code   RO           28    i.send_cmd          diskio.o
+    0x000030ba   0x000030ba   0x00000002   PAD
+    0x000030bc   0x000030bc   0x00000074   Code   RO          530    i.setAddrWindow     st7735.o
+    0x00003130   0x00003130   0x00000010   Code   RO          195    i.st_clust          ff.o
+    0x00003140   0x00003140   0x000000c8   Code   RO          196    i.sync_fs           ff.o
+    0x00003208   0x00003208   0x00000052   Code   RO          197    i.sync_window       ff.o
+    0x0000325a   0x0000325a   0x00000036   Code   RO          198    i.validate          ff.o
+    0x00003290   0x00003290   0x00000030   Code   RO           29    i.wait_ready        diskio.o
+    0x000032c0   0x000032c0   0x00000050   Code   RO          531    i.writecommand      st7735.o
+    0x00003310   0x00003310   0x00000054   Code   RO          532    i.writedata         st7735.o
+    0x00003364   0x00003364   0x00000038   Code   RO           30    i.xchg_spi          diskio.o
+    0x0000339c   0x0000339c   0x0000004c   Code   RO           31    i.xmit_datablock    diskio.o
+    0x000033e8   0x000033e8   0x00000030   Code   RO           32    i.xmit_spi_multi    diskio.o
+    0x00003418   0x00003418   0x00000011   Data   RO          449    .constdata          sdcfile.o
+    0x00003429   0x00003429   0x00000001   PAD
+    0x0000342a   0x0000342a   0x00000842   Data   RO          534    .constdata          st7735.o
+    0x00003c6c   0x00003c6c   0x00000020   Data   RO          957    Region$$Table       anon$$obj.o
+
+
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00003c8c, Size: 0x00000044, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00003c8c   0x0000000d   Data   RW           33    .data               diskio.o
+    0x2000000d   0x00003c99   0x00000003   PAD
+    0x20000010   0x00003c9c   0x00000006   Data   RW          200    .data               ff.o
+    0x20000016   0x00003ca2   0x00000002   Data   RW          450    .data               sdcfile.o
+    0x20000018   0x00003ca4   0x0000002c   Data   RW          535    .data               st7735.o
+
+
+    Execution Region ER_ZI (Exec base: 0x20000044, Load base: 0x00003cd0, Size: 0x00000cec, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000044        -       0x0000087c   Zero   RW          448    .bss                sdcfile.o
+    0x200008c0        -       0x0000000c   Zero   RW          533    .bss                st7735.o
+    0x200008cc        -       0x00000060   Zero   RW          831    .bss                c_w.l(libspace.o)
+    0x2000092c   0x00003cd0   0x00000004   PAD
+    0x20000930        -       0x00000000   Zero   RW            2    HEAP                startup.o
+    0x20000930        -       0x00000400   Zero   RW            1    STACK               startup.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+      2574        196          0         13          0      18869   diskio.o
+      5792         54          0          6          0      28108   ff.o
+       124          4          0          0          0        459   pll.o
+      1564        304         17          2       2172       3028   sdcfile.o
+      2298        240       2114         44         12      17172   st7735.o
+       692        632          0          0       1024        972   startup.o
+
+    ----------------------------------------------------------------------
+     13056       1430       2164         68       3208      68608   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        12          0          1          3          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         6          0          0          0          0          0   __rtentry4.o
+        52          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
+        28          0          0          0          0          0   __scatter_zi.o
+        18          0          0          0          0         80   exit.o
+         6          0          0          0          0        152   heapauxi.o
+         0          0          0          0          0          0   indicate_semi.o
+         2          0          0          0          0          0   libinit.o
+         2          0          0          0          0          0   libinit2.o
+         2          0          0          0          0          0   libshutdown.o
+         2          0          0          0          0          0   libshutdown2.o
+         8          4          0          0         96         68   libspace.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        12          4          0          0          0         68   sys_exit.o
+        74          0          0          0          0         80   sys_stackheap_outer.o
+         2          0          0          0          0         68   use_no_semi.o
+
+    ----------------------------------------------------------------------
+       280         16          0          0        100        584   Library Totals
+         8          0          0          0          4          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       272         16          0          0         96        584   c_w.l
+
+    ----------------------------------------------------------------------
+       280         16          0          0        100        584   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     13336       1446       2164         68       3308      65184   Grand Totals
+     13336       1446       2164         68       3308      65184   ELF Image Totals
+     13336       1446       2164         68          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                15500 (  15.14kB)
+    Total RW  Size (RW Data + ZI Data)              3376 (   3.30kB)
+    Total ROM Size (Code + RO Data + RW Data)      15568 (  15.20kB)
+
+==============================================================================
+

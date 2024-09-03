@@ -1,0 +1,30 @@
+Dependencies for Project 'SDCFile', Target 'SDCFile': (DO NOT MODIFY !)
+F (.\startup.s)(0x54FE04B5)(--cpu Cortex-M4 -g --apcs=interwork -I.\RTE\_SDCFile-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\diskio.c)(0x5AE32612)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SDCFile-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\diskio.o --omf_browse .\diskio.crf --depend .\diskio.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+I (integer.h)(0x54775FF1)
+I (diskio.h)(0x54FE04B5)
+F (.\ff.c)(0x54FE04B4)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SDCFile-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\ff.o --omf_browse .\ff.crf --depend .\ff.d)
+I (ff.h)(0x54FE04B4)
+I (integer.h)(0x54775FF1)
+I (ffconf.h)(0x54FE04B4)
+I (diskio.h)(0x54FE04B5)
+F (.\SDCFile.c)(0x5D69D1B0)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SDCFile-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\sdcfile.o --omf_browse .\sdcfile.crf --depend .\sdcfile.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (diskio.h)(0x54FE04B5)
+I (integer.h)(0x54775FF1)
+I (ff.h)(0x54FE04B4)
+I (ffconf.h)(0x54FE04B4)
+I (../inc/PLL.h)(0x5E10D0A5)
+I (ST7735.h)(0x58FC0DAD)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (.\ST7735.c)(0x58FC0DAD)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SDCFile-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\st7735.o --omf_browse .\st7735.crf --depend .\st7735.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F920C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (ST7735.h)(0x58FC0DAD)
+I (../inc/tm4c123gh6pm.h)(0x5388C2D9)
+F (..\inc\PLL.c)(0x5E1B402E)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SDCFile-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F920E)
+I (..\inc\../inc/PLL.h)(0x5E10D0A5)
+I (..\inc\../inc/tm4c123gh6pm.h)(0x5388C2D9)

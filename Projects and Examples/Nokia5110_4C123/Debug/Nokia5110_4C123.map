@@ -1,0 +1,500 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.2                      
+******************************************************************************
+>> Linked Mon Jun 13 10:13:36 2016
+
+OUTPUT FILE NAME:   <Nokia5110_4C123.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000e11
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00001550  0003eab0  R  X
+  SRAM                  20000000   00008000  0000040c  00007bf4  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001550   00001550    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000cd4   00000cd4    r-x .text
+  00000f40    00000f40    000005d8   000005d8    r-- .const
+  00001518    00001518    00000038   00000038    r-- .cinit
+20000000    20000000    0000040c   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000001f8   00000000    rw- .bss
+  200003f8    200003f8    00000014   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000cd4     
+                  0000026c    00000730     Nokia5110.obj (.text)
+                  0000099c    00000112     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000aae    00000002     --HOLE-- [fill = 0]
+                  00000ab0    000000e8     Nokia5110TestMain.obj (.text)
+                  00000b98    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00000c34    00000088     PLL.obj (.text)
+                  00000cbc    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00000d36    00000002     --HOLE-- [fill = 0]
+                  00000d38    0000006c                                   : autoinit.obj (.text)
+                  00000da4    0000006a                                   : copy_decompress_rle.obj (.text)
+                  00000e0e    00000002     --HOLE-- [fill = 0]
+                  00000e10    00000050                                   : boot.obj (.text)
+                  00000e60    0000004c                                   : cpy_tbl.obj (.text)
+                  00000eac    00000044                                   : exit.obj (.text)
+                  00000ef0    00000018                                   : args_main.obj (.text)
+                  00000f08    00000014                                   : _lock.obj (.text)
+                  00000f1c    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000f2a    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00000f36    00000006                                   : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00000f3c    00000004                                   : pre_init.obj (.text)
+
+.const     0    00000f40    000005d8     
+                  00000f40    000001f8     Nokia5110TestMain.obj (.const:.string:Longhorn2)
+                  00001138    000001f8     Nokia5110TestMain.obj (.const:.string:Longhorn)
+                  00001330    000001e0     Nokia5110.obj (.const:ASCII)
+                  00001510    00000008     Nokia5110.obj (.const:.string)
+
+.cinit     0    00001518    00000038     
+                  00001518    0000000f     (.cinit..data.load) [load image, compression = rle]
+                  00001527    00000001     --HOLE-- [fill = 0]
+                  00001528    0000000c     (__TI_handler_table)
+                  00001534    00000004     --HOLE-- [fill = 0]
+                  00001538    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001540    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+.bss       0    20000200    000001f8     UNINITIALIZED
+                  20000200    000001f8     Nokia5110.obj (.bss:Screen)
+
+.TI.noinit 
+*          0    20000200    00000000     UNINITIALIZED
+
+.data      0    200003f8    00000014     UNINITIALIZED
+                  200003f8    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000400    00000008                                   : exit.obj (.data)
+                  20000408    00000004                                   : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    200003f8    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001540 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001518, load size=0000000f bytes, run addr=200003f8, run size=00000014 bytes, compression=rle
+	.bss: load addr=00001538, load size=00000008 bytes, run addr=20000200, run size=000001f8 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001528 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+000009cd  ADC0Seq0_Handler        
+000009cf  ADC0Seq1_Handler        
+000009d1  ADC0Seq2_Handler        
+000009d3  ADC0Seq3_Handler        
+00000a11  ADC1Seq0_Handler        
+00000a13  ADC1Seq1_Handler        
+00000a15  ADC1Seq2_Handler        
+00000a17  ADC1Seq3_Handler        
+00000ead  C$$EXIT                 
+000009ff  CAN0_Handler            
+00000a01  CAN1_Handler            
+00000a03  CAN2_Handler            
+000009e3  Comp0_Handler           
+000009e5  Comp1_Handler           
+000009e7  Comp2_Handler           
+000009ab  DebugMon_Handler        
+00000ab1  Delay                   
+00000a95  DisableInterrupts       
+00000a99  EnableInterrupts        
+00000aa5  EndCritical             
+00000a05  Ethernet_Handler        
+00000a1b  ExtBus_Handler          
+00000a55  FPU_Handler             
+00000a65  Fan0_Handler            
+000009eb  FlashCtl_Handler        
+000009b1  GPIOPortA_Handler       
+000009b3  GPIOPortB_Handler       
+000009b5  GPIOPortC_Handler       
+000009b7  GPIOPortD_Handler       
+000009b9  GPIOPortE_Handler       
+000009ed  GPIOPortF_Handler       
+000009ef  GPIOPortG_Handler       
+000009f1  GPIOPortH_Handler       
+00000a1d  GPIOPortJ_Handler       
+00000a1f  GPIOPortK_Handler       
+00000a21  GPIOPortL_Handler       
+00000a5f  GPIOPortM_Handler       
+00000a61  GPIOPortN_Handler       
+00000a69  GPIOPortP1_Handler      
+00000a6b  GPIOPortP2_Handler      
+00000a6d  GPIOPortP3_Handler      
+00000a6f  GPIOPortP4_Handler      
+00000a71  GPIOPortP5_Handler      
+00000a73  GPIOPortP6_Handler      
+00000a75  GPIOPortP7_Handler      
+00000a67  GPIOPortP_Handler       
+00000a79  GPIOPortQ1_Handler      
+00000a7b  GPIOPortQ2_Handler      
+00000a7d  GPIOPortQ3_Handler      
+00000a7f  GPIOPortQ4_Handler      
+00000a81  GPIOPortQ5_Handler      
+00000a83  GPIOPortQ6_Handler      
+00000a85  GPIOPortQ7_Handler      
+00000a77  GPIOPortQ_Handler       
+00000a87  GPIOPortR_Handler       
+00000a89  GPIOPortS_Handler       
+00000a07  Hibernate_Handler       
+000009c1  I2C0_Handler            
+000009fb  I2C1_Handler            
+00000a31  I2C2_Handler            
+00000a33  I2C3_Handler            
+00000a5b  I2C4_Handler            
+00000a5d  I2C5_Handler            
+00000a19  I2S0_Handler            
+00000a59  LPC0_Handler            
+00001138  Longhorn                
+00000f40  Longhorn2               
+00001510  Masks                   
+000006b9  Nokia5110_Clear         
+00000915  Nokia5110_ClearBuffer   
+00000949  Nokia5110_ClrPxl        
+0000093f  Nokia5110_DisplayBuffer 
+000006e9  Nokia5110_DrawFullImage 
+000002db  Nokia5110_Init          
+000003f5  Nokia5110_OutChar       
+00000435  Nokia5110_OutString     
+00000461  Nokia5110_OutUDec       
+00000731  Nokia5110_PrintBMP      
+0000066d  Nokia5110_SetCursor     
+0000096f  Nokia5110_SetPxl        
+00000a57  PECI0_Handler           
+00000c35  PLL_Init                
+000009c3  PWM0Fault_Handler       
+000009c5  PWM0Generator0_Handler  
+000009c7  PWM0Generator1_Handler  
+000009c9  PWM0Generator2_Handler  
+00000a0b  PWM0Generator3_Handler  
+00000a93  PWM1Fault_Handler       
+00000a8b  PWM1Generator0_Handler  
+00000a8d  PWM1Generator1_Handler  
+00000a8f  PWM1Generator2_Handler  
+00000a91  PWM1Generator3_Handler  
+000009ad  PendSV_Handler          
+000009cb  Quadrature0_Handler     
+000009fd  Quadrature1_Handler     
+00000a63  Quadrature2_Handler     
+0000099d  ResetISR                
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+000009bf  SSI0_Handler            
+000009f5  SSI1_Handler            
+00000a23  SSI2_Handler            
+00000a25  SSI3_Handler            
+000009a9  SVC_Handler             
+20000200  Screen                  
+00000a9d  StartCritical           
+000009e9  SysCtl_Handler          
+000009af  SysTick_Handler         
+000009d7  Timer0A_Handler         
+000009d9  Timer0B_Handler         
+000009db  Timer1A_Handler         
+000009dd  Timer1B_Handler         
+000009df  Timer2A_Handler         
+000009e1  Timer2B_Handler         
+000009f7  Timer3A_Handler         
+000009f9  Timer3B_Handler         
+00000a35  Timer4A_Handler         
+00000a37  Timer4B_Handler         
+00000a39  Timer5A_Handler         
+00000a3b  Timer5B_Handler         
+000009bb  UART0_Handler           
+000009bd  UART1_Handler           
+000009f3  UART2_Handler           
+00000a27  UART3_Handler           
+00000a29  UART4_Handler           
+00000a2b  UART5_Handler           
+00000a2d  UART6_Handler           
+00000a2f  UART7_Handler           
+00000a09  USB0_Handler            
+000009d5  WDT_Handler             
+00000aab  WaitForInterrupt        
+00000a3d  WideTimer0A_Handler     
+00000a3f  WideTimer0B_Handler     
+00000a41  WideTimer1A_Handler     
+00000a43  WideTimer1B_Handler     
+00000a45  WideTimer2A_Handler     
+00000a47  WideTimer2B_Handler     
+00000a49  WideTimer3A_Handler     
+00000a4b  WideTimer3B_Handler     
+00000a4d  WideTimer4A_Handler     
+00000a4f  WideTimer4B_Handler     
+00000a51  WideTimer5A_Handler     
+00000a53  WideTimer5B_Handler     
+20000200  __STACK_END             
+00000200  __STACK_SIZE            
+20000200  __STACK_TOP             
+00001540  __TI_CINIT_Base         
+00001550  __TI_CINIT_Limit        
+00001528  __TI_Handler_Table_Base 
+00001534  __TI_Handler_Table_Limit
+00000d39  __TI_auto_init          
+20000400  __TI_cleanup_ptr        
+00000f1d  __TI_decompress_none    
+00000f37  __TI_decompress_rle24   
+20000404  __TI_dtors_ptr          
+00000000  __TI_static_base__      
+00000f2b  __TI_zero_init          
+00000cbd  __aeabi_memclr          
+00000cbd  __aeabi_memclr4         
+00000cbd  __aeabi_memclr8         
+00000b99  __aeabi_memcpy          
+00000b99  __aeabi_memcpy4         
+00000b99  __aeabi_memcpy8         
+00000cbf  __aeabi_memset          
+00000cbf  __aeabi_memset4         
+00000cbf  __aeabi_memset8         
+ffffffff  __binit__               
+ffffffff  __c_args__              
+20000000  __stack                 
+00000ef1  _args_main              
+00000e11  _c_int00                
+200003f8  _lock                   
+00000f17  _nop                    
+00000f0f  _register_lock          
+00000f09  _register_unlock        
+00000f3d  _system_pre_init        
+200003fc  _unlock                 
+00000eb1  abort                   
+ffffffff  binit                   
+00000e61  copy_in                 
+00000eb9  exit                    
+00000000  g_pfnVectors            
+00000abf  main                    
+20000408  main_func_sp            
+00000b99  memcpy                  
+00000cc5  memset                  
+00000a0f  uDMA_Error              
+00000a0d  uDMA_Handler            
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  __TI_static_base__      
+00000000  g_pfnVectors            
+00000200  __STACK_SIZE            
+000002db  Nokia5110_Init          
+000003f5  Nokia5110_OutChar       
+00000435  Nokia5110_OutString     
+00000461  Nokia5110_OutUDec       
+0000066d  Nokia5110_SetCursor     
+000006b9  Nokia5110_Clear         
+000006e9  Nokia5110_DrawFullImage 
+00000731  Nokia5110_PrintBMP      
+00000915  Nokia5110_ClearBuffer   
+0000093f  Nokia5110_DisplayBuffer 
+00000949  Nokia5110_ClrPxl        
+0000096f  Nokia5110_SetPxl        
+0000099d  ResetISR                
+000009a9  SVC_Handler             
+000009ab  DebugMon_Handler        
+000009ad  PendSV_Handler          
+000009af  SysTick_Handler         
+000009b1  GPIOPortA_Handler       
+000009b3  GPIOPortB_Handler       
+000009b5  GPIOPortC_Handler       
+000009b7  GPIOPortD_Handler       
+000009b9  GPIOPortE_Handler       
+000009bb  UART0_Handler           
+000009bd  UART1_Handler           
+000009bf  SSI0_Handler            
+000009c1  I2C0_Handler            
+000009c3  PWM0Fault_Handler       
+000009c5  PWM0Generator0_Handler  
+000009c7  PWM0Generator1_Handler  
+000009c9  PWM0Generator2_Handler  
+000009cb  Quadrature0_Handler     
+000009cd  ADC0Seq0_Handler        
+000009cf  ADC0Seq1_Handler        
+000009d1  ADC0Seq2_Handler        
+000009d3  ADC0Seq3_Handler        
+000009d5  WDT_Handler             
+000009d7  Timer0A_Handler         
+000009d9  Timer0B_Handler         
+000009db  Timer1A_Handler         
+000009dd  Timer1B_Handler         
+000009df  Timer2A_Handler         
+000009e1  Timer2B_Handler         
+000009e3  Comp0_Handler           
+000009e5  Comp1_Handler           
+000009e7  Comp2_Handler           
+000009e9  SysCtl_Handler          
+000009eb  FlashCtl_Handler        
+000009ed  GPIOPortF_Handler       
+000009ef  GPIOPortG_Handler       
+000009f1  GPIOPortH_Handler       
+000009f3  UART2_Handler           
+000009f5  SSI1_Handler            
+000009f7  Timer3A_Handler         
+000009f9  Timer3B_Handler         
+000009fb  I2C1_Handler            
+000009fd  Quadrature1_Handler     
+000009ff  CAN0_Handler            
+00000a01  CAN1_Handler            
+00000a03  CAN2_Handler            
+00000a05  Ethernet_Handler        
+00000a07  Hibernate_Handler       
+00000a09  USB0_Handler            
+00000a0b  PWM0Generator3_Handler  
+00000a0d  uDMA_Handler            
+00000a0f  uDMA_Error              
+00000a11  ADC1Seq0_Handler        
+00000a13  ADC1Seq1_Handler        
+00000a15  ADC1Seq2_Handler        
+00000a17  ADC1Seq3_Handler        
+00000a19  I2S0_Handler            
+00000a1b  ExtBus_Handler          
+00000a1d  GPIOPortJ_Handler       
+00000a1f  GPIOPortK_Handler       
+00000a21  GPIOPortL_Handler       
+00000a23  SSI2_Handler            
+00000a25  SSI3_Handler            
+00000a27  UART3_Handler           
+00000a29  UART4_Handler           
+00000a2b  UART5_Handler           
+00000a2d  UART6_Handler           
+00000a2f  UART7_Handler           
+00000a31  I2C2_Handler            
+00000a33  I2C3_Handler            
+00000a35  Timer4A_Handler         
+00000a37  Timer4B_Handler         
+00000a39  Timer5A_Handler         
+00000a3b  Timer5B_Handler         
+00000a3d  WideTimer0A_Handler     
+00000a3f  WideTimer0B_Handler     
+00000a41  WideTimer1A_Handler     
+00000a43  WideTimer1B_Handler     
+00000a45  WideTimer2A_Handler     
+00000a47  WideTimer2B_Handler     
+00000a49  WideTimer3A_Handler     
+00000a4b  WideTimer3B_Handler     
+00000a4d  WideTimer4A_Handler     
+00000a4f  WideTimer4B_Handler     
+00000a51  WideTimer5A_Handler     
+00000a53  WideTimer5B_Handler     
+00000a55  FPU_Handler             
+00000a57  PECI0_Handler           
+00000a59  LPC0_Handler            
+00000a5b  I2C4_Handler            
+00000a5d  I2C5_Handler            
+00000a5f  GPIOPortM_Handler       
+00000a61  GPIOPortN_Handler       
+00000a63  Quadrature2_Handler     
+00000a65  Fan0_Handler            
+00000a67  GPIOPortP_Handler       
+00000a69  GPIOPortP1_Handler      
+00000a6b  GPIOPortP2_Handler      
+00000a6d  GPIOPortP3_Handler      
+00000a6f  GPIOPortP4_Handler      
+00000a71  GPIOPortP5_Handler      
+00000a73  GPIOPortP6_Handler      
+00000a75  GPIOPortP7_Handler      
+00000a77  GPIOPortQ_Handler       
+00000a79  GPIOPortQ1_Handler      
+00000a7b  GPIOPortQ2_Handler      
+00000a7d  GPIOPortQ3_Handler      
+00000a7f  GPIOPortQ4_Handler      
+00000a81  GPIOPortQ5_Handler      
+00000a83  GPIOPortQ6_Handler      
+00000a85  GPIOPortQ7_Handler      
+00000a87  GPIOPortR_Handler       
+00000a89  GPIOPortS_Handler       
+00000a8b  PWM1Generator0_Handler  
+00000a8d  PWM1Generator1_Handler  
+00000a8f  PWM1Generator2_Handler  
+00000a91  PWM1Generator3_Handler  
+00000a93  PWM1Fault_Handler       
+00000a95  DisableInterrupts       
+00000a99  EnableInterrupts        
+00000a9d  StartCritical           
+00000aa5  EndCritical             
+00000aab  WaitForInterrupt        
+00000ab1  Delay                   
+00000abf  main                    
+00000b99  __aeabi_memcpy          
+00000b99  __aeabi_memcpy4         
+00000b99  __aeabi_memcpy8         
+00000b99  memcpy                  
+00000c35  PLL_Init                
+00000cbd  __aeabi_memclr          
+00000cbd  __aeabi_memclr4         
+00000cbd  __aeabi_memclr8         
+00000cbf  __aeabi_memset          
+00000cbf  __aeabi_memset4         
+00000cbf  __aeabi_memset8         
+00000cc5  memset                  
+00000d39  __TI_auto_init          
+00000e11  _c_int00                
+00000e61  copy_in                 
+00000ead  C$$EXIT                 
+00000eb1  abort                   
+00000eb9  exit                    
+00000ef1  _args_main              
+00000f09  _register_unlock        
+00000f0f  _register_lock          
+00000f17  _nop                    
+00000f1d  __TI_decompress_none    
+00000f2b  __TI_zero_init          
+00000f37  __TI_decompress_rle24   
+00000f3d  _system_pre_init        
+00000f40  Longhorn2               
+00001138  Longhorn                
+00001510  Masks                   
+00001528  __TI_Handler_Table_Base 
+00001534  __TI_Handler_Table_Limit
+00001540  __TI_CINIT_Base         
+00001550  __TI_CINIT_Limit        
+20000000  __stack                 
+20000200  Screen                  
+20000200  __STACK_END             
+20000200  __STACK_TOP             
+200003f8  _lock                   
+200003fc  _unlock                 
+20000400  __TI_cleanup_ptr        
+20000404  __TI_dtors_ptr          
+20000408  main_func_sp            
+ffffffff  __binit__               
+ffffffff  __c_args__              
+ffffffff  binit                   
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+
+[188 symbols]

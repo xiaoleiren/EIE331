@@ -1,6 +1,11 @@
 # EIE331
 MUST-EIE331
 
+# 实验开发板
+![这样使用](https://github.com/xiaoleiren/EIE331/blob/main/images/TM4C123G.png)
+
+# 开发和调试经验分享
+
 CCS创建工程的经验分享由我们班级的梁朋分享，谢谢！
 
 AMD处理器的PC在编译过程中遇到的报错和解决方案由我们班的王晟坤分享，谢谢！
